@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Application of Computer Technology and Document Processing in Forestry Management - 5.4 Handling data in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./r_graph_1.html" rel="next">
+<link href="./r_basics_4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<meta name="twitter:title" content="Application of Computer Technology and Document Processing in Forestry Management - 5.4 Handling data in R">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://forestry.ubc.ca/faculty-profile/suborna-ahmed/external_files/logical.png">
+<meta name="twitter:image-height" content="520">
+<meta name="twitter:image-width" content="390">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r_basics_1.html">Chapter 5: RStudio Basics: R as a Calculator &amp; Data Handling in R</a></li><li class="breadcrumb-item"><a href="./r_basics_5.html">5.4 Handling data in R</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Application of Computer Technology and Document Processing in Forestry Management</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/subornaa?tab=repositories" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Application-of-Computer-Technology-and-Document-Processing-in-Forestry-Management.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Application-of-Computer-Technology-and-Document-Processing-in-Forestry-Management.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./word_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Mastering the Art of Effective Technical Writing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./word_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Document Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./word_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Basic Tabs in MS Word</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./word_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Report Writing: Technical Documents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./excel_basics_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 2: Microsoft Excel Basics and Data Handling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_basics_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Introduction to Microsoft Excel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_basics_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Formatting and Organizing Datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_basics_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Excel Formulas: Basic and Advanced Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_basics_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Mastering the Power of Excel’s Calculation Capabilities</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./excel_more_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 3: Excel Data Management and More Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_more_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Microsoft Excel Basics: Data Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_more_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Excel Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_more_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Excel Graphs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./excel_pivot_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 4: Excel PivotTable and Chart</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_pivot_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 General Features of PivotTable and Chart</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./excel_pivot_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 Making Changes to PivotTable and Chart</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./r_basics_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 5: RStudio Basics: R as a Calculator &amp; Data Handling in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_basics_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1 R and RStudio Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_basics_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2 What is RStudio?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_basics_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3 R as a Calculating Environment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_basics_5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5.4 Handling data in R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./r_graph_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 6: Graphical Presentation in RMarkDown</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_graph_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.1 Basic Graphs: RStudio and R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_graph_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2 Graphs in R Markdown: Advanced Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_graph_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3 Barplot in R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_graph_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 Pie Chart, Histogram, and Boxplot in R Markdown</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./gis_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 7: Manage and Analyze Geodata</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gis_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Installing QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gis_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 Basic Concepts in GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gis_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Initiating a QGIS Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gis_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Visualizing Data in QGIS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./processing_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 8: Geoprocessing Tools in GIS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./processing_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.1 Introduction to Geoprocessing Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./processing_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.2 More Geoprocessing Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./processing_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3 Union and Intersection Geoprocessing Tools</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#video-handling-data-in-r" id="toc-video-handling-data-in-r" class="nav-link active" data-scroll-target="#video-handling-data-in-r">Video: Handling data in R</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">5.4.1 Data Import</a></li>
+  <li><a href="#input-output" id="toc-input-output" class="nav-link" data-scroll-target="#input-output">5.4.2 Input &amp; Output</a></li>
+  <li><a href="#vri-data" id="toc-vri-data" class="nav-link" data-scroll-target="#vri-data">5.4.3 VRI Data</a></li>
+  <li><a href="#data-selection-and-variable-information" id="toc-data-selection-and-variable-information" class="nav-link" data-scroll-target="#data-selection-and-variable-information">5.4.4 Data selection and variable information</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">5.4.5 Logical Operators</a></li>
+  <li><a href="#more-logical-operators-in-r" id="toc-more-logical-operators-in-r" class="nav-link" data-scroll-target="#more-logical-operators-in-r">5.4.6 More Logical Operators in R</a></li>
+  <li><a href="#vector-assignment-and-arithmetic" id="toc-vector-assignment-and-arithmetic" class="nav-link" data-scroll-target="#vector-assignment-and-arithmetic">5.4.7 Vector Assignment and Arithmetic</a></li>
+  <li><a href="#generating-regular-sequences" id="toc-generating-regular-sequences" class="nav-link" data-scroll-target="#generating-regular-sequences">5.4.8 Generating regular sequences</a></li>
+  <li><a href="#data-import-and-export-details" id="toc-data-import-and-export-details" class="nav-link" data-scroll-target="#data-import-and-export-details">5.4.9 Data Import and Export Details</a></li>
+  <li><a href="#r-built-in-datasets" id="toc-r-built-in-datasets" class="nav-link" data-scroll-target="#r-built-in-datasets">5.4.10 R Built-in Datasets</a></li>
+  <li><a href="#reading-data-from-files-and-writing-data-to-files" id="toc-reading-data-from-files-and-writing-data-to-files" class="nav-link" data-scroll-target="#reading-data-from-files-and-writing-data-to-files">5.4.11 Reading data from files and writing data to files</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/subornaa?tab=repositories/edit/main/r_basics_5.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">5.4 Handling data in R</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="video-handling-data-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="video-handling-data-in-r">Video: Handling data in R</h3>
+<p>In the following video you will learn how to import different types of files into your R work space. This skill will be integral for you to learn how to work with data in RStudio.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/beVAslDbYbM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In R Markdown, if the summary of the categorical variables is not producing the same result as I shown in the video then try the following:</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(SPECIES_CD_1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</section>
+<section id="data-import" class="level2">
+<h2 class="anchored" data-anchor-id="data-import">5.4.1 Data Import</h2>
+<p><strong>Desktop version of R:</strong></p>
+<p>Keep your data in the same folder as this .Rmd file. If they are not kept in the same folder, then you have to tell R exactly where your data is by copying and pasting the file pathway directly into R. But overall, it is much easier and simpler to keep everything in the same folder. By default, the folder that your .Rmd file is in is called the “working directory”. This is the location that R assumes all of your input files are located. R will also place all of your outputs in this working directory, unless you specify otherwise.</p>
+<p><strong>RStudio online:</strong></p>
+<p>Upload the data file like demonstrated in the video, then write the same <code>read.csv()</code> function to import the data file onto R.</p>
+</section>
+<section id="input-output" class="level2">
+<h2 class="anchored" data-anchor-id="input-output">5.4.2 Input &amp; Output</h2>
+<p>You can check what your working directory is by using the function <code>getwd()</code>, or “get working directory”. Interestingly, this code has no arguments - in other words, it does not need anything nested between the <code>()</code> to work - and its output should be a folder pathway to where your .Rmd file is. If you want to change your working directory - which at this point in time is not recommended - you can use the function <code>setwd()</code>, or “set working directory”. Unlike <code>getwd()</code>, you need to paste the desired folder pathway between the <code>()</code> of <code>setwd()</code> in quotation marks <code>""</code> to set a new working directory. For example: <code>setwd("C:\\Desktop\\Handling data in R\\")</code> if you are using Windows and <code>setwd("/Users/Desktop/Handling data in R/")</code>. Finding a pathway in Mac is relatively complicated, so again, it is highly recommended that you place everything in one folder so you do not have to worry about setting a new working directory.</p>
+<p>After setting a working directory, you can check all of the files that exist in your directory by using <code>dir()</code>. This function is fantastic for checking whether you are in the right folder, whether there are any extra files, and, most importantly, whether there are any missing files.</p>
+<p>Checking whether you have all of the necessary files in your directory is important will make your life so much easier when you import data into R. For example, if the file <strong>trees_data.csv</strong> is in your working directory, all you need to do to import this into R is: <code>read.csv("trees_data.csv", header = TRUE)</code>. If this file is not in your working directory, you would need to replace <code>"trees_data.csv"</code> with the entire pathway of the file - this will make your code much bulkier, more confusing, and less shareable.</p>
+<p>Note also that the file name must be in <code>""</code> and must be exactly like the file on your desktop. A common problem that students have is downloading the same csv file multiple times, resulting in an automatic “-1” (i.e.&nbsp;trees_data-1.csv) - in this case, you need to also add “-1” to your code for it to work. The argument <code>header = TRUE</code> is also important if you are importing data with existing headers (AKA column names). Try changing it to <code>header = FALSE</code>, what does the imported data look like now?</p>
+<p>The functions for importing data from your hard drive into R are relatively intuitive: <code>read.csv()</code> for csv files, <code>read.table()</code> for txt files. There are other functions as well, but we will not be covering them in this course. These are the two main importing functions that we will use.</p>
+<p>When installing packages, it is suggested that you # all <code>install.packages()</code> codes into comments because: * It will cause problems when you try to knit the .rmd file to Word and * it is generally insensitive to share this document to someone and make them accidentally install something into their hard drive</p>
+<p>You can also export the data from R to txt or csv by using <code>write.table()</code>. This table, by default, will be exported to your working directory. Try typing <code>?write.table</code> into the console, you can read more information about this function there!</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Location of the parent directory / folder you saved this .RMD file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listing all files in the directory</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing a csv file</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tree1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"trees_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing a .txt file</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>HDB <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"height_dbh.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing VRI data</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>vri_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing an excel data file</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("readxl")</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#library("readxl")</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#tree2 &lt;- read_excel("trees_data.xlsx")</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Export data as a .txt file</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(HDB, <span class="st">"MyData.txt"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Export data as a .csv file</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(HDB, <span class="at">file =</span> <span class="st">"f1.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">NA</span>, <span class="at">qmethod =</span> <span class="st">"double"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="vri-data" class="level2">
+<h2 class="anchored" data-anchor-id="vri-data">5.4.3 VRI Data</h2>
+<p>Recall that there are several ways that you can call for a variable in a dataset: (1) using <code>$</code> or (2) using <code>attach()</code>. <code>attach()</code>, you guessed it, attaches the data to this R session so we do not need to use $. <code>attach()</code> is usually more useful when you are only working with 1 dataset in your .Rmd file, else it will get very confusing if you or someone you share this file to run this file out of order.</p>
+<p>We can find a summary of all statistics of a dataset using <code>summary()</code>. In the example code below (<code>vri_summary = summary(vri_data)</code>), you may see that we are using a <code>=</code> instead of a <code>&lt;-</code> to assign a value to a variable. In this case, <code>=</code> and <code>&lt;-</code> function similarly (you can change <code>=</code> to <code>&lt;-</code> and re-run the code). However, they may have different functions in other scenarios. We will not be covering these scenarios, so for the context of this course, just understand that <code>=</code> and <code>&lt;-</code> are similar. <strong>Important note:</strong> Recall that R’s “equal to” is actually <code>==</code>. So <code>=</code> and <code>==</code> are <strong>VERY different</strong>!</p>
+<p>You can also find the dimension of the data using <code>dim()</code>. This should tell you how large the dataset is (AKA numbers of rows and columns) without you having to run the actual data. This may save you some time if your dataset is too big.</p>
+<p>Finally, <code>head()</code> and <code>tail()</code> print the first and last few rows of a dataset for you - again, helpful if your dataset is very large. You can also specify how many rows you want to print by adding an integer after the data frame name. For example, <code>head(vri_data, 10)</code> will print the first 10 rows for you.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set an object for string the data summary</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>vri_summary <span class="ot">=</span> <span class="fu">summary</span>(vri_data)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Dimension of the data</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(vri_data)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print first few rows</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vri_data)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print last few rows</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(vri_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="data-selection-and-variable-information" class="level2">
+<h2 class="anchored" data-anchor-id="data-selection-and-variable-information">5.4.4 Data selection and variable information</h2>
+<p>Once we have successfully imported our data into R and gained general information about it, we can also go into more specific data exploration. Firstly, we can tell R to only extract a few specific rows and columns from the dataset by using <code>[]</code>. Note that the first argument in this bracket represents the rows and the second argument represents the column. For example, when we type <code>vri_data[100:110, 4:5]</code>, we’re telling R to extra <strong>rows 100 to 110</strong> and <strong>columns 4 to 5</strong>. We use <code>:</code> between two numbers to indicate that it is a range of sequential numbers that we want. So, <code>100:110</code> means from <strong>100 to 110</strong>.</p>
+<p>If it is not a range of rows/columns that you want to extract, but very specific, non-consecutive rows/columns, you can nest all the rows/columns that you want in a vector, like in <code>vri_data[c(10, 20, 23), ]</code>. Here, we only want <strong>rows 10, 20, and 23</strong>. Finally, if you want to extract all rows or all columns, simply leave the argument blank. In other words, <code>vri_data[10, ]</code> tells R to extract <strong>row 10</strong> and <strong>all columns</strong>, but <code>vri_data[ , 10]</code> tells R to extra <strong>all rows</strong> and <strong>column 10</strong>.</p>
+<p>The rest of the functions in this tutorial have already been covered by a previous R lecture file or your assignment. The functions themselves are not hard, it is understanding what they do and when to use them that requires a bit more thought. And as always, the best way for you to be better in R is to practice!</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting some rows and all columns</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>vri_data[<span class="dv">10</span><span class="sc">:</span><span class="dv">13</span>, ]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing all variable names </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(vri_data)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># An example of creating a variable with sequential values</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the average of the variable x</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the average of variable ProJ_Age_1</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(PROJ_AGE_1)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing data types of some variables</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PROJ_AGE_1)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PROJ_HEIGHT_1)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarizing the entire dataset</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vri_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="logical-operators" class="level2">
+<h2 class="anchored" data-anchor-id="logical-operators">5.4.5 Logical Operators</h2>
+<p>The arguments that use logical operators give us outputs of True or False.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\external_files/logical.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 14 - List of logical operators in R</figcaption>
+</figure>
+</div>
+<p>In the context of this course, logical operators are most useful in conjunction with the function <code>subset()</code>. You will see an example of <code>subset()</code> in the second code chunk in this file - heads up, this function will play an important part of your next assignment on Graphical Presentation on R. Again, note the difference between <code>=</code> and <code>==</code>.</p>
+<p>You can use logical operators to do a variety of things. For example, when we assign <code>y &lt;- c("a", "bc", "def")</code>, we can check which components of this vector is equal to “a” by writing <code>y == "a"</code>. When you run <code>y == "a"</code>, the output should be <code>TRUE FALSE FALSE</code>. This is because R is comparing all components of the vector <code>y</code> to “a”. Only the first component of the vector is “a”, so only the first comparison of the output is <code>TRUE</code>. There are so many other things that you can compare. For example, you can also check whether the lengths of two vectors are the same, or if one is longer than the other: <code>length(y) == length(x)</code> or <code>length(y) &gt; length(x)</code>. Again, the output for these codes should only be <code>TRUE</code> or <code>FALSE</code>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character vectors</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"bc"</span>, <span class="st">"def"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(y)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>y <span class="sc">==</span> <span class="st">"a"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE FALSE FALSE</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>y <span class="sc">==</span> <span class="st">"b"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE FALSE FALSE</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Logical Operators</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">2</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE FALSE FALSE</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">2</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE FALSE FALSE  TRUE</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>) <span class="co"># x not equal to less than 3</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE FALSE FALSE</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Recall how we import data into R using <code>read.csv()</code> and the csv file that we are importing needs to be in the same folder as our Rmd file, in other words, our working directory. Below is also an example of a code that we would use to direct R to a file that does not reside in our working directory - we need a copy and paste the whole pathway into R.</p>
+<p>After importing a dataset into R, we can actually also change the type of data of the dataset’s variables. For example, we can convert a variable from numeric to factor using <code>as.factor()</code>. In the converting to a factor subsection below, <code>as.factor()</code> is hashtagged into a comment because if you check the class of SPECIES_CD_1, it is actually already a factor, so we do not have to convert it to a factor. Another reason is that, <code>as.factor()</code> works almost identical to <code>factor()</code>. The main difference is that <code>factor()</code> is newer and slightly more preferred.</p>
+<p>So what exactly is a factor? In simplest words, a factor takes categorical (discrete) variables and store them in what we call levels. For example, in <code>factor(c(1,0,1,0,0,0))</code>, the levels are 1 and 0. We can now use these levels to turn them into labels, like what we did in <code>factor(c(1,0,1,0,0,0), levels = c(0, 1), labels = c("boy", "girl"))</code> where we changed all 0 values to “boy” and all 1 values to “girl”. More information on what factors are can be found <a href="https://www.datacamp.com/community/tutorials/factors-in-r?utm_source=adwords_ppc&amp;utm_campaignid=898687156&amp;utm_adgroupid=48947256715&amp;utm_device=c&amp;utm_keyword=&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=332602034352&amp;utm_targetid=aud-299261629574:dsa-429603003980&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=9001559&amp;gclid=Cj0KCQjwweyFBhDvARIsAA67M72hopznDJeNtau6CHvrUewwbTXQ63ipF4kKZzKKtR1dXxuJUF77cnkaArJhEALw_wcB">here</a>.</p>
+<p>You can also check the class and mode of our new object after we have identified it as a factor. Note that <code>mode()</code> here <strong>does NOT</strong> code for the mode (AKA most common) value, it tells us the storage mode of an object. Again, more information on <code>mode()</code> can be found in the help tab in the bottom right corner of RStudio.</p>
+<p>As you have been frontloaded before, in this course, logical operators are most useful when nested in a <code>subset()</code> function. The examples below show you how to do that. There are also extra notes/comments of common mistakes and how to troubleshoot them in the code chunk below. Something important to note is that when you’re using logical operators, each logical statement needs to include three things: (1) verse A on the left side of the statement, (2) a logical operator, and (3) verse B on the right side of the statement.</p>
+<p>A common mistake that student makes is forgetting the first requirement when nesting several logical statements into one <code>subset()</code>. For example, <code>subset(vri_data, SPECIES_CD_1 == "PLC" |  SPECIES_CD_1 == "SS")</code> is correct, but <code>subset(vri_data, SPECIES_CD_1 == "PLC" | "SS")</code> is <strong>NOT</strong>. You can also store subsets the same way that we store any other objects.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing VRI data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vri_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#vri_data &lt;- read.csv(file="C:/Users/suborna/VRI_data.csv", header = T)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#attach the data</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># converting to a factor</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#as.factor(SPECIES_CD_1)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SPECIES_CD_1)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(SPECIES_CD_1)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"boy"</span>, <span class="st">"girl"</span>)) </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>kids </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(kids)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(kids)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># subset of data</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plc_stands <span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, SPECIES_CD_1 <span class="sc">==</span> <span class="st">"PLC"</span> )</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>sub_vri <span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, SPECIES_CD_1 <span class="sc">==</span> <span class="st">"PLC"</span> <span class="sc">&amp;</span>  PROJ_AGE_1 <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(sub_vri)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tree height text file<a href="./external_files/height_dbh.txt">height_dbh.txt</a></p>
+<p>Tree data csv<a href="./external_files/trees_data.csv">trees_data.csv</a></p>
+<p>Tree data workbook<a href="./external_files/trees_data.xlsx">trees_data.xlsx</a></p>
+<p>VRI data csv<a href="./external_files/VRI_data_5.csv">VRI_data.csv</a></p>
+</div>
+</div>
+</section>
+<section id="more-logical-operators-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="more-logical-operators-in-r">5.4.6 More Logical Operators in R</h2>
+<p>Logical vectors belong to the logical class. The elements of a logical vector can be TRUE, FALSE, and NA (for “not available”). You generate logical vectors by conditions. You can use logical operators to test conditions (&lt;, &lt;=, &gt;, &gt;=, ==, and != for inequality). If you have two logical expressions A and B, you can get their intersection (A &amp; B), their union (A | B), and their negation !A.</p>
+<p>Besides numeric and logical vectors, there are character vectors that contain text. Remember that you enter character values by enclosing them in either double (“) or single (’) quotes. The paste() function is sometimes useful when working with character vectors. It allows you to link vectors into character strings. Type ?paste into the RStudio Console pane and hit Enter to find out more about the past() function.</p>
+</section>
+<section id="vector-assignment-and-arithmetic" class="level2">
+<h2 class="anchored" data-anchor-id="vector-assignment-and-arithmetic">5.4.7 Vector Assignment and Arithmetic</h2>
+<p>The simplest thing to use R for is as an interactive calculator as demonstrated in part 3 of this module. This is kind of nice, but really, we wanted to use the programming language R instead of a calculator to automate processes and to avoid repetition. If you want to use the result from one calculation in a second calculation, you have to create a variable that stores the result of the calculation. You assign a value to a variable by using the assignment operator &lt;-. I already talked about the arithmetic operators (+, -, *, /, and ^ ). Some functions of interest in addition to log(), exp(), and sqrt() are as follows:</p>
+<ul>
+<li>length(), which returns the length of a vector</li>
+<li>mean(), which returns the arithmetic average of a vector</li>
+<li>sum(), which returns the sum of all values in a vector</li>
+<li>min(), which returns the smallest value of the vector</li>
+<li>max(), which returns the largest value of the vector</li>
+</ul>
+<p>When you perform calculations with vectors, you have to be careful about what happens when the vectors are not the same length. If you use vectors of different lengths, R will ‘recycle’ the shorter vector and replicate it as many times as need to match the length of the longer vector. This works well if the longer vector is a multiple of the shorter vector. However, when that is not the case, R will produce a warning.</p>
+</section>
+<section id="generating-regular-sequences" class="level2">
+<h2 class="anchored" data-anchor-id="generating-regular-sequences">5.4.8 Generating regular sequences</h2>
+<p>The easiest way to generate a sequence is with the colon operator :, for example, 1:3 codes for a sequence of 1 to 3. However, if you want some more control about what the sequence is supposed to look like, you should use the seq() function, with its arguments ‘from,’ ‘to,’ and ‘by,’ which define the start-point, end-point, and interval of the sequence. If you want to create a vector of a specific length that contains a sequence, you can use the argument ‘length’ instead of ‘by’ to define the length of the vector.</p>
+</section>
+<section id="data-import-and-export-details" class="level2">
+<h2 class="anchored" data-anchor-id="data-import-and-export-details">5.4.9 Data Import and Export Details</h2>
+<p>We have only entered data into R by hand by creating different types of small vectors. What do we do when we want to process large amounts of data? We need to be able to read input for our analyses directly from files and sometimes it is also useful to write output to a file for further analysis. R provides the infrastructure to both import and export data. We have covered how to read data from files and write data to files in RStudio in the video. Creating graphs is another form of output - we will cover graphs in the next R module.</p>
+</section>
+<section id="r-built-in-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="r-built-in-datasets">5.4.10 R Built-in Datasets</h2>
+<p>You can find around 100 datasets supplied in R. To see the list of available datasets type data() into the Console Pane. We will use these data sets to practice exporting and importing data. You can also use these datasets to practice for your midterm and final. The fifth data set in the list is called CO2. Let’s look at it. Type ?CO2. The help page for the data set will open up. It contains information about how the data were collected and what variables the dataset contains. You can print the first 6 observations into the Console Pane using head(CO2). I like doing that to see what the dataset looks like being analyzing or manipulating it. You can print the names of the data set into the Console Pane using names(CO2). dim(CO2) gives you the dimensions of the data set: 84 observations and 5 variables. Check out these functions in the R help window: head(), names(), dim().</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="./external_files/Builtin_dataset_R.rmd">Built in Dataset</a></p>
+<p><a href="./external_files/Builtin_dataset_R.html">Built in Dataset (html)</a></p>
+</div>
+</div>
+</section>
+<section id="reading-data-from-files-and-writing-data-to-files" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-from-files-and-writing-data-to-files">5.4.11 Reading data from files and writing data to files</h2>
+<p>Most often, we deal with space-delimited .dat or .txt files, tab-delimited .txt files, or comma-separated values files (.csv). You can read and write any of these data types with the read.table() and write.table() functions, respectively. For .csv files, R has read.csv() and write.csv() as additional options. In the built-in R help, you can find a lot of details about these functions and what arguments they contain.</p>
+<p>In R Markdown, you can keep the Rmd file and the data files on the same folder, this way you only need to write the name of the data in any of the read functions above to import the data. On RStudio Cloud, you only need to upload them and call them in your program.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./r_basics_4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">5.3 R as a Calculating Environment</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./r_graph_1.html" class="pagination-link">
+        <span class="nav-page-text">Chapter 6: Graphical Presentation in RMarkDown</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5.4 Handling data in R {.unnumbered}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Video: Handling data in R</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>In the following video you will learn how to import different types of files into your R work space. This skill will be integral for you to learn how to work with data in RStudio.</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=beVAslDbYbM &gt;}}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Note</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>In R Markdown, if the summary of the categorical variables is not producing the same result as I shown in the video then try the following:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=TRUE,eval=FALSE}</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">as.factor</span>(SPECIES_CD_1))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.1 Data Import</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>**Desktop version of R:**</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>Keep your data in the same folder as this .Rmd file. If they are not kept in the same folder, then you have to tell R exactly where your data is by copying and pasting the file pathway directly into R. But overall, it is much easier and simpler to keep everything in the same folder. By default, the folder that your .Rmd file is in is called the "working directory". This is the location that R assumes all of your input files are located. R will also place all of your outputs in this working directory, unless you specify otherwise.</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>**RStudio online:**</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>Upload the data file like demonstrated in the video, then write the same <span class="in">`read.csv()`</span> function to import the data file onto R.</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.2 Input &amp; Output</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>You can check what your working directory is by using the function <span class="in">`getwd()`</span>, or "get working directory". Interestingly, this code has no arguments - in other words, it does not need anything nested between the <span class="in">`()`</span> to work - and its output should be a folder pathway to where your .Rmd file is. If you want to change your working directory - which at this point in time is not recommended - you can use the function <span class="in">`setwd()`</span>, or "set working directory". Unlike <span class="in">`getwd()`</span>, you need to paste the desired folder pathway between the <span class="in">`()`</span> of <span class="in">`setwd()`</span> in quotation marks <span class="in">`""`</span> to set a new working directory. For example: <span class="in">`setwd("C:\\Desktop\\Handling data in R\\")`</span> if you are using Windows and <span class="in">`setwd("/Users/Desktop/Handling data in R/")`</span>. Finding a pathway in Mac is relatively complicated, so again, it is highly recommended that you place everything in one folder so you do not have to worry about setting a new working directory.</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>After setting a working directory, you can check all of the files that exist in your directory by using <span class="in">`dir()`</span>. This function is fantastic for checking whether you are in the right folder, whether there are any extra files, and, most importantly, whether there are any missing files.</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>Checking whether you have all of the necessary files in your directory is important will make your life so much easier when you import data into R. For example, if the file **trees_data.csv** is in your working directory, all you need to do to import this into R is: <span class="in">`read.csv("trees_data.csv", header = TRUE)`</span>. If this file is not in your working directory, you would need to replace <span class="in">`"trees_data.csv"`</span> with the entire pathway of the file - this will make your code much bulkier, more confusing, and less shareable.</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>Note also that the file name must be in <span class="in">`""`</span> and must be exactly like the file on your desktop. A common problem that students have is downloading the same csv file multiple times, resulting in an automatic "-1" (i.e. trees_data-1.csv) - in this case, you need to also add "-1" to your code for it to work. The argument <span class="in">`header = TRUE`</span> is also important if you are importing data with existing headers (AKA column names). Try changing it to <span class="in">`header = FALSE`</span>, what does the imported data look like now?</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>The functions for importing data from your hard drive into R are relatively intuitive: <span class="in">`read.csv()`</span> for csv files, <span class="in">`read.table()`</span> for txt files. There are other functions as well, but we will not be covering them in this course. These are the two main importing functions that we will use.</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>When installing packages, it is suggested that you <span class="sc">\#</span> all <span class="in">`install.packages()`</span> codes into comments because: <span class="sc">\*</span> It will cause problems when you try to knit the .rmd file to Word and <span class="sc">\*</span> it is generally insensitive to share this document to someone and make them accidentally install something into their hard drive</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>You can also export the data from R to txt or csv by using <span class="in">`write.table()`</span>. This table, by default, will be exported to your working directory. Try typing <span class="in">`?write.table`</span> into the console, you can read more information about this function there!</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Location of the parent directory / folder you saved this .RMD file</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Listing all files in the directory</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing a csv file</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>tree1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"trees_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing a .txt file</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>HDB <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"height_dbh.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing VRI data</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>vri_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing an excel data file</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("readxl")</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="co">#library("readxl")</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co">#tree2 &lt;- read_excel("trees_data.xlsx")</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Export data as a .txt file</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(HDB, <span class="st">"MyData.txt"</span>)</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Export data as a .csv file</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(HDB, <span class="at">file =</span> <span class="st">"f1.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">col.names =</span> <span class="cn">NA</span>, <span class="at">qmethod =</span> <span class="st">"double"</span>)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.3 VRI Data</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>Recall that there are several ways that you can call for a variable in a dataset: (1) using <span class="in">`$`</span> or (2) using <span class="in">`attach()`</span>. <span class="in">`attach()`</span>, you guessed it, attaches the data to this R session so we do not need to use \$. <span class="in">`attach()`</span> is usually more useful when you are only working with 1 dataset in your .Rmd file, else it will get very confusing if you or someone you share this file to run this file out of order.</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>We can find a summary of all statistics of a dataset using <span class="in">`summary()`</span>. In the example code below (<span class="in">`vri_summary = summary(vri_data)`</span>), you may see that we are using a <span class="in">`=`</span> instead of a <span class="in">`&lt;-`</span> to assign a value to a variable. In this case, <span class="in">`=`</span> and <span class="in">`&lt;-`</span> function similarly (you can change <span class="in">`=`</span> to <span class="in">`&lt;-`</span> and re-run the code). However, they may have different functions in other scenarios. We will not be covering these scenarios, so for the context of this course, just understand that <span class="in">`=`</span> and <span class="in">`&lt;-`</span> are similar. **Important note:** Recall that R's "equal to" is actually `==`. So `=` and `==` are **VERY different**!</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>You can also find the dimension of the data using <span class="in">`dim()`</span>. This should tell you how large the dataset is (AKA numbers of rows and columns) without you having to run the actual data. This may save you some time if your dataset is too big.</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>Finally, <span class="in">`head()`</span> and <span class="in">`tail()`</span> print the first and last few rows of a dataset for you - again, helpful if your dataset is very large. You can also specify how many rows you want to print by adding an integer after the data frame name. For example, <span class="in">`head(vri_data, 10)`</span> will print the first 10 rows for you.</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Set an object for string the data summary</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>vri_summary <span class="ot">=</span> <span class="fu">summary</span>(vri_data)</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Dimension of the data</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(vri_data)</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="co"># Print first few rows</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vri_data)</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Print last few rows</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(vri_data)</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.4 Data selection and variable information</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>Once we have successfully imported our data into R and gained general information about it, we can also go into more specific data exploration. Firstly, we can tell R to only extract a few specific rows and columns from the dataset by using <span class="in">`[]`</span>. Note that the first argument in this bracket represents the rows and the second argument represents the column. For example, when we type <span class="in">`vri_data[100:110, 4:5]`</span>, we're telling R to extra **rows 100 to 110** and **columns 4 to 5**. We use `:` between two numbers to indicate that it is a range of sequential numbers that we want. So, `100:110` means from **100 to 110**.</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>If it is not a range of rows/columns that you want to extract, but very specific, non-consecutive rows/columns, you can nest all the rows/columns that you want in a vector, like in <span class="in">`vri_data[c(10, 20, 23), ]`</span>. Here, we only want **rows 10, 20, and 23**. Finally, if you want to extract all rows or all columns, simply leave the argument blank. In other words, `vri_data[10, ]` tells R to extract **row 10** and **all columns**, but `vri_data[ , 10]` tells R to extra **all rows** and **column 10**.</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>The rest of the functions in this tutorial have already been covered by a previous R lecture file or your assignment. The functions themselves are not hard, it is understanding what they do and when to use them that requires a bit more thought. And as always, the best way for you to be better in R is to practice!</span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting some rows and all columns</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>vri_data[<span class="dv">10</span><span class="sc">:</span><span class="dv">13</span>, ]</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing all variable names </span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(vri_data)</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="co"># An example of creating a variable with sequential values</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the average of the variable x</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the average of variable ProJ_Age_1</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(PROJ_AGE_1)</span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing data types of some variables</span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PROJ_AGE_1)</span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PROJ_HEIGHT_1)</span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarizing the entire dataset</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vri_data)</span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.5 Logical Operators</span></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>The arguments that use logical operators give us outputs of True or False.</span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 14 - List of logical operators in R](/external_files/logical.png)</span></span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a>In the context of this course, logical operators are most useful in conjunction with the function <span class="in">`subset()`</span>. You will see an example of <span class="in">`subset()`</span> in the second code chunk in this file - heads up, this function will play an important part of your next assignment on Graphical Presentation on R. Again, note the difference between <span class="in">`=`</span> and <span class="in">`==`</span>.</span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a>You can use logical operators to do a variety of things. For example, when we assign <span class="in">`y &lt;- c("a", "bc", "def")`</span>, we can check which components of this vector is equal to "a" by writing <span class="in">`y == "a"`</span>. When you run <span class="in">`y == "a"`</span>, the output should be <span class="in">`TRUE FALSE FALSE`</span>. This is because R is comparing all components of the vector <span class="in">`y`</span> to "a". Only the first component of the vector is "a", so only the first comparison of the output is <span class="in">`TRUE`</span>. There are so many other things that you can compare. For example, you can also check whether the lengths of two vectors are the same, or if one is longer than the other: <span class="in">`length(y) == length(x)`</span> or <span class="in">`length(y) &gt; length(x)`</span>. Again, the output for these codes should only be <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>.</span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=TRUE}</span></span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="co"># character vectors</span></span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"bc"</span>, <span class="st">"def"</span>)</span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(y)</span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>y <span class="sc">==</span> <span class="st">"a"</span></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a>y <span class="sc">==</span> <span class="st">"b"</span></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a><span class="co"># Logical Operators</span></span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">2</span></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">2</span></span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>) <span class="co"># x not equal to less than 3</span></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>)</span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>Recall how we import data into R using <span class="in">`read.csv()`</span> and the csv file that we are importing needs to be in the same folder as our Rmd file, in other words, our working directory. Below is also an example of a code that we would use to direct R to a file that does not reside in our working directory - we need a copy and paste the whole pathway into R.</span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>After importing a dataset into R, we can actually also change the type of data of the dataset's variables. For example, we can convert a variable from numeric to factor using <span class="in">`as.factor()`</span>. In the converting to a factor subsection below, <span class="in">`as.factor()`</span> is hashtagged into a comment because if you check the class of SPECIES_CD_1, it is actually already a factor, so we do not have to convert it to a factor. Another reason is that, <span class="in">`as.factor()`</span> works almost identical to <span class="in">`factor()`</span>. The main difference is that <span class="in">`factor()`</span> is newer and slightly more preferred.</span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a>So what exactly is a factor? In simplest words, a factor takes categorical (discrete) variables and store them in what we call levels. For example, in <span class="in">`factor(c(1,0,1,0,0,0))`</span>, the levels are 1 and 0. We can now use these levels to turn them into labels, like what we did in <span class="in">`factor(c(1,0,1,0,0,0), levels = c(0, 1), labels = c("boy", "girl"))`</span> where we changed all 0 values to "boy" and all 1 values to "girl". More information on what factors are can be found <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.datacamp.com/community/tutorials/factors-in-r?utm_source=adwords_ppc&amp;utm_campaignid=898687156&amp;utm_adgroupid=48947256715&amp;utm_device=c&amp;utm_keyword=&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=332602034352&amp;utm_targetid=aud-299261629574:dsa-429603003980&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=9001559&amp;gclid=Cj0KCQjwweyFBhDvARIsAA67M72hopznDJeNtau6CHvrUewwbTXQ63ipF4kKZzKKtR1dXxuJUF77cnkaArJhEALw_wcB)</span>.</span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>You can also check the class and mode of our new object after we have identified it as a factor. Note that <span class="in">`mode()`</span> here **does NOT** code for the mode (AKA most common) value, it tells us the storage mode of an object. Again, more information on <span class="in">`mode()`</span> can be found in the help tab in the bottom right corner of RStudio.</span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a>As you have been frontloaded before, in this course, logical operators are most useful when nested in a <span class="in">`subset()`</span> function. The examples below show you how to do that. There are also extra notes/comments of common mistakes and how to troubleshoot them in the code chunk below. Something important to note is that when you're using logical operators, each logical statement needs to include three things: (1) verse A on the left side of the statement, (2) a logical operator, and (3) verse B on the right side of the statement.</span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>A common mistake that student makes is forgetting the first requirement when nesting several logical statements into one <span class="in">`subset()`</span>. For example, <span class="in">`subset(vri_data, SPECIES_CD_1 == "PLC" |  SPECIES_CD_1 == "SS")`</span> is correct, but <span class="in">`subset(vri_data, SPECIES_CD_1 == "PLC" | "SS")`</span> is **NOT**. You can also store subsets the same way that we store any other objects.</span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing VRI data</span></span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a>vri_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="co">#vri_data &lt;- read.csv(file="C:/Users/suborna/VRI_data.csv", header = T)</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a><span class="co">#attach the data</span></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a><span class="co"># converting to a factor</span></span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a><span class="co">#as.factor(SPECIES_CD_1)</span></span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SPECIES_CD_1)</span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(SPECIES_CD_1)</span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"boy"</span>, <span class="st">"girl"</span>)) </span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a>kids </span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(kids)</span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(kids)</span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a><span class="co"># subset of data</span></span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>plc_stands <span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, SPECIES_CD_1 <span class="sc">==</span> <span class="st">"PLC"</span> )</span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a>sub_vri <span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, SPECIES_CD_1 <span class="sc">==</span> <span class="st">"PLC"</span> <span class="sc">&amp;</span>  PROJ_AGE_1 <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(sub_vri)</span>
+<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Files</span></span>
+<span id="cb7-211"><a href="#cb7-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-212"><a href="#cb7-212" aria-hidden="true" tabindex="-1"></a>Tree height text file<span class="co">[</span><span class="ot">height_dbh.txt</span><span class="co">](/external_files/height_dbh.txt)</span></span>
+<span id="cb7-213"><a href="#cb7-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-214"><a href="#cb7-214" aria-hidden="true" tabindex="-1"></a>Tree data csv<span class="co">[</span><span class="ot">trees_data.csv</span><span class="co">](/external_files/trees_data.csv)</span></span>
+<span id="cb7-215"><a href="#cb7-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-216"><a href="#cb7-216" aria-hidden="true" tabindex="-1"></a>Tree data workbook<span class="co">[</span><span class="ot">trees_data.xlsx</span><span class="co">](/external_files/trees_data.xlsx)</span></span>
+<span id="cb7-217"><a href="#cb7-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-218"><a href="#cb7-218" aria-hidden="true" tabindex="-1"></a>VRI data csv<span class="co">[</span><span class="ot">VRI_data.csv</span><span class="co">](/external_files/VRI_data_5.csv)</span></span>
+<span id="cb7-219"><a href="#cb7-219" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-220"><a href="#cb7-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-221"><a href="#cb7-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.6 More Logical Operators in R</span></span>
+<span id="cb7-222"><a href="#cb7-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-223"><a href="#cb7-223" aria-hidden="true" tabindex="-1"></a>Logical vectors belong to the logical class. The elements of a logical vector can be TRUE, FALSE, and NA (for "not available"). You generate logical vectors by conditions. You can use logical operators to test conditions (<span class="sc">\&lt;</span>, <span class="sc">\&lt;</span>=, <span class="sc">\&gt;</span>, <span class="sc">\&gt;</span>=, ==, and != for inequality). If you have two logical expressions A and B, you can get their intersection (A &amp; B), their union (A \| B), and their negation !A.</span>
+<span id="cb7-224"><a href="#cb7-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-225"><a href="#cb7-225" aria-hidden="true" tabindex="-1"></a>Besides numeric and logical vectors, there are character vectors that contain text. Remember that you enter character values by enclosing them in either double (") or single (') quotes. The paste() function is sometimes useful when working with character vectors. It allows you to link vectors into character strings. Type ?paste into the RStudio Console pane and hit Enter to find out more about the past() function.</span>
+<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.7 Vector Assignment and Arithmetic</span></span>
+<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a>The simplest thing to use R for is as an interactive calculator as demonstrated in part 3 of this module. This is kind of nice, but really, we wanted to use the programming language R instead of a calculator to automate processes and to avoid repetition. If you want to use the result from one calculation in a second calculation, you have to create a variable that stores the result of the calculation. You assign a value to a variable by using the assignment operator <span class="sc">\&lt;</span>-. I already talked about the arithmetic operators (+, -, <span class="sc">\*</span>, /, and \^ ). Some functions of interest in addition to log(), exp(), and sqrt() are as follows:</span>
+<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-231"><a href="#cb7-231" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>length(), which returns the length of a vector</span>
+<span id="cb7-232"><a href="#cb7-232" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>mean(), which returns the arithmetic average of a vector</span>
+<span id="cb7-233"><a href="#cb7-233" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>sum(), which returns the sum of all values in a vector</span>
+<span id="cb7-234"><a href="#cb7-234" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>min(), which returns the smallest value of the vector</span>
+<span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>max(), which returns the largest value of the vector</span>
+<span id="cb7-236"><a href="#cb7-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-237"><a href="#cb7-237" aria-hidden="true" tabindex="-1"></a>When you perform calculations with vectors, you have to be careful about what happens when the vectors are not the same length. If you use vectors of different lengths, R will 'recycle' the shorter vector and replicate it as many times as need to match the length of the longer vector. This works well if the longer vector is a multiple of the shorter vector. However, when that is not the case, R will produce a warning.</span>
+<span id="cb7-238"><a href="#cb7-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-239"><a href="#cb7-239" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.8 Generating regular sequences</span></span>
+<span id="cb7-240"><a href="#cb7-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-241"><a href="#cb7-241" aria-hidden="true" tabindex="-1"></a>The easiest way to generate a sequence is with the colon operator :, for example, 1:3 codes for a sequence of 1 to 3. However, if you want some more control about what the sequence is supposed to look like, you should use the seq() function, with its arguments 'from,' 'to,' and 'by,' which define the start-point, end-point, and interval of the sequence. If you want to create a vector of a specific length that contains a sequence, you can use the argument 'length' instead of 'by' to define the length of the vector.</span>
+<span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.9 Data Import and Export Details</span></span>
+<span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a>We have only entered data into R by hand by creating different types of small vectors. What do we do when we want to process large amounts of data? We need to be able to read input for our analyses directly from files and sometimes it is also useful to write output to a file for further analysis. R provides the infrastructure to both import and export data. We have covered how to read data from files and write data to files in RStudio in the video. Creating graphs is another form of output - we will cover graphs in the next R module.</span>
+<span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.10 R Built-in Datasets</span></span>
+<span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-249"><a href="#cb7-249" aria-hidden="true" tabindex="-1"></a>You can find around 100 datasets supplied in R. To see the list of available datasets type data() into the Console Pane. We will use these data sets to practice exporting and importing data. You can also use these datasets to practice for your midterm and final. The fifth data set in the list is called CO2. Let's look at it. Type ?CO2. The help page for the data set will open up. It contains information about how the data were collected and what variables the dataset contains. You can print the first 6 observations into the Console Pane using head(CO2). I like doing that to see what the dataset looks like being analyzing or manipulating it. You can print the names of the data set into the Console Pane using names(CO2). dim(CO2) gives you the dimensions of the data set: 84 observations and 5 variables. Check out these functions in the R help window: head(), names(), dim().</span>
+<span id="cb7-250"><a href="#cb7-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-251"><a href="#cb7-251" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb7-252"><a href="#cb7-252" aria-hidden="true" tabindex="-1"></a><span class="fu"># Examples:</span></span>
+<span id="cb7-253"><a href="#cb7-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-254"><a href="#cb7-254" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Built in Dataset</span><span class="co">](/external_files/Builtin_dataset_R.rmd)</span></span>
+<span id="cb7-255"><a href="#cb7-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-256"><a href="#cb7-256" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Built in Dataset (html)</span><span class="co">](/external_files/Builtin_dataset_R.html)</span></span>
+<span id="cb7-257"><a href="#cb7-257" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-259"><a href="#cb7-259" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4.11 Reading data from files and writing data to files</span></span>
+<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a>Most often, we deal with space-delimited .dat or .txt files, tab-delimited .txt files, or comma-separated values files (.csv). You can read and write any of these data types with the read.table() and write.table() functions, respectively. For .csv files, R has read.csv() and write.csv() as additional options. In the built-in R help, you can find a lot of details about these functions and what arguments they contain.</span>
+<span id="cb7-262"><a href="#cb7-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a>In R Markdown, you can keep the Rmd file and the data files on the same folder, this way you only need to write the name of the data in any of the read functions above to import the data. On RStudio Cloud, you only need to upload them and call them in your program.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,940 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Application of Computer Technology and Document Processing in Forestry Management",
+    "section": "",
+    "text": "Outline\nApplication of Computer Technology and Document Processing in Forestry Management emphasizes learning data analysis techniques using programming routines and prepare professional documents using efficient tools. This book aims to equip students with a solid foundation in computer literacy, document processing, and data handling, using popular software tools such as MS Word, MS Excel, R, RStudio, R Markdown, and QGIS. Through reading this book, students will be able to:\n\nBe proficient in document processing using powerful tools on MS Word\n\nPrepare an academic report or paper or document using powerful tools\nEfficiently design and format a long document: avoid manual formatting, use styles, references, layout, etc.\n\nBe proficient in data handling and summarizing using powerful tools on MS Excel\n\nPerform basic calculations (using formulas and functions) and interpret the results\nCreate and interpret basic graphs\nGenerate and interpret pivot tables and pivot charts\n\nPerform data handling and analysis in RMarkdown statistical packages\n\nImport/export data\nPerform basic calculations\nCreate high-quality graphs\n\nManage and analyze geodata in QGIS\n\nCreate projects and organize geodata\nPerform basic functionality and geoprocessing functions\n\n\nBy the end of this book, students will have a strong foundation in computer literacy and data handling that they can use in their academic and professional pursuits.\n\nVersion history\nMaterials were prepared for this book at the Faculty of Forestry, University of British Columbia, August 13, 2023.\n\n\nContributor list\n\n\n\nContributors\nAffilations\n\n\n\n\nSuborna Ahmed\nFaculty of Forestry, UBC\n\n\nChristina Howard\nFaculty of Forestry, UBC\n\n\n\n\n\nCitation\n\n\n\n\n\n\nHow to cite\n\n\n\nAhmed, S., & Howard, C. (2023). Application of Computer Technology and Document Processing in Forestry Management. Add DOI.\n\n\n\n\n\nLicense\n\nThe online version of this book is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. You may share, adapt the content and may distribute your contributions under the same license (CC BY-NC-SA 4.0), but you have to give appropriate credit, and cannot use material for the commercial purposes.\n\nComments\nFor any comments regarding this document, reach out to Dr. Ahmed."
+  },
+  {
+    "objectID": "word_1.html#learning-objectives",
+    "href": "word_1.html#learning-objectives",
+    "title": "Chapter 1: Mastering the Art of Effective Technical Writing",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nPrepare an academic report or paper or document using all-powerful tools in the home, insert, layout, and references tabs\nEfficiently design and format a long document\nAvoid manual formatting by using styles\nAutomate references, captions, list of tables and figures, table of content"
+  },
+  {
+    "objectID": "word_2.html#word-processing-and-processor",
+    "href": "word_2.html#word-processing-and-processor",
+    "title": "1.1 Document Processing",
+    "section": "1.1.1 Word Processing and Processor",
+    "text": "1.1.1 Word Processing and Processor\nWord processing is the process of writing, editing, and producing documents (e.g., letters, reports, books) through the use of a computer program. A word processorLinks to an external site. is an electronic device or a computer software application that performs word processing as directed by the user (that is you!). This includes composition, editing, and formatting. Microsoft Word (MS Word) is probably one of the most widely used word processors. However, many other word processing applications exist such as WordPerfect and OpenOffice.org Writer. MS Word provides font applications (style & size), spell and grammar checking, access to a thesaurus, the ability to combine text with tables, charts, and pictures.\nMS Word structures documents hierarchically. At the top is the Word application itself, used to create, edit, and print documents. At the next level, MS Word has documents (=Word files). The Word application can have multiple Word documents open at the same time. Documents are organized in sections, each section consists of paragraphs, and each paragraph contains characters. Documents also contain headers, footers, tables, pictures, and additional features such as line and page numbers."
+  },
+  {
+    "objectID": "word_2.html#word-objects-properties-methods-commands",
+    "href": "word_2.html#word-objects-properties-methods-commands",
+    "title": "1.1 Document Processing",
+    "section": "1.1.2 Word Objects, Properties, Methods & Commands",
+    "text": "1.1.2 Word Objects, Properties, Methods & Commands\nAn object is an element of Word. This could be a document, a section, a paragraph, or a single character. Using properties and methods you can modify objects. A property is an attribute of an object or an aspect of its behavior. Examples of document properties are its file size and file name. Section properties describe the layout of the page (e.g., landscape vs. portrait orientation). Paragraph properties are its alignment (e.g., justified or centered) and the blank space before and after the paragraph. Properties of a character could be its font type and font size. By clicking on the Center icon (Home/Paragraph/Center) you give Word the command to change the alignment property of the paragraph to be ‘centered.’ A method is an action that an object can perform. Methods are performed by giving commands. To perform an action the computer application typically needs additional information from the user. For example, giving MS Word the command (Insert/Illustrations/Picture) will ask for the location of the picture. Giving the command (File/Save as/Word Document) will ask you to specify the file type and location.\nCommands are specific instructions given to a computer application to perform some kind of task or function. We often think of text-based computer commands, but clicking on an icon can also be a command.\nThe Quick Access Toolbar and the Ribbon are the elements in Word’s user interface that allow us to invoke commands by clicking on their icons.\n\n\n\nFigure 1 - MS Word’s toolbar and ribbon.\n\n\nThe ribbon collects most of Word’s commands together into related groups at two levels. At the top level are the tabs: FILE, HOME, INSERT, DESIGN, PAGE LAYOUT, REFERENCES, MAILINGS, REVIEW, and VIEW. Each tab contains command groups. There is no need to memorize all the word commands. MS Word provides help."
+  },
+  {
+    "objectID": "word_2.html#getting-started-with-ms-word",
+    "href": "word_2.html#getting-started-with-ms-word",
+    "title": "1.1 Document Processing",
+    "section": "1.1.3 Getting started with MS Word",
+    "text": "1.1.3 Getting started with MS Word\nThe FILE tab on the ribbon gives a list of options that lets you create a new document, open an existing document, save your document, and print your document. Create a new blank document and type in content (e.g., title, headings, normal text, and emphasized text). Each type of content can be associated with a distinctive style, which represents a set of formatting properties. For now, please stick to using the Styles group on the HOME tab of the ribbon. If the text you entered is the title, hit ‘Title’ in the Styles group. If the text you entered is a heading, hit ‘Heading 1’ in the Styles group. Don’t worry, if the style is not to your liking at this point. You can change the styles to match your tastes afterward. Notice that every new paragraph will default to the style ‘Normal.’\nThere are two methods to format text in a word document. The one described above using ‘Styles’ or you can use commands from the ‘Font’ or ‘Paragraph’ groups in the HOME tab. The latter is referred to as manual formatting. Throughout this book we will try to avoid manual formatting unless it is to change or design a Style. Styles save time and make your document look good! The two basic advantages are consistent formatting and making changes easily in large documents.\nWhat if you don’t like the MS Word defaults? After all, they are pretty hideous. You can change any individual style, create your own style, or assemble your own style set. There are different ways to change styles. You can use the Styles pull-down list to modify and add styles: Right-click on Style in the Styles pull-down list, click ‘Modify’ and make changes to your liking. Or you can use a default style and then manually format it to what you want it to look like. Manual formatting will create an ‘augmented style.’ To get rid of the augmentation, go to the Styles pull-down list and update the non-augmented style to match the selection (e.g., “Update Normal to Match Selection”). The augmented style will disappear from the Styles list. Note: if markers find augmented styles in your assignments, you lose points!"
+  },
+  {
+    "objectID": "word_2.html#other-helpful-resources",
+    "href": "word_2.html#other-helpful-resources",
+    "title": "1.1 Document Processing",
+    "section": "1.1.4 Other Helpful Resources",
+    "text": "1.1.4 Other Helpful Resources\nThe following files may help you navigate MS Word better, if you are still having trouble. Specifically, learning shortcuts for copy and paste will allow you to edit documents quickly and efficiently.\nMS Office Shortcuts PDF\nMore Information on Word Powerpoint"
+  },
+  {
+    "objectID": "word_3.html#home-tab",
+    "href": "word_3.html#home-tab",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.1 Home Tab",
+    "text": "1.2.1 Home Tab\n\nVideo: Word Processing Home Tab\nThis video will go over how to professionally format documents using tabs from the toolbar. Specifically, this video focuses on the Home Tab.\n\nThe practice files we showed in this video can be found here:\nPractice word file\nPractice image"
+  },
+  {
+    "objectID": "word_3.html#styles-menu",
+    "href": "word_3.html#styles-menu",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.2 Styles Menu",
+    "text": "1.2.2 Styles Menu\nAdd styles for Title, Subtitle, Heading 1, Heading 2, Paragraph from the Styles menu.\n\n\n\nFigure 2 - A close up of the MS Word styles menu.\n\n\nIn the author list, we can add a footnote to provide detailed information about an author. If multiple authors share the same information we need to cross-refer the first footnote to the second author. See the References toolbar for adding a footnote."
+  },
+  {
+    "objectID": "word_3.html#style-pane-options",
+    "href": "word_3.html#style-pane-options",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.3 Style Pane Options",
+    "text": "1.2.3 Style Pane Options\nAll styles and other options that are added on the document are listed on the Style Pane Option. You can choose the following to see the items from the list Is been used in the current document.\n\n\n\nFigure 3 - Viewing the style pane options."
+  },
+  {
+    "objectID": "word_3.html#font",
+    "href": "word_3.html#font",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.4 Font",
+    "text": "1.2.4 Font\nFont is used to set the font style for the selected text. Common professional fonts are: Arial, Calibri, Times New Roman, and common font size for text in body is 11 or 12."
+  },
+  {
+    "objectID": "word_3.html#paragraph",
+    "href": "word_3.html#paragraph",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.5 Paragraph",
+    "text": "1.2.5 Paragraph\nIn all paragraphs, in a document, you should use the same style. You can create a style or use the “Normal” style and use the following options from the modify menu:\n\nSet the font style for the selected text\nCommon professional fonts are: Arial, Calibri, Times New Roman\nCommon font size for text in body is 11 or 12.\nDefine the style of each paragraph in the body\nBullet points, numbering, and indenting\nLine space: single or double space\n\n\n\n\nFigure 4 - Using the modify menu within styles to create paragraph settings."
+  },
+  {
+    "objectID": "word_3.html#insert-tab",
+    "href": "word_3.html#insert-tab",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.6 Insert Tab",
+    "text": "1.2.6 Insert Tab\n\nVideo: The Insert Tab\nThe following video will outline the use of the insert tab. The insert tab allows for the addition of new pages, tables, images, and other document items."
+  },
+  {
+    "objectID": "word_3.html#page-break",
+    "href": "word_3.html#page-break",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.7 Page Break",
+    "text": "1.2.7 Page Break\nPage break is used to separate two sections from each other. Modifying previous pages won’t impact the following section when page break is used."
+  },
+  {
+    "objectID": "word_3.html#pictures-and-graphs",
+    "href": "word_3.html#pictures-and-graphs",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.8 Pictures and Graphs",
+    "text": "1.2.8 Pictures and Graphs\nPictures and graphs can be easily copied and pasted from clipboard (under “Format Painter”) or other applications such as Excel. Clipboard is a dialog box launcher that can be found under the Home tab. It works as memory and this task pane can hold the last image, text, and table you copied or cut. You can add the listed items on the clipboard anywhere in the document, decide how they appear within the text, and make sure they are properly aligned."
+  },
+  {
+    "objectID": "word_3.html#shapes-and-text-box",
+    "href": "word_3.html#shapes-and-text-box",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.9 Shapes and text box",
+    "text": "1.2.9 Shapes and text box\nThe shapes and text box is used to draw diagrams within the text. When using the tool, pay attention to alignments, don’t make too flashy or overuse unfamiliar shapes, and keep look and feel consistent throughout your document. Grouping objects is a good way to avoid misalignment in different versions."
+  },
+  {
+    "objectID": "word_3.html#equations-and-symbols",
+    "href": "word_3.html#equations-and-symbols",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.10 Equations and Symbols",
+    "text": "1.2.10 Equations and Symbols\nEquations and symbols can be used to insert formulas. You could only use symbols, superscripts, and subscripts to format equations, however these will no be very easy to edit. Using insert equations for long formulas allows easy editing and your formulas can be saved. There is also ink equation as an option to draw a formula."
+  },
+  {
+    "objectID": "word_3.html#header-footer",
+    "href": "word_3.html#header-footer",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.11 Header & Footer",
+    "text": "1.2.11 Header & Footer\nA header is the section of the document that appears in the top margin and a footer is the section of the document that appears in the bottom margin. They are useful to apply when you are required to include page numbers on a document. They are also useful to apply a title or name to every page of a document. You can also specify whether or not you want the header or footer to apply to all pages, or all pages except the first."
+  },
+  {
+    "objectID": "word_3.html#table",
+    "href": "word_3.html#table",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.12 Table",
+    "text": "1.2.12 Table\nTable is used to insert word-native tables in a document. You can also import tables from other MS applications such as Excel. Remember to use a consistent format for all tables in a document."
+  },
+  {
+    "objectID": "word_3.html#cross-reference",
+    "href": "word_3.html#cross-reference",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.13 Cross-reference",
+    "text": "1.2.13 Cross-reference\nThis book emphasizes that all tables and figures within the document should be cross-referenced within the text. Cross refer any section number, figure, or equation mentioned within a paragraph. The cross-reference tool is also available on the “References” tab.\n\n\n\nFigure 5 - The locations within tabs where the cross-reference tool is available."
+  },
+  {
+    "objectID": "word_3.html#layout-tab",
+    "href": "word_3.html#layout-tab",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.14 Layout Tab",
+    "text": "1.2.14 Layout Tab\n\nVideo: The Layout Tab\nThe following video will outline how to use the layout tab to organize the orientation of a document. It will also describe how to properly use page and section breaks within a document. Any page within a document can be oriented as Portrait or Landscape."
+  },
+  {
+    "objectID": "word_3.html#references-tab",
+    "href": "word_3.html#references-tab",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.15 References Tab",
+    "text": "1.2.15 References Tab\n\nVideo: The References Tab\nThe following video will describe the applications of the references tab. Through this tab, we can insert footnotes, citations, and a bibliography, which are important components of a scientific paper or report. Further, this tab can be used to insert table of figures and table of contents. Knowing how to insert these important document components will allow all your future reports easier to navigate.\n\n\n\n\n\n\n\nInsert Footnote\n\n\n\nIf you are running on a Mac system and your “Footnote and Endnote” panel shown above are not showing up, follow this video:\n\nOtherwise, you can also select “Footnote” under “Insert” and the panel should show up:\n\n\n\nFigure 6 - Finding insert footnote location on Mac."
+  },
+  {
+    "objectID": "word_3.html#insert-citation",
+    "href": "word_3.html#insert-citation",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.16 Insert Citation",
+    "text": "1.2.16 Insert Citation\nProfessional reports and scientific articles all require your text to be cited thoroughly. Learning early good habits in citation and practicing them regularly will set you up for success for your future career. Example references for you to practice with:\n\nSystematic review of yield responses of four North American conifers to forest tree improvement practices. (Newton 2003)\nThe Effect of Planting Density on Dominant Height in Unthinned Slash Pine Plantations. (Pienaar and Shiver 1984)\nBreeding program and strategy for white spruce in Quebec. (Beaulieu 1996)\nApplied forest tree improvement. (Zobel and Talbert 1984)"
+  },
+  {
+    "objectID": "word_3.html#bibliography",
+    "href": "word_3.html#bibliography",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.17 Bibliography",
+    "text": "1.2.17 Bibliography\nThe bibliography is used to list all sources referred to in a document. Most professional documents require the inclusion of a bibliography, as a way to account for and summarize all the citations that were included within the text. Once citations have been inserted into a document, you can click on the bibliography tab within the references tab to insert the full bibliography at the end of the document."
+  },
+  {
+    "objectID": "word_3.html#insert-caption-figuretable",
+    "href": "word_3.html#insert-caption-figuretable",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.18 Insert Caption: Figure/Table",
+    "text": "1.2.18 Insert Caption: Figure/Table\nOnce a figure or table is inserted within a document, it requires a caption. Within the references tab, you can locate the insert caption button. The caption can be created by typing out a title and selecting the appropriate label type (either figure or table)."
+  },
+  {
+    "objectID": "word_3.html#table-of-contents-table-of-figures-and-list-of-tables",
+    "href": "word_3.html#table-of-contents-table-of-figures-and-list-of-tables",
+    "title": "1.2 Basic Tabs in MS Word",
+    "section": "1.2.19 Table of Contents, Table of Figures, and List of Tables",
+    "text": "1.2.19 Table of Contents, Table of Figures, and List of Tables\nMost professional documents require a table of contents, not to mention it makes your documents easier to navigate for editing purposes. If appropriate title and text styles have been used throughout the document, then using the “insert table of contents” tool should automatically produce a hierarchical description of your document. This is another reason to be diligent in captioning and styling your text properly. This also applies to inserting the table of figures and list of tables. If the structure of the table of contents is incorrect, you can modifying styles of headings or text, then auto update the table of contents to reflect the changes you have made.\n\n\n\n\n\n\nBeaulieu, J. 1996. “Breeding Program and Strategy for White Spruce in Quebec.”\n\n\nNewton, Peter F. 2003. “Systematic Review of Yield Responses of Four North American Conifers to Forest Tree Improvement Practices.” Forest Ecology and Management 172 (1): 29–51. https://doi.org/https://doi.org/10.1016/S0378-1127(02)00327-4.\n\n\nPienaar, Leon V., and Barry D. Shiver. 1984. “The Effect of Planting Density on Dominant Height in Unthinned Slash Pine Plantations.” Forest Science 30 (4): 1059–66. https://doi.org/10.1093/forestscience/30.4.1059.\n\n\nZobel, Bruce, and John Talbert. 1984. Applied Forest Tree Improvement. New York: Wiley."
+  },
+  {
+    "objectID": "word_4.html#technical-reports",
+    "href": "word_4.html#technical-reports",
+    "title": "1.3 Report Writing: Technical Documents",
+    "section": "1.3.1 Technical Reports",
+    "text": "1.3.1 Technical Reports\nRemember simple rules when writing technical documents:\n\nFollow the main structure (main headings) but feel free with sub-sections\nThink about a storyline and develop each section and paragraphs coherently to tell that story\nEach paragraph usually discusses one topic\n\nTechnical reports are one of the major forms of communicating the results of an investigation, design, or analysis of a subject (project). The audience for the report may be managers, clients, stakeholders such as the government.\nBasic structure:\n\nTitle page/ Cover page\nSummary (Executive summary): used for report writing\nAbstract: for scientific writing\nTable of Contents\nList of Table and Figures\nIntroduction\nMethods: Middle sections with numbered headings (i.e., the body of the report)\nConclusions\nReferences\nAppendices\n\nExample Reports:\nThe Effects of Planting Density on the Growth and Yield of Lodgepole Pine, Interior spruce, Interior Douglas-fir, and Western Larch: 16- to 26-year results from EP964. (De Montigny et al. 2016)"
+  },
+  {
+    "objectID": "word_4.html#scientific-reports-and-papers",
+    "href": "word_4.html#scientific-reports-and-papers",
+    "title": "1.3 Report Writing: Technical Documents",
+    "section": "1.3.2 Scientific Reports and Papers",
+    "text": "1.3.2 Scientific Reports and Papers\nScientific papers are peer-reviewed and published in a journal. The format is similar to the technical report but the format is defined by the journals which vary.\nExample Paper:\nMeta-modeling to Quantify Yields of White Spruce and Hybrid Spruce Provenances in the Canadian Boreal Forest. (Ahmed et al. 2020)\n\n\n\n\n\n\nAhmed, Suborna, Valerie LeMay, Alvin Yanchuk, Andrew Robinson, Peter Marshall, and Gary Bull. 2020. “Meta-Modelling to Quantify Yields of White Spruce and Hybrid Spruce Provenances in the Canadian Boreal Forest.” Forests 11 (6): 609.\n\n\nDe Montigny, Louise, Suborna Ahmed, Valerie M. LeMay, British Columbia Government EBook Collection, Lands British Columbia. Ministry of Forests, and Natural Resource Operations. 2016. The Effects of Planting Density on the Growth and Yield of Lodgepole Pine, Interior Spruce, Interior Douglas-Fir, and Western Larch: 16- to 26-Year Results from EP964. Vol. 98;98.; Victoria, B.C: Province of British Columbia."
+  },
+  {
+    "objectID": "excel_basics_1.html#learning-objectives",
+    "href": "excel_basics_1.html#learning-objectives",
+    "title": "Chapter 2: Microsoft Excel Basics and Data Handling",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nKnow the basics of Microsoft Excel\nImport different file types into Microsoft Excel\nInput and organize data and ranges in an Excel spreadsheet\nFormat your Excel spreadsheet professionally\nUse different types of formulas, including simple math, conditional, logical, and lookup formulas\nCombine and create auto-adjusted formulas"
+  },
+  {
+    "objectID": "excel_basics_2.html#microsoft-excel-basics-worksheet-layout",
+    "href": "excel_basics_2.html#microsoft-excel-basics-worksheet-layout",
+    "title": "2.1 Introduction to Microsoft Excel",
+    "section": "2.1.1 Microsoft Excel Basics: Worksheet Layout",
+    "text": "2.1.1 Microsoft Excel Basics: Worksheet Layout\nMicrosoft Excel is the most commonly used spreadsheet application that displays and stores data in rows and columns. Spreadsheets allow us to easily arrange and manipulate data, especially numerical data.\nIn Excel, you start off by creating an Excel Workbook that can contain one or more worksheets. The layout of an Excel worksheet is pretty similar to Word. At the top, you can find the quick access toolbar and ribbon. The ribbon is made up of tabs that are divided into groups containing commands. At the bottom, you can find the sheets tab that you can use to add new or switch between worksheets in your workbook.\n\n\n\nFigure 7 - The work area of excel.\n\n\nThe work area of Excel, like all spreadsheet documents, is made up of intersecting rows and columns, creating cells. The cell name is made up of its column letter and row number (e.g. B3) and you can see the name of the selected cell in the name box. Next to the name box is the formula bar where you can input data and see the content of the selected cell.\n\nVideo: Basic Components of Excel\nThe following video will teach you about the basic layout of an excel worksheet. Becoming familiar with the excel workspace will be integral for your efficient use of the tools that a worksheet offers."
+  },
+  {
+    "objectID": "excel_basics_2.html#data-types-and-number-formats",
+    "href": "excel_basics_2.html#data-types-and-number-formats",
+    "title": "2.1 Introduction to Microsoft Excel",
+    "section": "2.1.2 Data types and number formats",
+    "text": "2.1.2 Data types and number formats\nData, the plural of datum, is a collection of information on certain subjects or items. Spreadsheets allow us to easily analyze and summarize the data that we have collected. In Forestry, we might want to make a spreadsheet containing data on trees such as identification number, species, crown class, diameter at breast height (cm), and tree height (m).\nInputting data in Excel can be done by entering them directly into a cell or by typing into the formula bar. There are 2 main types of data in Excel: Text and numeric. Text data are automatically left-aligned in cells, while numeric data are right-aligned.\nNumbers can be displayed as percentages, dates, or currency by applying different number formats using the Format Cells function.\n\nVideo: Different Data Types and Number Formats\nThe following video describes the different data types and number formats in excel. Being able to properly apply functions or logic to your data in excel will rely on your ability to apply the correct number formats to the correct columns.\n\n\n\n\n\n\n\nPractice: Applying number formats\n\n\n\nHere is the Excel file that was used in the video: Format Cells worksheet\nTry to do the following things:\n\nAdd a date format to the Hire Date column\nAdd a currency symbol to the Salary column and remove decimals\n\nTake a look at this excel fileNumbers formatted worksheet for an example of how you can do the above."
+  },
+  {
+    "objectID": "excel_basics_2.html#importing-other-file-types-to-excel",
+    "href": "excel_basics_2.html#importing-other-file-types-to-excel",
+    "title": "2.1 Introduction to Microsoft Excel",
+    "section": "2.1.3 Importing other file types to Excel",
+    "text": "2.1.3 Importing other file types to Excel\nNow that you have learned about the basics, the first step in working in Excel would be to add data that we can work with.\nTo add data into Excel, you can import other file types such as text (.txt) files or comma-separated values (.csv) files. To open these files in Excel, you will have to make sure that your file type is not “All Excel Files”, but “All Files”. This way, all types of files will be displayed in your folder. Excel will then show an Import Wizard that you can use to easily import the file into the program.\n\nVideo: How to Import Text file into Excel\nThe following video will describe how to import a text file into excel. This is an important procedure to be familiar with, as many datasets will be automatically downloaded as, or with, a text file that will require interpretation more easily done within excel.\n\n\n\n\n\n\n\nPractice: Importing a .txt file into Excel\n\n\n\nTry to import a .txt file into an Excel workbook using this file example text file. The result can be seen in the video."
+  },
+  {
+    "objectID": "excel_basics_3.html#formatting-datasets",
+    "href": "excel_basics_3.html#formatting-datasets",
+    "title": "2.2 Formatting and Organizing Datasets",
+    "section": "2.2.1 Formatting Datasets",
+    "text": "2.2.1 Formatting Datasets\nOnce we have our data ready, we would need to format them to make our worksheet looks more professional.\nThere are 2 functions that we can use to format our data: Format as Table and Cell Styles. Format as Table is best used for formatting tables with one-row headers, whereas Cell Styles can be used for tables with multi-row headers and cells in general.\nSome other formatting that we need to do include adjusting row height/column width and removing gridlines.\n\nVideo: Formatting Tables\nIf you are submitting a table as part of a report or dataset, it is good practice to follow some general formatting guidelines. The following video will outline some of these good practices.\n\n\n\nVideo: Professional Formatting\nThe following video describes further methods that can help you format your worksheets and tables formally. These skills will be helpful in a professional or academic setting.\n\n\n\n\n\n\n\nPractice: Professional formatting\n\n\n\nHere is the file that was used in the video: Format Cells worksheet\nTry to do the following things:\n\nAdjust column widths\nAdd a title and format the cell\nFormat table\nRemove gridlines\n\nTake a look at this file for an example of how you can do the above: Formatted worksheet"
+  },
+  {
+    "objectID": "excel_basics_3.html#sorting-and-filtering-data",
+    "href": "excel_basics_3.html#sorting-and-filtering-data",
+    "title": "2.2 Formatting and Organizing Datasets",
+    "section": "2.2.2 Sorting and Filtering Data",
+    "text": "2.2.2 Sorting and Filtering Data\nTo sort and filter our data, we can use the Sort & Filter function in the Home tab or use the filter button on our table headers.\nData can be sorted from smallest to largest or vice versa based on a single column or multiple columns. To sort based on multiple columns, we use the Custom Sort function where we can add levels to our sorting criteria and put them in the desired order.\nFiltering data is also useful for narrowing down certain data. When using Filter, we can check the boxes of the data that we want to show and leave the others unchecked to keep them hidden.\n\nVideo: Sort and Filter\nThe following video will outline the steps to sort and filter the data within your worksheets. Sorting and filtering data is integral to the successful utilization of excel.\n\n\n\n\n\n\n\nPractice: Sorting and filtering data\n\n\n\nHere is the file that was used in the videos: Sort and Filter worksheet\nTry to do the following things:\n\nAdd a filter button to headers\nSort table based on largest to smallest height\nSort table based on Species from A-Z, then by smallest to largest DBH, and by smallest to largest height\n\nTake a look at this file for an example of how you can do the above: Sorted worksheet"
+  },
+  {
+    "objectID": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---data-dictionary",
+    "href": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---data-dictionary",
+    "title": "2.2 Formatting and Organizing Datasets",
+    "section": "2.2.3 Improving Clarity and Visibility of Datasets - Data Dictionary",
+    "text": "2.2.3 Improving Clarity and Visibility of Datasets - Data Dictionary\nSometimes, we use technical abbreviations for our headers that might not be easily understood by the readers (e.g. MSP, MWMT). We want to let the readers know what these abbreviations mean, but including the whole description on our headers is just not practical. Instead, we add a data dictionary on the side that we can link the header to. For example, we can link MSP to “Mean summer precipitation (mm)” and MWMT to “Mean temperature of the warmest month (°C).”\n\nVideo: Linking Headers to Data Dictionary\nUsing a data dictionary can help you keep track of the variables that you have manipulated within your worksheet. The following video will describe how to link headers to your data dictionary."
+  },
+  {
+    "objectID": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---freeze-panes",
+    "href": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---freeze-panes",
+    "title": "2.2 Formatting and Organizing Datasets",
+    "section": "2.2.4 Improving Clarity and Visibility of Datasets - Freeze Panes",
+    "text": "2.2.4 Improving Clarity and Visibility of Datasets - Freeze Panes\nWhen we have a large dataset that exceeds the size of our screen, we might want to keep the header row(s) and/or the first column visible. Under the View tab, there is the Freeze Panes function that will allow us to do this.\n\nVideo: Freeze Panes\nCommonly found in downloadable public datasets, freeze panes is often used to make large datasets more legible and user friendly. The following video will help you learn how to apply freeze panes to your own data."
+  },
+  {
+    "objectID": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---hiding-and-grouping-columnsrows",
+    "href": "excel_basics_3.html#improving-clarity-and-visibility-of-datasets---hiding-and-grouping-columnsrows",
+    "title": "2.2 Formatting and Organizing Datasets",
+    "section": "2.2.5 Improving Clarity and Visibility of Datasets - Hiding and Grouping Columns/Rows",
+    "text": "2.2.5 Improving Clarity and Visibility of Datasets - Hiding and Grouping Columns/Rows\nWith large datasets, we might also want to focus on certain rows/columns of data at a time without deleting the other columns So, instead of deleting the columns, we can either hide or group them, and then unhide or show them when necessary.\n\nVideo: Hiding and Grouping Columns/Rows\nThe following video will help outline the process of hiding or grouping rows/columns in excel. This is helpful to organize data, but to also know how to unhide data if provided a worksheet with data hidden.\n\n\n\n\n\n\n\nPractice: Improving clarity and visibility of datasets\n\n\n\nHere is the file that was used in the videos: Organize Data worksheet\nTry to do the following things:\n\nLink headers to the data dictionary\nPane header row(s) and first column\nHide columns/rows\nGroup columns/rows\n\nTake a look at this file organize data worksheet for an example of how you can do the above."
+  },
+  {
+    "objectID": "excel_basics_4.html#define-name",
+    "href": "excel_basics_4.html#define-name",
+    "title": "2.3 Excel Formulas: Basic and Advanced Techniques",
+    "section": "2.3.1 Define Name",
+    "text": "2.3.1 Define Name\nUsing this function, we can give a name to a certain cell/range of data and easily refer to them later in our formulas. Defined names can be seen and edited in the Name Manager. Aside from using the Define Name function, we can also give a name to a cell/range by selecting the cell/range and typing the cell/range name into the name box.\n\nVideo: Define Name\nThe following video outlines how to define names of cells or ranges of cells. This allows for you to reference these cells by name (instead of cell number) within your functions.\n\n\n\n\n\n\n\nPractice\n\n\n\nUse this file formulas worksheet to practice each formula in this part (Further instructions are found under each formula)."
+  },
+  {
+    "objectID": "excel_basics_4.html#basic-formulas",
+    "href": "excel_basics_4.html#basic-formulas",
+    "title": "2.3 Excel Formulas: Basic and Advanced Techniques",
+    "section": "2.3.2 Basic Formulas",
+    "text": "2.3.2 Basic Formulas\nAll formulas in Excel start with an equals sign (=). We can make formulas using the usual math operators (+ - / * ^) or by using Excel syntaxes (e.g. EXP, SUM, AVERAGE). Formulas come with guides under them that show us how to create the formulas (e.g. POWER(number, power) means me should put the number first, then the power that we want to raise that number to). There are also some formulas like PI() that can generate a number by itself (e.g. 3.1415 … for PI()) and don’t require us to insert any number inside the parenthesis.\n\nVideo: Basic Formulas\nThis video outlines the commonly used mathematical operators within excel. Being familiar with these operators will allow for you to create your own flexible formulas and functions within excel.\n\n\n\n\n\n\n\nPractice: Basic Formulas\n\n\n\nGo to the first worksheet (“Simple”) and practice filling in the table of basic math formulas.\nSolution File worksheet"
+  },
+  {
+    "objectID": "excel_basics_4.html#math-formulas-with-conditions",
+    "href": "excel_basics_4.html#math-formulas-with-conditions",
+    "title": "2.3 Excel Formulas: Basic and Advanced Techniques",
+    "section": "2.3.4 Math formulas with conditions",
+    "text": "2.3.4 Math formulas with conditions\nWe can add one or more conditions to the usual math formulas, SUM, AVERAGE, and COUNT, by using SUMIF(S), AVERAGEIF(S), and COUNTIF(S) instead.\nWe use SUMIF, AVERAGEIF, and COUNTIF for calculations with only one condition, and use SUMIFS, AVERAGEIFS, and COUNTIFS for those with two or more conditions.\n\nVideo: Formulas with Conditions\nCreating formulas with conditions allows for a subset of your data to be used. Watch this video to see how they are used:\n\n\n\n\n\n\n\nPractice: Math formulas with conditions\n\n\n\nGo to the second worksheet (“Conditions”) and try to answer the 5 questions using SUMIF(S), AVERAGEIF(S), and COUNTIF(S).\nSolution File worksheet"
+  },
+  {
+    "objectID": "excel_basics_4.html#logical-formulas",
+    "href": "excel_basics_4.html#logical-formulas",
+    "title": "2.3 Excel Formulas: Basic and Advanced Techniques",
+    "section": "2.3.5 Logical Formulas",
+    "text": "2.3.5 Logical Formulas\nLogical formulas are useful tools for analyzing and comparing data. Some of the commonly used formulas are IF, AND, OR, and NOT.\n\nVideo Logical Formulas\nThe following video describes commonly used formulas that are logical in nature. IF statements are common throughout many coding languages, therefore becomign familiar with them through excel will be beneficial for other applications.\n\n\n\n\n\n\n\nPractice: Logical formulas\n\n\n\nGo to the third worksheet (“Logical”) and try to answer the questions for IF, AND, OR, and NOT.\nSolution File worksheet"
+  },
+  {
+    "objectID": "excel_basics_5.html#nested-formulas",
+    "href": "excel_basics_5.html#nested-formulas",
+    "title": "2.4 Mastering the Power of Excel’s Calculation Capabilities",
+    "section": "2.4.1 Nested Formulas",
+    "text": "2.4.1 Nested Formulas\nNow that you have learned about the different types of formulas, you will learn about how we can combine these formulas (Note that we can combine up to 64 different formulas in Excel).\nHere is an example: Let’s say, if the temperature is more than 15°C AND the chance of rain is less than 50%, then we will measure trees. If not, then we will not measure trees.\n\n\n\nFigure 8 - Nesting formulas example.\n\n\nWe can translate the above case and answer the question “Measure trees?” by combining IF with AND: IF(AND(B3&gt;15, C3&lt;50), “Yes”, “No”)\n\nVideo: Nested Formulas Example\nThe following video provides further description for nesting formulas within excel. Nesting formulas allows for a more efficient use of the excel worksheet envrionment.\n\n\n\n\n\n\n\nPractice: Nested Formulas\n\n\n\nGo to the first worksheet (“Nested”) and try to answer the question by combining IF and AND.\nUse this solution file Solution File worksheet"
+  },
+  {
+    "objectID": "excel_basics_5.html#constant-vs-auto-adjusted-formulas",
+    "href": "excel_basics_5.html#constant-vs-auto-adjusted-formulas",
+    "title": "2.4 Mastering the Power of Excel’s Calculation Capabilities",
+    "section": "2.4.2 Constant vs Auto-Adjusted Formulas",
+    "text": "2.4.2 Constant vs Auto-Adjusted Formulas\nFormulas can also be automatically adjusted when they are moved or copied to other cells. This is an extremely useful feature, especially when the formulas apply to different columns and/or rows. However, we might want to hold some references constant for the formula to work better in other cells. We can do this by adding a dollar sign ($) in front of the column letter and/or row number, depending on which we want to hold constant.\nExample:\n\nA6 : Not a constant, will be auto-adjusted\n$A6 : Column is held constant; Row will be auto-adjusted\nA$6 : Row is held constant; Column will be auto-adjusted\n$A$6 : Both row and column are held constant\n\n\n\n\n\n\n\nNote\n\n\n\nNote: You can add dollar sign manually or by using the F4 key (e.g. 1st press = $A$6, 2nd = A$6, 3rd = $A6, 4th = A6)\n\n\n\nVideo: Auto Adjusted Formulas\nThe following video will outline how to use auto adjusted formulas in excel. This is an excellent tool to be familiar with, as it can help you save time while applying formulas to your excel sheets.\n\n\n\n\n\n\n\nPractice: Auto-Adjusted Formulas\n\n\n\nGo to the second worksheet (“Auto-adjusted”) and try to find the total tuition of each undergraduate program.\nSolution file: Solution File worksheet"
+  },
+  {
+    "objectID": "excel_basics_5.html#lookup-formulas",
+    "href": "excel_basics_5.html#lookup-formulas",
+    "title": "2.4 Mastering the Power of Excel’s Calculation Capabilities",
+    "section": "2.4.3 Lookup Formulas",
+    "text": "2.4.3 Lookup Formulas\nThe last sets of formulas that we will cover in the module are formulas that can be used to look up information. There are 3 types of lookup formulas that will be discussed here: LOOKUP, VLOOKUP, and HLOOKUP.\nLOOKUP and VLOOKUP basically have the same function - the only difference is just where these formulas look for the lookup criteria. Note that the data has to be sorted in an ascending order to ensure the accuracy of these lookup formulas.\nThe LOOKUP formula has two forms: The vector form and the array form. The vector form allows us to manually specify the range of cells that contains the criteria.\n\nVideo: Lookup Formulas\nVLOOKUP and HLOOKUP work the exact same way, but VLOOKUP is used for data that arranged based on columns, while HLOOKUP is used on data that are arranged by rows. VLOOKUP will automatically look for the criteria from the leftmost column of our table array, while HLOOKUP will automatically look for the criteria from the topmost column of our table array. The following video further outlines lookup formulas:\n\n\n\n\n\n\n\nPractice: Lookup formulas\n\n\n\nGo to the last worksheet (“Lookup”) and try to fill in the LOOKUP, VLOOKUP, and HLOOKUP tables.\nSolution file: Solution File Excel"
+  },
+  {
+    "objectID": "excel_more_1.html#learning-objectives",
+    "href": "excel_more_1.html#learning-objectives",
+    "title": "Chapter 3: Excel Data Management and More Tools",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nBecome familiar with charts and graphs\nCalculate: frequency and find random numbers\nEliminating duplicates\nPerform debugging and tracing on formulas\nUnderstand Excel limitations"
+  },
+  {
+    "objectID": "excel_more_2.html#data-management-steps",
+    "href": "excel_more_2.html#data-management-steps",
+    "title": "3.1 Microsoft Excel Basics: Data Management",
+    "section": "3.1.1 Data Management Steps",
+    "text": "3.1.1 Data Management Steps\n\nImport the data\nSort the data\nIdentify cleaning steps\nRemove duplicates and identify variables to clean\n\nIn the previous module, we showed you how to import data in Excel and sort them by variables. Identifying cleaning steps depends on the nature of the data and its design. We can create some summary tables and graphs to find whether there are any ambiguous values or out-of-range data points. Sometimes we might also have duplicate observations in the data that we need to identify and eliminate from the dataset."
+  },
+  {
+    "objectID": "excel_more_2.html#identify-and-remove-duplicates",
+    "href": "excel_more_2.html#identify-and-remove-duplicates",
+    "title": "3.1 Microsoft Excel Basics: Data Management",
+    "section": "3.1.2 Identify and remove duplicates",
+    "text": "3.1.2 Identify and remove duplicates\nWe can identify duplicates in the data by using the logical formulas that we have learned before. There are two ways we can write the formulas:\n1) Simply enter the formula, for example:\n=IF(AND(E2=E3,F2=F3, G2=G3), “dup”,“unique”)\n2) Write the formula then select the formula & Ctrl+Shift+Enter, for example:\n=IF(AND(E3:G3=E6:G6), “dup”,“unique”)+Ctrl+Shift+Enter\nTo eliminate the duplicates, we would need to use the “Remove Duplicates” tool on Excel that can be found under the Data tab.\nData file: Duplicate xlsx\nSolution file: Duplicate Solution xlsx\n\nVideo: Remove Duplicates\nThe following video will teach you how to remove duplicates using formulas. Being able to remove duplicates quickly will enable you process data more efficiently."
+  },
+  {
+    "objectID": "excel_more_3.html#elements-of-a-chart",
+    "href": "excel_more_3.html#elements-of-a-chart",
+    "title": "3.2 Excel Graphs",
+    "section": "3.2.1 Elements of a Chart",
+    "text": "3.2.1 Elements of a Chart\nLet’s get to know the components or elements of an Excel chart so that we can communicate efficiently about what needs to be included in graphs. Microsoft provides a nice overview of how to create a chart from start to finish as shown below:\n\n\n\nFigure 9 - Elements of a chart.\n\n\n\nChart area, which is essentially the entire chart\nPlot area is the area where data points are displayed, bounded by axes\nData points of the data series plotted in the chart (e.g., bars, columns, lines, dots). Excel uses the term ‘data markers.’\nHorizontal (X) and vertical (Y) axis along which data is plotted\nLegend, which describes the data series\nChart and axis title\nData label, which identifies details of a data point in a data series\n\nIt is EXTREMELY important that you label your graphs sufficiently. Use a legend to describe data points and label your axes! Axis labels should include the variable names and units. You may not need a title if you add a figure caption when you present the graph. Looking at the chart above from Microsoft’s “Create a chart start to finish” site, do you see anything that may be missing? What about a Y-axis label? Do you know what the numbers on the Y-axis stand for? $US, Canadian $, Euros? I have no idea? I can only guess that it is $US based on this coming from a US webpage. REMEMBER: always label your graphs sufficiently!\nExcel allows you to edit all the elements of a chart. A good way to start is to right-click on the chart element that you want to change and see what options you get in the window that opens up. You can also simply click anywhere in the chart to display the Chart Tools. Choose the Current Selection Group in the Format tab use the drop-down menu to select the element you want to format.\n\nVideo: Creating Charts in Excel\nThe following video will teach you how to create graphs from data stored in excel. Inserting charts automatically is a skill that you will use often, and knowing how to properly select the correct graph type will allow you to be efficient.\n\nScatterplots are used to display the relationship between two numeric variables. Some examples are tree diameter vs. tree height, tree age vs. tree height, mammal bodyweight vs. mammal brain weight (litter size, gestation period in days), and years of work experience vs. salary. Scatterplots allow you to get the first idea of whether two variables are highly correlated or if there is no relationship at all.\nScatterplot file: Example Scatter Plot xlsx"
+  },
+  {
+    "objectID": "excel_more_3.html#bar-graphs",
+    "href": "excel_more_3.html#bar-graphs",
+    "title": "3.2 Excel Graphs",
+    "section": "3.2.2 Bar Graphs",
+    "text": "3.2.2 Bar Graphs\nExcel refers to bar graphs as either column (vertical bars) or bar charts (horizontal bars). They are typically used for comparing groups. Examples include frequency of trees by decay class, mean salary by gender, amount of carbon by pool (e.g., live vs. dead). Bar graphs can also be used to track changes over time (e.g., precipitation over a year).\nExample bar graph: Bar Graph xlsx"
+  },
+  {
+    "objectID": "excel_more_4.html#useful-things-to-know-about-excel-charts",
+    "href": "excel_more_4.html#useful-things-to-know-about-excel-charts",
+    "title": "3.3 Excel Graphs",
+    "section": "3.3.1 Useful things to know about Excel charts",
+    "text": "3.3.1 Useful things to know about Excel charts\nYou can either embed your chart on the worksheet that contains your data or you can save the charts on a separate sheet after you created it. You can even customize a chart as a chart template so that you don’t have to do the same formatting steps over and over again if you need to create the same type of plot for multiple data sets. Excel provides lots of other chart types that I decided not to discuss in this chapter."
+  },
+  {
+    "objectID": "excel_more_4.html#frequency-table-formula",
+    "href": "excel_more_4.html#frequency-table-formula",
+    "title": "3.3 Excel Graphs",
+    "section": "3.3.2 Frequency Table Formula",
+    "text": "3.3.2 Frequency Table Formula\nWe can create a Pivot Table or use a count formula to find the frequency for each group in grouped data.\nFrequency example: Frequency example xlsx\n\nVideo: Creating a Frequency Table Using the COUNTIF Formula\nThe following video will go over an example of how to create a frequency table within excel. Not all data will come with frequencies already calculated, so knowing how to add this yourself can be important."
+  },
+  {
+    "objectID": "excel_more_4.html#random-number-generation",
+    "href": "excel_more_4.html#random-number-generation",
+    "title": "3.3 Excel Graphs",
+    "section": "3.3.3 Random Number Generation",
+    "text": "3.3.3 Random Number Generation\nIn Excel, we can generate a random number using the RAND() formula. From a bigger data/table in Excel, we can select samples randomly and create a sample table.\nData file: Random Generation xlsx\nSolution file: Random Generation Solution xlsx\n\nVideo: Generating Random Numbers Using the RAND() Formula\nThe following video will show you how to generate random numbers within excel. Many software programs will allow you to generate random numbers, and knowing how to accomplish this in each program will help you become proficient."
+  },
+  {
+    "objectID": "excel_more_4.html#professional-formatting",
+    "href": "excel_more_4.html#professional-formatting",
+    "title": "3.3 Excel Graphs",
+    "section": "3.3.4 Professional Formatting",
+    "text": "3.3.4 Professional Formatting\nTry downloading this file and formatting it: Excel Organization xlsx\nHere is an example of the formatted data: Excel Organization Formatted xlsx"
+  },
+  {
+    "objectID": "excel_more_4.html#tracing-formulas",
+    "href": "excel_more_4.html#tracing-formulas",
+    "title": "3.3 Excel Graphs",
+    "section": "3.3.5 Tracing Formulas",
+    "text": "3.3.5 Tracing Formulas\nTracing formulas example: Tracing Formulas xlsx\n\nCheck Tracing formulas\nRemove Arrows\nShow formulas\nEvaluate Formulas: Nested items"
+  },
+  {
+    "objectID": "excel_pivot_1.html#learning-objectives",
+    "href": "excel_pivot_1.html#learning-objectives",
+    "title": "Chapter 4: Excel PivotTable and Chart",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nBecome familiar with summarizing data using Pivot Table\nSummarize data using Pivot Chart\nCreate Pivot Table and Chart together\nAlter Pivot Tables and Charts"
+  },
+  {
+    "objectID": "excel_pivot_2.html#pivottable",
+    "href": "excel_pivot_2.html#pivottable",
+    "title": "4.1 General Features of PivotTable and Chart",
+    "section": "4.1.1 PivotTable",
+    "text": "4.1.1 PivotTable\nA PivotTable is a special type of data summary table in Excel. PivotTables allow us to easily summarize and analyze data by categories or groups with just a few clicks without entering any formulas. This tool is much more efficient than creating summary tables ‘manually’ in Excel, which would require highlighting specific data ranges and entering formulas repeatedly.\nPivotTable vs. normal table: Pivot Table Sample"
+  },
+  {
+    "objectID": "excel_pivot_2.html#creating-pivottable",
+    "href": "excel_pivot_2.html#creating-pivottable",
+    "title": "4.1 General Features of PivotTable and Chart",
+    "section": "4.1.2 Creating PivotTable",
+    "text": "4.1.2 Creating PivotTable\nTo create a PivotTable, click on one cell in the data table that you want to summarize, click on the PivotTable button under the INSERT tab, and specify the contents (Table/Range) and location using the dialogue box that opens up. Then, you can manually determine the table layout using the PivotTable Field List.\nThe PivotTable Field List contains two sections: 1) the field section, which contains the names of the fields you can add to the layout section, and 2) the layout section. The Layout section contains 4 areas: a) Filter, b) Columns, c) Rows, and d) Values.\nTo place a field in a specific area of the layout section, you can right-click on the field name in the field section and choose where to add it in the layout section. Alternatively, you can click and drag the field names into the desired area in the layout section. The key with PivotTables is really to play around with different table layout options until you get what you want, so don’t be afraid to try different layouts, especially since your original data will be preserved even when you modify your PivotTable.\nTo delete a PivotTable, click anywhere on your table, press Ctrl+A (or Cmd+A in Mac), and then press the delete key on your keyboard."
+  },
+  {
+    "objectID": "excel_pivot_2.html#changing-value-field-settings-and-table-design",
+    "href": "excel_pivot_2.html#changing-value-field-settings-and-table-design",
+    "title": "4.1 General Features of PivotTable and Chart",
+    "section": "4.1.3 Changing Value Field Settings and Table Design",
+    "text": "4.1.3 Changing Value Field Settings and Table Design\nBy default, Excel summarizes the selected data as totals using the SUM function. To select the type of calculation that you want for each variable (e.g., Average, Count, Minimum, or Maximum), click on the variable in the Values area and choose ‘Value Field Settings’ in the drop-down menu. You can also find the option to do this in the Active Field group under the ANALYZE tab in the PivotTable Tools that opens up whenever you click a cell within the PivotTable.\nThe second tab in the PivotTable Tools is the DESIGN tab that allows you to modify some of the table layout options. In the Layout group, you can choose to include subtotals and/or grand totals in your PivotTable. You can also add Styles to your PivotTable."
+  },
+  {
+    "objectID": "excel_pivot_2.html#pivotchart",
+    "href": "excel_pivot_2.html#pivotchart",
+    "title": "4.1 General Features of PivotTable and Chart",
+    "section": "4.1.4 PivotChart",
+    "text": "4.1.4 PivotChart\nYou can generate PivotCharts to go along with the PivotTables that you create. To create a PivotChart, you can follow the same steps as creating ‘normal’ charts: click the PivotTable that you want to graph, go to the Charts group under the INSERT tab and choose the appropriate chart type. Alternatively, you can click on the PivotTable, go to the Tools group on the ANALYZE tab, and click on PivotChart.\nExcel will create a PivotChart that contains a field list similar to that of the PivotTable with 4 fields: Filters, Legend (Series), Axis (Categories), and Values. The LAYOUT tab under PivotChart Tools is similar to the one you have seen before for the ‘normal’ charts. In this tab. you will find all the options to add and modify the chart axes, legend, titles, etc.\nAdditional examples: Example fish data\nFish data: Fish data\n\nVideo: Summarizing Data Using PivotTable and PivotChart\nCreating a PivotTable within excel can be confusing at first, but it can be a powerful tool to quickly find summaries within your data. The following video will show you how to create PivotTables.\n\n\n\n\n\n\n\nPractice Items:\n\n\n\n\nSummarize the data for species (group by species) and show the number of species in each species group.\nShow the distribution of DBH of trees\nSummarize DBH and Height by Species\n\nSample data: Excel organization\nSolution: Pivot Table Solution"
+  },
+  {
+    "objectID": "excel_pivot_3.html#making-changes-to-pivottable-in-excel",
+    "href": "excel_pivot_3.html#making-changes-to-pivottable-in-excel",
+    "title": "4.2 Making Changes to PivotTable and Chart",
+    "section": "4.2.1 Making Changes to PivotTable in Excel",
+    "text": "4.2.1 Making Changes to PivotTable in Excel\nAfter you have created a PivotTable, you might want to either add/remove a column or row, change the order of rows or columns, or modify the report layout. Some of the fairly common situations that I have encountered are:\n\nChange the field arrangement in a PivotTable report\nChange the order of row or column items\nChange how errors and empty cells are displayed\n\nIt is important that you try moving around the fields between different areas or change the order of fields within an area to understand the results of these changes. Remember that changing the PivotTable will not affect your original dataset!\n\nVideo: Making Changes to Pivot Table in Excel\nPivot Tables are very flexible and can allow you to easily make changes to their structure. The following video will describe how to make structural changes to your tables.\n\n\n\n\n\n\n\nSample Data:\n\n\n\nSample data from the video: Treatment Data"
+  },
+  {
+    "objectID": "excel_pivot_3.html#selecting-certain-variables-and-keeping-the-original-pivottable-and-chart",
+    "href": "excel_pivot_3.html#selecting-certain-variables-and-keeping-the-original-pivottable-and-chart",
+    "title": "4.2 Making Changes to PivotTable and Chart",
+    "section": "4.2.2 Selecting Certain Variables and Keeping the Original PivotTable and Chart",
+    "text": "4.2.2 Selecting Certain Variables and Keeping the Original PivotTable and Chart\nSometimes, you might want to create a PivotChart that only shows some of the variables from your PivotTable but still keep the original (complete) PivotTable. You will see that changing the PivotChart will also change the PivotTable, which is not what you want. Copy-pasting only the PivotChart and then changing this new PivotChart will still alter the original PivotTable. So, to keep the original PivotTable, you will have to copy-paste the PivotTable to a new location, select the variables that you want to keep, and then create a PivotChart based on the new PivotTable.\n\nVideo: Selecting Certain Variables\nSelecting certain variables in a Pivot Table allows you to quickly change the format of a table. The following video will show you how to select and deselect certain variables.\n\n\n\n\n\n\n\nSample Data\n\n\n\nSample data from the video: Treatment Data"
+  },
+  {
+    "objectID": "excel_pivot_3.html#defer-layout-update-in-pivottable-in-excel-windows-only",
+    "href": "excel_pivot_3.html#defer-layout-update-in-pivottable-in-excel-windows-only",
+    "title": "4.2 Making Changes to PivotTable and Chart",
+    "section": "4.2.3 Defer Layout Update in PivotTable in Excel (Windows only)",
+    "text": "4.2.3 Defer Layout Update in PivotTable in Excel (Windows only)\nIt takes a lot of time to apply any changes to a large dataset. To make changes on your PivotTable without applying them right away, you can select “Defer Layout Update” and manually apply the update by clicking on the “Update” tab.\n\n\n\n\n\n\n\nSample Data\n\n\n\nSample data from the video: Large Data Example"
+  },
+  {
+    "objectID": "r_basics_1.html#learning-objectives",
+    "href": "r_basics_1.html#learning-objectives",
+    "title": "Chapter 5: RStudio Basics: R as a Calculator & Data Handling in R",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nBecome familiar with writing programs in R and RStudio\nBecome familiar with basic programming terminology and concepts\nBe capable users of the R, RStudio, and RMarkdown statistical package\nBecome familiar with importing and exporting various data files in the R environment\nSummarize data in R\nBecome familiar with calculation in R and creating variables\nDevelop different types of objects and data in R"
+  },
+  {
+    "objectID": "r_basics_2.html#installation",
+    "href": "r_basics_2.html#installation",
+    "title": "5.1 R and RStudio Introduction",
+    "section": "5.1.1 Installation",
+    "text": "5.1.1 Installation\nYou need to install R first based on your operating system (Mac/Windows) and choose your CRAN location based on your current geographical location. After installing R, install RStudio. The installation process is very similar for Mac and Windows.\nInstall R & Install RStudio on a laptop/desktop:\n\nSee this video to follow the steps, but you need to select the appropriate R version, operating system, and location.\nYou can watch this video if you are running on a Mac system.\nIf the desktop version is creating a problem or you can’t install R & RStudio, then you can work on RStudio Cloud, an online version of RStudio, as well. To work on RStudio Cloud, you need to sign-up with a username and password. You do not have to use your real name for this sign-up.\nSimilar to choosing CRAN location when downloading the desktop version of R/RStudio, select the geographical location closest to you when signing up for an RStudio Cloud account.\nWork online: Cloud-Based\nHelpful external video"
+  },
+  {
+    "objectID": "r_basics_2.html#r-and-rstudio-basic",
+    "href": "r_basics_2.html#r-and-rstudio-basic",
+    "title": "5.1 R and RStudio Introduction",
+    "section": "5.1.2 R and RStudio Basic",
+    "text": "5.1.2 R and RStudio Basic\nR is a programming language and a piece of software used to run programs. It is mostly pretty clear from the context what is being referred to. In the next few weeks, you will learn how to write some very simple programs in the R language. The programming language was created at the University of Auckland in the early 1990s by Ross Ihaka and Robert Gentleman. The R language is based on the S language, which is a commercial software that was developed at Bell Laboratories in the 1970s. R is a GNU project, meaning that it is free and open-source. The continued development and enhancement of R is overseen by a group of about 20 people that are referred to as the R Core Team.\nR is an interpreted language (=scripting language) that does not need to be compiled before you run it. Some other languages such as C, Java, and FORTRAN, have to compile the human-readable code into machine-readable code (0s and 1s) before the code can be run. R is a high-level programming language that is fairly easy to understand and does not give us access to any of the inner workings of a computer.\nR code can bear a lot of similarity to other programming languages because it supports a mix of programming paradigms: imperative language (sequence of statements), object-oriented programming, and functional programming.\nR provides an environment for statistical computing and graphics. Since this is an introductory module to R, we will not be using codes and functions that are too complicated. However, we will learn to create graphics and, hopefully, we will notice that R is able to create much nicer graphs than Excel and that we as users of R retain full control of how the graphs would look."
+  },
+  {
+    "objectID": "r_basics_3.html#what-is-r-markdown",
+    "href": "r_basics_3.html#what-is-r-markdown",
+    "title": "5.2 What is RStudio?",
+    "section": "5.2.1 What is R Markdown?",
+    "text": "5.2.1 What is R Markdown?\nR Markdown is a package that we can use in RStudio. It is a powerful package that allows us to write codes and non-codes in the same document, as well as knit our codes to more accessible file type such as Word, HTML, and PDF. Files that we save from RStudio when we are using R Markdown have an Rmd extension, which stands for, you guessed it, R Markdown!\nDetails to writing and formatting an R document in RMarkdown: RMarkdown Tutorial\nR Markdown initiate for RStudio Cloud users:\nGo to “File&gt; new file&gt; R Markdown”. A bunch of packages will be updated, say ‘yes’ to updated latest packages.\nExample code that you can use to explore RStudio and R Markdown:\nYou can copy the following code chunks directly into an RMarkdown file to practice (click on “Show the code”):\n\n\nShow the code\n---\ntitle: \"R Notebook\"\noutput:\n  word_document: default\n  pdf_document: default\n  html_notebook: default\n---\n\n# This is an R Notebook. You can use it to take notes and run code.\n\n# You can write code in chunks that look like this.\n# This chunk uses some code from base R to plot a data set.\n# To run the code, change the eval argument to \"eval=TRUE\", and then click the Green play button to the right. Try it!\nplot(cars)\n\n\nThe results of a code chunk will appear beneath the chunk. You can click the x above the results to make them go away, but let’s not do that.\nYou can open a new R Notebook by going to File &gt; New File &gt; R Notebook."
+  },
+  {
+    "objectID": "r_basics_3.html#adding-chunks",
+    "href": "r_basics_3.html#adding-chunks",
+    "title": "5.2 What is RStudio?",
+    "section": "5.2.2 Adding Chunks",
+    "text": "5.2.2 Adding Chunks\nTo add a new chunk, press Cmd+Option+I (Ctrl+Alt+I on Windows), or click the Insert button at the top of this document, then select R.\nFor now, you should place all of your R code inside of code chunks.\nYou can click the downward facing arrow to the left of the play button to run every chunk above the current code chunk. This is useful if the code in your chunk depends on the code in previous chunks. For example, if you use an object or data set made in a previous chunk."
+  },
+  {
+    "objectID": "r_basics_3.html#html-version",
+    "href": "r_basics_3.html#html-version",
+    "title": "5.2 What is RStudio?",
+    "section": "5.2.3 HTML version",
+    "text": "5.2.3 HTML version\nWhen you save the notebook, an HTML file containing the code and output will be saved alongside it. This makes a nice, polished report of your work to share.\nClick the Preview button at the top of this document or press Cmd+Shift+K (Ctrl+Shift+K on Windows) to preview the HTML file. Try clicking Preview now."
+  },
+  {
+    "objectID": "r_basics_3.html#packages",
+    "href": "r_basics_3.html#packages",
+    "title": "5.2 What is RStudio?",
+    "section": "5.2.4 Packages",
+    "text": "5.2.4 Packages\nYou can immediately run any function from base R within a notebook, But if you’d like to run a function that comes in an R package, you will need to first load the package in the notebook.\nYou’ll need to reload your packages every time you begin a new notebook.\n\n\n\n\n\n\nPractice\n\n\n\nIn a new Rmd file, insert a new code chunk and copy and following calculations (click on “Show the code”):\n\n\nShow the code\nx &lt;- 32\ny &lt;- 5\nx\ny\nd &lt;- x + y\nd\nplot(x,y)\n\n\n\nsave the document\ngive this chunk a heading “Basic function” (using # outside of the code chunk)\nrun the code chunk\nknit the Rmd file into a Word file (if you can’t knit the file, you should review your code to identify the error)"
+  },
+  {
+    "objectID": "r_basics_3.html#getting-help-on-r",
+    "href": "r_basics_3.html#getting-help-on-r",
+    "title": "5.2 What is RStudio?",
+    "section": "5.2.5 Getting help on R",
+    "text": "5.2.5 Getting help on R\nWhenever you have a question about a particular function in R, you should access the built-in help that R provides using the ‘?’ command. To get help with the mean() function, type ?mean into the R Console and hit Enter. The help page provides a description of the function, an example of how it is used, and a list and description of the arguments that are required or optional. The help typically lists references that the function was based on and at the very bottom it has ‘See Also’ and ‘Examples’ sections, in which you can find information about related functions and examples of how to use the function, respectively."
+  },
+  {
+    "objectID": "r_basics_4.html#rmd-and-output-files",
+    "href": "r_basics_4.html#rmd-and-output-files",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.1 Rmd and Output Files",
+    "text": "5.3.1 Rmd and Output Files\nThe following files resemble the files in the video above, except we have elaborated on and included more information about the covered materials. These files are great resources for you when you are reviewing for your formal assessments!\n\nIn the video, I showed the Rmd file: R as a calculating environment\nthe information in the file is described below"
+  },
+  {
+    "objectID": "r_basics_4.html#basic-operators-in-r",
+    "href": "r_basics_4.html#basic-operators-in-r",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.2 Basic Operators in R",
+    "text": "5.3.2 Basic Operators in R\nWe will first start by writing codes in an R code chunk (how to insert a code chunk will be covered later in the lecture). Note how the code chunk is shaded grey. Only information that you write in the code chunk is registered as codes. Anything written outside the code chunk, A.K.A the R Markdown chunk, will be registered as non-codes by RStudio.\nNote also how the we have the # before the blue text “Basic Operators in R”. Having this # symbol in the R Markdown chunk tells R that the text should act as a heading. If you want to create a subheading or a sub-subheading, simply add more # symbols in front of the text - for example, ## heading 2 and ### heading 3.\nThe same # symbol has a very different meaning when written in an R code chunk. Anything written after # in a code chunk are registered by RStudio as comments and do not run as codes - they are like extra notes that tell you, or someone you share this file to, more information about what the code does.\nTo learn more about a function, you can place a ? before the function name (e.g. ?mean) or search for it directly in the help tab in the bottom right window. This built-in function of R will give you information regarding any code function such as which package it belongs to, its arguments, and examples on how to use it. References and related functions are also provided for your own independent exploration.\nAs you may have recalled from our synchronous session, you can create vectors with the operator c(). To save a vector and assign it to a variable, we use &lt;- (the shortcut for this symbol is Alt+-(minus sign) for Windows or Option+-(minus sign) for Mac). R also has other data types that you can explore on your own time.\n\n\nShow the code\n?mean\nx &lt;- c(0:10, 50)\nx\n# getting help in R\n?plot"
+  },
+  {
+    "objectID": "r_basics_4.html#running-code",
+    "href": "r_basics_4.html#running-code",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.3 Running Code",
+    "text": "5.3.3 Running Code\nIf you want to run a whole code chunk, simply click on the green play button on the top right corner of the R chunk. If you only want to run a single line of code, you can highlight or place your curser on only that line, then click “run” (on the top right corner of the code editor window) and then “run selected lines”.\n\n\n\nFigure 11 - How to Run Selected Lines\n\n\nA shortcut for running single code lines is Ctrl+Enter for Windows and Cmd+Return/Enter for Mac. A shortcut for running a whole code chunk is Shift+Ctrl+Enter for Windows and Shift+Cmd+Return/Enter for Mac.\nAs you can see in the code chunk below, we can also store vectors in variables that are actual words instead of just a single letter. It is noteworthy that variable names need to be 1 single, connected word. For example, red_apple is okay, but red apple is not! Variable names also cannot start with a number, R is picky this way. For instance, six_apples or apples_6 are okay, but 6_apples is not!\nThe function ls() is especially helpful if you want to check how many and what variables you’ve created. Another way to check this is to go to your Environment on the top right corner of RStudio.\n\n\nShow the code\nstorks &lt;- c(2,6,3,6,2,8)\nstorks\n#&gt; [1] 2 6 3 6 2 8\n\nbabies &lt;-c(6,8,5,9,4,9) \nbabies\n#&gt; [1] 6 8 5 9 4 9\n\nls()\n#&gt; [1] \"babies\"          \"has_annotations\" \"storks\""
+  },
+  {
+    "objectID": "r_basics_4.html#insert-a-new-chunk",
+    "href": "r_basics_4.html#insert-a-new-chunk",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.4 Insert a new chunk",
+    "text": "5.3.4 Insert a new chunk\nTo insert a new code chunk, you can go to insert and then click R.\n\n\n\nFigure 12 - Inserting a Code Chunk\n\n\nOr you can also type this ({r}) manually. Note that you can only see the following blank code chunk if you’re viewing this file on RStudio."
+  },
+  {
+    "objectID": "r_basics_4.html#writing-and-saving-codes",
+    "href": "r_basics_4.html#writing-and-saving-codes",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.5 Writing and saving codes",
+    "text": "5.3.5 Writing and saving codes\nAnother data type in R is data frame. You can join several vectors together to create a data frame using the function data.frame(). Similarly, you can also save this data frame by storing it in your environment using &lt;-. Also, a data frame is similar to a table.\nTo check all of the names of a data frame’s variables, you can use the function names(). In this case, a variable is equivalent to a column in a data frame. Pro-tip: if you want to change the names of a data frame’s variable/column, you can use the function names() followed by &lt;- and then a vector of the new names in quotation marks \"\". For example names(treedat2) &lt;- c(\"DBH\", \"Height\") - try it! (But note that you have to turn the names back to its original form for the rest of the codes of this document to work as R is case-sensitive)\nFor now, you are only expected to know that plot() is the function that graphs your data. plot() needs you to specify the data frame followed by a $ and then the variable name. The only way to avoid typing the data frame name every time is to use attach() - we will go over this function later. There are two ways for you to type your arguments in plot():\n\nusing ~ to separate the x and y variables and\nusing , to separate the x and y variables.\n\nWe will explore plot() in MUCH more detail in the next module: R II: Graphical Presentation in R.\n\n\nShow the code\n\n# enter the dbh data\ndbh &lt;- c(10.1,11.2,19.7,20.5,17.8,17.0,11.0,4.1,6.0)\n\n# enter the height data\nheight &lt;- c(14.2,15.1,25.3,21.2,21.5,18.0,12.1,5.2,6.3)\n\n# join the vectors above to create a data frame\ntreedat2 &lt;- data.frame(dbh,height) \n\nnames(treedat2) \n#&gt; [1] \"dbh\"    \"height\"\n  ## names() gives us all of the variable names of the said dataframe\n\n# simple graph\nplot(treedat2$height~treedat2$dbh)\n\n\n\n\n\nShow the code\n\n# or plot it as\nplot(treedat2$height, treedat2$dbh)\n\n\n\n\n\n\n\n\n\n\n\nChallenge:\n\n\n\nCan you spot any differences between the 2 graphs? How can you change the code of either one of them to make the two match?"
+  },
+  {
+    "objectID": "r_basics_4.html#important-rules",
+    "href": "r_basics_4.html#important-rules",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.6 Important Rules",
+    "text": "5.3.6 Important Rules\nIn this section, we will go over some important rules in R and how to troubleshoot common mistakes.\n\nAgain, it is important to note that R is case-sensitive. In other words, Dbh is VERY different from dbh!!\nThere will be times when you need to copy and paste a folder pathway (e.g. when importing a file into R or when setting a new working directory using setwd()). If you are using a Mac, R uses / instead of , so make sure to change all of your  to / when copying a folder pathway (we will talk more about this later).\nIf you are using Windows, R uses \\ instead of , so make sure to change all of your  to \\ when copying a folder pathway (we will talk more about this later).\nEverything following # is a comment that does not code for anything."
+  },
+  {
+    "objectID": "r_basics_4.html#saving-and-cleaning-up",
+    "href": "r_basics_4.html#saving-and-cleaning-up",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.7 Saving and Cleaning Up",
+    "text": "5.3.7 Saving and Cleaning Up\nYou can choose to save the workspace so that RStudio remembers everything that you ran in an earlier session.\nFor the sake of organization, you can choose to clear the workspace - this is especially helpful when your environment is swarmed with unecessary/intermediary variables and dataframes that you don’t need. On the top left corner of your environment, there is a broom that you can click to clear your environment.\n\n\n\nFigure 13 - Clearing Your Environment"
+  },
+  {
+    "objectID": "r_basics_4.html#types-of-objects",
+    "href": "r_basics_4.html#types-of-objects",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.8 Types of Objects",
+    "text": "5.3.8 Types of Objects\nAs mentioned earlier, R contains many types of data or types of objects. We have previously covered what a vector is. Once you’ve created and stored a vector, you can also check its length using length() and its class using class(). A length of an object is simply how many variables/components it contains. For example c(1, 2, 3)’s length is three and 1’s length is one. The class of an object tells us the type of information an object contains. For example, the class of c(1, 2, 3) is numeric whereas the class of c(\"male\", \"female\", \"other\") is character.\nA factor is used to categorize data and can store both strings and integers. You can convert a vector into a factor by using as.factor().\nA matrix is a two-dimensional collection of similar data type. You can use cbind() (column bind) or rbind() (row bind) to bind vectors together into a matrix. A data frame is a more complex table that can contain different types of data. It can be difficult at first to distinguish between a matrix and a dataframe. You can visit this site to learn more about their differences.\nYou don’t have to know too much about modelling. The main takeaway is that the function lm() is used to fit a linear model. In other words, the code lm(v2~v3) tells R that we want to predict the values of v2 knowing v3 values using a linear model. After creating a model, you can check its structure by using the function str(). This function will lets you know all of the parameters and outputs of your model.\nThe very last function that we will cover in this .Rmd file is summary(). This is an extremely powerful function that tells you all of the basic statistics of your object. This includes mean, median, min, max, quartiles, and identify any special values such as NA values.\n\n\nShow the code\n#Examples:\n # Vectors:\nv1 &lt;- 1\nv2 &lt;- c(1,7.5,2.0)\nv3 &lt;- c(1,2,3)\nv4 &lt;- c(11,NA,13) # one value is NA (missing)\nlength(v1)\n#&gt; [1] 1\nlength(v2)\n#&gt; [1] 3\nclass(v3)\n#&gt; [1] \"numeric\"\nclass(v4)\n#&gt; [1] \"numeric\"\n\n#Factors:\nf1 &lt;- \"spaghetti\" # called a string-in quotes\nf2 &lt;- c(\"male\", \"female\")\nclass(f2)\n#&gt; [1] \"character\"\n\n#Change from vector to factor:\nf3 &lt;- as.factor(v3) # changes v3 from a vector to a factor\nclass(f3)\n#&gt; [1] \"factor\"\n\n#Matrix:\nm1 &lt;- rbind(v2,v3,v4)\ndim(m1)\n#&gt; [1] 3 3\nclass(m1)\n#&gt; [1] \"matrix\" \"array\"\n\n#Dataframe:\ndf1 &lt;- data.frame(m1,f3) # changes the info to a dataframe\nclass(df1)\n#&gt; [1] \"data.frame\"\n\n#Model:\nmodel1 &lt;- lm(v2~v3)  \nstr(model1)   # tells you what is in model1 - lots of stuff\n#&gt; List of 12\n#&gt;  $ coefficients : Named num [1:2] 2.5 0.5\n#&gt;   ..- attr(*, \"names\")= chr [1:2] \"(Intercept)\" \"v3\"\n#&gt;  $ residuals    : Named num [1:3] -2 4 -2\n#&gt;   ..- attr(*, \"names\")= chr [1:3] \"1\" \"2\" \"3\"\n#&gt;  $ effects      : Named num [1:3] -6.062 -0.707 -4.899\n#&gt;   ..- attr(*, \"names\")= chr [1:3] \"(Intercept)\" \"v3\" \"\"\n#&gt;  $ rank         : int 2\n#&gt;  $ fitted.values: Named num [1:3] 3 3.5 4\n#&gt;   ..- attr(*, \"names\")= chr [1:3] \"1\" \"2\" \"3\"\n#&gt;  $ assign       : int [1:2] 0 1\n#&gt;  $ qr           :List of 5\n#&gt;   ..$ qr   : num [1:3, 1:2] -1.732 0.577 0.577 -3.464 -1.414 ...\n#&gt;   .. ..- attr(*, \"dimnames\")=List of 2\n#&gt;   .. .. ..$ : chr [1:3] \"1\" \"2\" \"3\"\n#&gt;   .. .. ..$ : chr [1:2] \"(Intercept)\" \"v3\"\n#&gt;   .. ..- attr(*, \"assign\")= int [1:2] 0 1\n#&gt;   ..$ qraux: num [1:2] 1.58 1.26\n#&gt;   ..$ pivot: int [1:2] 1 2\n#&gt;   ..$ tol  : num 1e-07\n#&gt;   ..$ rank : int 2\n#&gt;   ..- attr(*, \"class\")= chr \"qr\"\n#&gt;  $ df.residual  : int 1\n#&gt;  $ xlevels      : Named list()\n#&gt;  $ call         : language lm(formula = v2 ~ v3)\n#&gt;  $ terms        :Classes 'terms', 'formula'  language v2 ~ v3\n#&gt;   .. ..- attr(*, \"variables\")= language list(v2, v3)\n#&gt;   .. ..- attr(*, \"factors\")= int [1:2, 1] 0 1\n#&gt;   .. .. ..- attr(*, \"dimnames\")=List of 2\n#&gt;   .. .. .. ..$ : chr [1:2] \"v2\" \"v3\"\n#&gt;   .. .. .. ..$ : chr \"v3\"\n#&gt;   .. ..- attr(*, \"term.labels\")= chr \"v3\"\n#&gt;   .. ..- attr(*, \"order\")= int 1\n#&gt;   .. ..- attr(*, \"intercept\")= int 1\n#&gt;   .. ..- attr(*, \"response\")= int 1\n#&gt;   .. ..- attr(*, \".Environment\")=&lt;environment: R_GlobalEnv&gt; \n#&gt;   .. ..- attr(*, \"predvars\")= language list(v2, v3)\n#&gt;   .. ..- attr(*, \"dataClasses\")= Named chr [1:2] \"numeric\" \"numeric\"\n#&gt;   .. .. ..- attr(*, \"names\")= chr [1:2] \"v2\" \"v3\"\n#&gt;  $ model        :'data.frame':   3 obs. of  2 variables:\n#&gt;   ..$ v2: num [1:3] 1 7.5 2\n#&gt;   ..$ v3: num [1:3] 1 2 3\n#&gt;   ..- attr(*, \"terms\")=Classes 'terms', 'formula'  language v2 ~ v3\n#&gt;   .. .. ..- attr(*, \"variables\")= language list(v2, v3)\n#&gt;   .. .. ..- attr(*, \"factors\")= int [1:2, 1] 0 1\n#&gt;   .. .. .. ..- attr(*, \"dimnames\")=List of 2\n#&gt;   .. .. .. .. ..$ : chr [1:2] \"v2\" \"v3\"\n#&gt;   .. .. .. .. ..$ : chr \"v3\"\n#&gt;   .. .. ..- attr(*, \"term.labels\")= chr \"v3\"\n#&gt;   .. .. ..- attr(*, \"order\")= int 1\n#&gt;   .. .. ..- attr(*, \"intercept\")= int 1\n#&gt;   .. .. ..- attr(*, \"response\")= int 1\n#&gt;   .. .. ..- attr(*, \".Environment\")=&lt;environment: R_GlobalEnv&gt; \n#&gt;   .. .. ..- attr(*, \"predvars\")= language list(v2, v3)\n#&gt;   .. .. ..- attr(*, \"dataClasses\")= Named chr [1:2] \"numeric\" \"numeric\"\n#&gt;   .. .. .. ..- attr(*, \"names\")= chr [1:2] \"v2\" \"v3\"\n#&gt;  - attr(*, \"class\")= chr \"lm\"\n\n#Summary for basic statistics:  means, percentiles for numeric values, and counts for factors:\nsummary(v4)\n#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \n#&gt;    11.0    11.5    12.0    12.0    12.5    13.0       1\nsummary(df1)\n#&gt;        X1               X2              X3       f3   \n#&gt;  Min.   : 1.000   Min.   :2.000   Min.   : 2.0   1:1  \n#&gt;  1st Qu.: 1.000   1st Qu.:3.375   1st Qu.: 2.5   2:1  \n#&gt;  Median : 1.000   Median :4.750   Median : 3.0   3:1  \n#&gt;  Mean   : 4.333   Mean   :4.750   Mean   : 6.0        \n#&gt;  3rd Qu.: 6.000   3rd Qu.:6.125   3rd Qu.: 8.0        \n#&gt;  Max.   :11.000   Max.   :7.500   Max.   :13.0        \n#&gt;                   NA's   :1\n\n#More information on the objects: \nstr(v4)\n#&gt;  num [1:3] 11 NA 13\nstr(df1)\n#&gt; 'data.frame':    3 obs. of  4 variables:\n#&gt;  $ X1: num  1 1 11\n#&gt;  $ X2: num  7.5 2 NA\n#&gt;  $ X3: num  2 3 13\n#&gt;  $ f3: Factor w/ 3 levels \"1\",\"2\",\"3\": 1 2 3"
+  },
+  {
+    "objectID": "r_basics_4.html#knitting-your-.rmd-file",
+    "href": "r_basics_4.html#knitting-your-.rmd-file",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.9 Knitting your .Rmd file",
+    "text": "5.3.9 Knitting your .Rmd file\nIn this course, we will only be knitting our .rmd file to a Word or HTML document - preferably Word. Knitting your .Rmd file makes your codes and workflow shareable because not everyone have RStudio installed on their device!"
+  },
+  {
+    "objectID": "r_basics_4.html#variable-classes",
+    "href": "r_basics_4.html#variable-classes",
+    "title": "5.3 R as a Calculating Environment",
+    "section": "5.3.10 Variable classes",
+    "text": "5.3.10 Variable classes\nAll variables in R have a class, which tells you something about the type of variable you are working with and about its properties. You can use the function class() to find out what class of variable you are working with. In RStudio type ?class into the Console pane and hit Enter to navigate to the help page of the function class() and learn how to use it.\nR uses three different classes of variables that contain numbers (= numeric variables): ‘numeric’ for floating-point variables (those have decimal points and are often called float or double in other programming languages), ‘integer’ for integer values (as long as R knows for sure that all values are really integers), and ‘complex’ for complex numbers (e.g., a + bi, where i is the imaginary component of the complex number)."
+  },
+  {
+    "objectID": "r_basics_5.html#data-import",
+    "href": "r_basics_5.html#data-import",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.1 Data Import",
+    "text": "5.4.1 Data Import\nDesktop version of R:\nKeep your data in the same folder as this .Rmd file. If they are not kept in the same folder, then you have to tell R exactly where your data is by copying and pasting the file pathway directly into R. But overall, it is much easier and simpler to keep everything in the same folder. By default, the folder that your .Rmd file is in is called the “working directory”. This is the location that R assumes all of your input files are located. R will also place all of your outputs in this working directory, unless you specify otherwise.\nRStudio online:\nUpload the data file like demonstrated in the video, then write the same read.csv() function to import the data file onto R."
+  },
+  {
+    "objectID": "r_basics_5.html#input-output",
+    "href": "r_basics_5.html#input-output",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.2 Input & Output",
+    "text": "5.4.2 Input & Output\nYou can check what your working directory is by using the function getwd(), or “get working directory”. Interestingly, this code has no arguments - in other words, it does not need anything nested between the () to work - and its output should be a folder pathway to where your .Rmd file is. If you want to change your working directory - which at this point in time is not recommended - you can use the function setwd(), or “set working directory”. Unlike getwd(), you need to paste the desired folder pathway between the () of setwd() in quotation marks \"\" to set a new working directory. For example: setwd(\"C:\\\\Desktop\\\\Handling data in R\\\\\") if you are using Windows and setwd(\"/Users/Desktop/Handling data in R/\"). Finding a pathway in Mac is relatively complicated, so again, it is highly recommended that you place everything in one folder so you do not have to worry about setting a new working directory.\nAfter setting a working directory, you can check all of the files that exist in your directory by using dir(). This function is fantastic for checking whether you are in the right folder, whether there are any extra files, and, most importantly, whether there are any missing files.\nChecking whether you have all of the necessary files in your directory is important will make your life so much easier when you import data into R. For example, if the file trees_data.csv is in your working directory, all you need to do to import this into R is: read.csv(\"trees_data.csv\", header = TRUE). If this file is not in your working directory, you would need to replace \"trees_data.csv\" with the entire pathway of the file - this will make your code much bulkier, more confusing, and less shareable.\nNote also that the file name must be in \"\" and must be exactly like the file on your desktop. A common problem that students have is downloading the same csv file multiple times, resulting in an automatic “-1” (i.e. trees_data-1.csv) - in this case, you need to also add “-1” to your code for it to work. The argument header = TRUE is also important if you are importing data with existing headers (AKA column names). Try changing it to header = FALSE, what does the imported data look like now?\nThe functions for importing data from your hard drive into R are relatively intuitive: read.csv() for csv files, read.table() for txt files. There are other functions as well, but we will not be covering them in this course. These are the two main importing functions that we will use.\nWhen installing packages, it is suggested that you # all install.packages() codes into comments because: * It will cause problems when you try to knit the .rmd file to Word and * it is generally insensitive to share this document to someone and make them accidentally install something into their hard drive\nYou can also export the data from R to txt or csv by using write.table(). This table, by default, will be exported to your working directory. Try typing ?write.table into the console, you can read more information about this function there!\n\n\nShow the code\n# Location of the parent directory / folder you saved this .RMD file\ngetwd()\n\n# Listing all files in the directory\ndir()\n\n# Importing a csv file\ntree1 &lt;- read.csv(\"trees_data.csv\", header = TRUE)\n\n# Importing a .txt file\nHDB &lt;- read.table(\"height_dbh.txt\", header = TRUE) \n\n# Importing VRI data\nvri_data &lt;- read.csv(\"VRI_data.csv\", header = TRUE)\n\n# Importing an excel data file\n#install.packages(\"readxl\")\n#library(\"readxl\")\n#tree2 &lt;- read_excel(\"trees_data.xlsx\")\n\n# Export data as a .txt file\nwrite.table(HDB, \"MyData.txt\")\n\n# Export data as a .csv file\nwrite.table(HDB, file = \"f1.csv\", sep = \",\", col.names = NA, qmethod = \"double\")"
+  },
+  {
+    "objectID": "r_basics_5.html#vri-data",
+    "href": "r_basics_5.html#vri-data",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.3 VRI Data",
+    "text": "5.4.3 VRI Data\nRecall that there are several ways that you can call for a variable in a dataset: (1) using $ or (2) using attach(). attach(), you guessed it, attaches the data to this R session so we do not need to use $. attach() is usually more useful when you are only working with 1 dataset in your .Rmd file, else it will get very confusing if you or someone you share this file to run this file out of order.\nWe can find a summary of all statistics of a dataset using summary(). In the example code below (vri_summary = summary(vri_data)), you may see that we are using a = instead of a &lt;- to assign a value to a variable. In this case, = and &lt;- function similarly (you can change = to &lt;- and re-run the code). However, they may have different functions in other scenarios. We will not be covering these scenarios, so for the context of this course, just understand that = and &lt;- are similar. Important note: Recall that R’s “equal to” is actually ==. So = and == are VERY different!\nYou can also find the dimension of the data using dim(). This should tell you how large the dataset is (AKA numbers of rows and columns) without you having to run the actual data. This may save you some time if your dataset is too big.\nFinally, head() and tail() print the first and last few rows of a dataset for you - again, helpful if your dataset is very large. You can also specify how many rows you want to print by adding an integer after the data frame name. For example, head(vri_data, 10) will print the first 10 rows for you.\n\n\nShow the code\nattach(vri_data)\n\n# Set an object for string the data summary\nvri_summary = summary(vri_data)\n\n# Dimension of the data\ndim(vri_data)\n\n# Print first few rows\nhead(vri_data)\n\n# Print last few rows\ntail(vri_data)"
+  },
+  {
+    "objectID": "r_basics_5.html#data-selection-and-variable-information",
+    "href": "r_basics_5.html#data-selection-and-variable-information",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.4 Data selection and variable information",
+    "text": "5.4.4 Data selection and variable information\nOnce we have successfully imported our data into R and gained general information about it, we can also go into more specific data exploration. Firstly, we can tell R to only extract a few specific rows and columns from the dataset by using []. Note that the first argument in this bracket represents the rows and the second argument represents the column. For example, when we type vri_data[100:110, 4:5], we’re telling R to extra rows 100 to 110 and columns 4 to 5. We use : between two numbers to indicate that it is a range of sequential numbers that we want. So, 100:110 means from 100 to 110.\nIf it is not a range of rows/columns that you want to extract, but very specific, non-consecutive rows/columns, you can nest all the rows/columns that you want in a vector, like in vri_data[c(10, 20, 23), ]. Here, we only want rows 10, 20, and 23. Finally, if you want to extract all rows or all columns, simply leave the argument blank. In other words, vri_data[10, ] tells R to extract row 10 and all columns, but vri_data[ , 10] tells R to extra all rows and column 10.\nThe rest of the functions in this tutorial have already been covered by a previous R lecture file or your assignment. The functions themselves are not hard, it is understanding what they do and when to use them that requires a bit more thought. And as always, the best way for you to be better in R is to practice!\n\n\nShow the code\n# Extracting some rows and all columns\n\nvri_data[10:13, ]\n\n# Printing all variable names \nnames(vri_data)\n\n# An example of creating a variable with sequential values\nx &lt;- 1:5\n\n# Finding the average of the variable x\nmean(x)\n\n# Printing the average of variable ProJ_Age_1\n\nmean(PROJ_AGE_1)\n\n# Printing data types of some variables\n\nclass(SPECIES_CD_1)\n\nclass(PROJ_AGE_1)\n\nclass(PROJ_HEIGHT_1)\n\n# Summarizing the entire dataset\n\nsummary(vri_data)"
+  },
+  {
+    "objectID": "r_basics_5.html#logical-operators",
+    "href": "r_basics_5.html#logical-operators",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.5 Logical Operators",
+    "text": "5.4.5 Logical Operators\nThe arguments that use logical operators give us outputs of True or False.\n\n\n\nFigure 14 - List of logical operators in R\n\n\nIn the context of this course, logical operators are most useful in conjunction with the function subset(). You will see an example of subset() in the second code chunk in this file - heads up, this function will play an important part of your next assignment on Graphical Presentation on R. Again, note the difference between = and ==.\nYou can use logical operators to do a variety of things. For example, when we assign y &lt;- c(\"a\", \"bc\", \"def\"), we can check which components of this vector is equal to “a” by writing y == \"a\". When you run y == \"a\", the output should be TRUE FALSE FALSE. This is because R is comparing all components of the vector y to “a”. Only the first component of the vector is “a”, so only the first comparison of the output is TRUE. There are so many other things that you can compare. For example, you can also check whether the lengths of two vectors are the same, or if one is longer than the other: length(y) == length(x) or length(y) &gt; length(x). Again, the output for these codes should only be TRUE or FALSE.\n\n\nShow the code\n# character vectors\ny &lt;- c(\"a\", \"bc\", \"def\")\nlength(y)\n#&gt; [1] 3\nnchar(y)\n#&gt; [1] 1 2 3\ny == \"a\"\n#&gt; [1]  TRUE FALSE FALSE\ny == \"b\"\n#&gt; [1] FALSE FALSE FALSE\n\n\n# Logical Operators\nx &lt;- c(3, 7, 1, 2)\nx &gt; 2\n#&gt; [1]  TRUE  TRUE FALSE FALSE\nx == 2\n#&gt; [1] FALSE FALSE FALSE  TRUE\n!(x &lt; 3) # x not equal to less than 3\n#&gt; [1]  TRUE  TRUE FALSE FALSE\nwhich(x &gt; 2)\n#&gt; [1] 1 2\n\n\nRecall how we import data into R using read.csv() and the csv file that we are importing needs to be in the same folder as our Rmd file, in other words, our working directory. Below is also an example of a code that we would use to direct R to a file that does not reside in our working directory - we need a copy and paste the whole pathway into R.\nAfter importing a dataset into R, we can actually also change the type of data of the dataset’s variables. For example, we can convert a variable from numeric to factor using as.factor(). In the converting to a factor subsection below, as.factor() is hashtagged into a comment because if you check the class of SPECIES_CD_1, it is actually already a factor, so we do not have to convert it to a factor. Another reason is that, as.factor() works almost identical to factor(). The main difference is that factor() is newer and slightly more preferred.\nSo what exactly is a factor? In simplest words, a factor takes categorical (discrete) variables and store them in what we call levels. For example, in factor(c(1,0,1,0,0,0)), the levels are 1 and 0. We can now use these levels to turn them into labels, like what we did in factor(c(1,0,1,0,0,0), levels = c(0, 1), labels = c(\"boy\", \"girl\")) where we changed all 0 values to “boy” and all 1 values to “girl”. More information on what factors are can be found here.\nYou can also check the class and mode of our new object after we have identified it as a factor. Note that mode() here does NOT code for the mode (AKA most common) value, it tells us the storage mode of an object. Again, more information on mode() can be found in the help tab in the bottom right corner of RStudio.\nAs you have been frontloaded before, in this course, logical operators are most useful when nested in a subset() function. The examples below show you how to do that. There are also extra notes/comments of common mistakes and how to troubleshoot them in the code chunk below. Something important to note is that when you’re using logical operators, each logical statement needs to include three things: (1) verse A on the left side of the statement, (2) a logical operator, and (3) verse B on the right side of the statement.\nA common mistake that student makes is forgetting the first requirement when nesting several logical statements into one subset(). For example, subset(vri_data, SPECIES_CD_1 == \"PLC\" |  SPECIES_CD_1 == \"SS\") is correct, but subset(vri_data, SPECIES_CD_1 == \"PLC\" | \"SS\") is NOT. You can also store subsets the same way that we store any other objects.\n\n\nShow the code\n# Importing VRI data\nvri_data &lt;- read.csv(\"VRI_data.csv\", header = TRUE)\n\n#vri_data &lt;- read.csv(file=\"C:/Users/suborna/VRI_data.csv\", header = T)\n\n#attach the data\nattach(vri_data)\n\n# converting to a factor\nclass(SPECIES_CD_1)\n#as.factor(SPECIES_CD_1)\nsummary(SPECIES_CD_1)\nlevels(SPECIES_CD_1)\n\n# Example\nkids &lt;- factor(c(1,0,1,0,0,0), levels = c(0, 1), labels = c(\"boy\", \"girl\")) \n\nkids \nclass(kids)\nmode(kids)\n\n# subset of data\nplc_stands &lt;- subset(vri_data, SPECIES_CD_1 == \"PLC\" )\n\nsub_vri &lt;- subset(vri_data, SPECIES_CD_1 == \"PLC\" &  PROJ_AGE_1 &gt; 100)\n\ndim(sub_vri)\n\n\n\n\n\n\n\n\nData Files\n\n\n\nTree height text fileheight_dbh.txt\nTree data csvtrees_data.csv\nTree data workbooktrees_data.xlsx\nVRI data csvVRI_data.csv"
+  },
+  {
+    "objectID": "r_basics_5.html#more-logical-operators-in-r",
+    "href": "r_basics_5.html#more-logical-operators-in-r",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.6 More Logical Operators in R",
+    "text": "5.4.6 More Logical Operators in R\nLogical vectors belong to the logical class. The elements of a logical vector can be TRUE, FALSE, and NA (for “not available”). You generate logical vectors by conditions. You can use logical operators to test conditions (&lt;, &lt;=, &gt;, &gt;=, ==, and != for inequality). If you have two logical expressions A and B, you can get their intersection (A & B), their union (A | B), and their negation !A.\nBesides numeric and logical vectors, there are character vectors that contain text. Remember that you enter character values by enclosing them in either double (“) or single (’) quotes. The paste() function is sometimes useful when working with character vectors. It allows you to link vectors into character strings. Type ?paste into the RStudio Console pane and hit Enter to find out more about the past() function."
+  },
+  {
+    "objectID": "r_basics_5.html#vector-assignment-and-arithmetic",
+    "href": "r_basics_5.html#vector-assignment-and-arithmetic",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.7 Vector Assignment and Arithmetic",
+    "text": "5.4.7 Vector Assignment and Arithmetic\nThe simplest thing to use R for is as an interactive calculator as demonstrated in part 3 of this module. This is kind of nice, but really, we wanted to use the programming language R instead of a calculator to automate processes and to avoid repetition. If you want to use the result from one calculation in a second calculation, you have to create a variable that stores the result of the calculation. You assign a value to a variable by using the assignment operator &lt;-. I already talked about the arithmetic operators (+, -, *, /, and ^ ). Some functions of interest in addition to log(), exp(), and sqrt() are as follows:\n\nlength(), which returns the length of a vector\nmean(), which returns the arithmetic average of a vector\nsum(), which returns the sum of all values in a vector\nmin(), which returns the smallest value of the vector\nmax(), which returns the largest value of the vector\n\nWhen you perform calculations with vectors, you have to be careful about what happens when the vectors are not the same length. If you use vectors of different lengths, R will ‘recycle’ the shorter vector and replicate it as many times as need to match the length of the longer vector. This works well if the longer vector is a multiple of the shorter vector. However, when that is not the case, R will produce a warning."
+  },
+  {
+    "objectID": "r_basics_5.html#generating-regular-sequences",
+    "href": "r_basics_5.html#generating-regular-sequences",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.8 Generating regular sequences",
+    "text": "5.4.8 Generating regular sequences\nThe easiest way to generate a sequence is with the colon operator :, for example, 1:3 codes for a sequence of 1 to 3. However, if you want some more control about what the sequence is supposed to look like, you should use the seq() function, with its arguments ‘from,’ ‘to,’ and ‘by,’ which define the start-point, end-point, and interval of the sequence. If you want to create a vector of a specific length that contains a sequence, you can use the argument ‘length’ instead of ‘by’ to define the length of the vector."
+  },
+  {
+    "objectID": "r_basics_5.html#data-import-and-export-details",
+    "href": "r_basics_5.html#data-import-and-export-details",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.9 Data Import and Export Details",
+    "text": "5.4.9 Data Import and Export Details\nWe have only entered data into R by hand by creating different types of small vectors. What do we do when we want to process large amounts of data? We need to be able to read input for our analyses directly from files and sometimes it is also useful to write output to a file for further analysis. R provides the infrastructure to both import and export data. We have covered how to read data from files and write data to files in RStudio in the video. Creating graphs is another form of output - we will cover graphs in the next R module."
+  },
+  {
+    "objectID": "r_basics_5.html#r-built-in-datasets",
+    "href": "r_basics_5.html#r-built-in-datasets",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.10 R Built-in Datasets",
+    "text": "5.4.10 R Built-in Datasets\nYou can find around 100 datasets supplied in R. To see the list of available datasets type data() into the Console Pane. We will use these data sets to practice exporting and importing data. You can also use these datasets to practice for your midterm and final. The fifth data set in the list is called CO2. Let’s look at it. Type ?CO2. The help page for the data set will open up. It contains information about how the data were collected and what variables the dataset contains. You can print the first 6 observations into the Console Pane using head(CO2). I like doing that to see what the dataset looks like being analyzing or manipulating it. You can print the names of the data set into the Console Pane using names(CO2). dim(CO2) gives you the dimensions of the data set: 84 observations and 5 variables. Check out these functions in the R help window: head(), names(), dim().\n\n\n\n\n\n\nExamples:\n\n\n\nBuilt in Dataset\nBuilt in Dataset (html)"
+  },
+  {
+    "objectID": "r_basics_5.html#reading-data-from-files-and-writing-data-to-files",
+    "href": "r_basics_5.html#reading-data-from-files-and-writing-data-to-files",
+    "title": "5.4 Handling data in R",
+    "section": "5.4.11 Reading data from files and writing data to files",
+    "text": "5.4.11 Reading data from files and writing data to files\nMost often, we deal with space-delimited .dat or .txt files, tab-delimited .txt files, or comma-separated values files (.csv). You can read and write any of these data types with the read.table() and write.table() functions, respectively. For .csv files, R has read.csv() and write.csv() as additional options. In the built-in R help, you can find a lot of details about these functions and what arguments they contain.\nIn R Markdown, you can keep the Rmd file and the data files on the same folder, this way you only need to write the name of the data in any of the read functions above to import the data. On RStudio Cloud, you only need to upload them and call them in your program."
+  },
+  {
+    "objectID": "r_graph_1.html#learning-objectives",
+    "href": "r_graph_1.html#learning-objectives",
+    "title": "Chapter 6: Graphical Presentation in RMarkDown",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nBe able to create scatter plots, line graphs, bar graphs, pie charts, and histograms and the different functions and arguments involved on R\nFamiliar with handling and customizing parameters in plot function and creating publication-quality graphs on R\nBe familiar with creating side-by-side graphs on R\nExporting the created graphs on R as images or pdf files"
+  },
+  {
+    "objectID": "r_graph_2.html#basic-graphs-in-rrstudior-markdown",
+    "href": "r_graph_2.html#basic-graphs-in-rrstudior-markdown",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.1 Basic Graphs in R/RStudio/R Markdown",
+    "text": "6.1.1 Basic Graphs in R/RStudio/R Markdown\nIn this module you will learn how to create basic graphs in R. Scatter plots are used to show the association between two numerical variables. In the horizontal axis (the x-axis) we place the values that correspond to the explanatory variable, along the vertical axis (the y-axis) we place the values that correspond to the response variable. The pattern of the cloud of points that we observe in scatters plots gives us an idea about the association between the two variables and if it is positive, negative, or absent."
+  },
+  {
+    "objectID": "r_graph_2.html#add-a-coded-chunk-and-check-your-scatter-plots",
+    "href": "r_graph_2.html#add-a-coded-chunk-and-check-your-scatter-plots",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.2 Add a coded chunk and check your Scatter plots",
+    "text": "6.1.2 Add a coded chunk and check your Scatter plots\nAdd a codded chunk and check your directory getwd()where you kept this “Basic Graphs RStudio and R Markdown.Rmd” file. Keep all data files and this .RMD file in one folder."
+  },
+  {
+    "objectID": "r_graph_2.html#creating-plots",
+    "href": "r_graph_2.html#creating-plots",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.3 Creating plots",
+    "text": "6.1.3 Creating plots\nWe can create a plot in R by using the function plot() and specifying each of the variables that we want to compare inside the parenthesis. This will create a graph with some basic information about the two variables that we are comparing. To add more details to our plots and make them more visually appealing there are multiple functions that we can add to our code.\nLabel x-axis and y-axix: xlab and ylab\nWe can change the text of the x-axis label or the y-axis label by using the functions xlab() or ylab(). The labels that we want to add should be included in quotes inside the parentheses of each function. In these labels we can also specify the units that were used to measure each of our variables (e.g years, meters, etc).\nType of graph: type\nWe use the type to specify the type of graph that we want to create. There are several values possible for this option including “p” for points, “l” for lines, “b” for both points and lines, or “c” for empty points joined by lines."
+  },
+  {
+    "objectID": "r_graph_2.html#symbol-and-colour-of-data-points",
+    "href": "r_graph_2.html#symbol-and-colour-of-data-points",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.4 Symbol and colour of data points:",
+    "text": "6.1.4 Symbol and colour of data points:\nIn scatter plots each observation is represented as a point. We can change the character or symbol of our data points by using the pch function. To plot a specific character, we have to specify the number of the symbol that we want to use in this function (e. g. pch= 16). In Fig.1 you will find some of the characters that are available for this function. To change the colour of the data points, use the col function. You can change the colour of the data points by writing the name of the colour in quotes using this function (e. g. col=“black”). To find a complete list of the colours available in R go to this site.\n\n\n\nFigure 15 - Plot symbols for data points using the pch function.\n\n\nAxis limit: xlim and ylim\nWe can adjust the limits of the x-axis and y-axis by using xlim and ylim functions. By adjusting these limits according to your data, you will be able to see all the data points inside of the graph area. The first number corresponds to the lower limit and the second to the upper limit.\nTitle: main\nUse this function to add a title to the graph. The name should be inside quotes (e. g. main= “Height trend of leading species”).\nSize control: cex\nThis function allows us to change the size of the data points, labels, title, and axes. Use cex to change the size of data points, cex.lab to change the size of titles in axes, cex.axis to change the size of numbers in the axes, and cex.main to change the size of the title of the graph."
+  },
+  {
+    "objectID": "r_graph_2.html#simple-graph",
+    "href": "r_graph_2.html#simple-graph",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.5 Simple graph",
+    "text": "6.1.5 Simple graph\n\n\nShow the code\n# Check Current directory\ngetwd()\n\n# Importing VRI data\nvri_data &lt;- read.csv(\"VRI_data.csv\", header = TRUE)\n\n# Attach the data\nattach(vri_data)\n\n# Creating graph without controlling any element\nplot(PROJ_AGE_1,PROJ_HEIGHT_1)\n\n\n# Insert important elements in the plot fucntion\nplot(vri_data[,3],  vri_data[,4], \n     xlab=\"Projected Age (years)\", \n     ylab=\"Projected Height (m)\",  \n     type = \"p\", \n     pch = 16, \n     col = \"black\", \n     ylim=c(0,70), \n     xlim=c(0,600), \n     cex=2, \n     cex.lab=1.5, \n     cex.axis=1.5, \n     main=\"Height trend of leading species\", \n     cex.main=2)"
+  },
+  {
+    "objectID": "r_graph_2.html#define-parameters-and-call-inside-the-plot-function",
+    "href": "r_graph_2.html#define-parameters-and-call-inside-the-plot-function",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.6 Define parameters and call inside the plot function",
+    "text": "6.1.6 Define parameters and call inside the plot function\nSometimes it is more convenient to define the parameters that we what to add to our graph first, and then call them into the plot function. This is useful when we want to make multiples graphs with different information, and we do not want to repeat multiple times parts of our code. To create a parameter, use name_of_parameter= parameter_description. Once you have created the parameter you can use it with other functions. For example, we can define the labels of our axes as xlabel= “Projected Height (m)” and ylabel= “Projected Age (years)” and then call them into the plot function as plot(PROJ_AGE_1,PROJ_HEIGHT_1,xlab=xlabel, ylab=ylabel).\n\n\nShow the code\n# Define All values\n\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,600)\nldcex=2 # size of points\ncxlb=1.5 # axis level - fontsize\ncxaxis=1.5 # axis fontsize\nmaincx=2 # title font\n\ntitel=\"Height trend of leading species\"\n\n\n# Call the above paramters inside the plot fucntion\nplot(PROJ_AGE_1,PROJ_HEIGHT_1,   \n     xlab=xlabel, \n     ylab=ylabel,  \n     type = \"p\", \n     pch = 16, \n     col = \"black\", \n     ylim=ylm, \n     xlim=xlm, \n     cex=ldcex, \n     cex.lab=cxlb, \n     cex.axis=cxaxis, \n     main=titel, \n     cex.main=maincx)"
+  },
+  {
+    "objectID": "r_graph_2.html#plotting-a-graph",
+    "href": "r_graph_2.html#plotting-a-graph",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.7 Plotting a graph",
+    "text": "6.1.7 Plotting a graph\n\n\nShow the code\n\n# plain graph\nplot(PROJ_AGE_1,PROJ_HEIGHT_1, main=\"Height over Age of leading species\")\n\n# Add detail\nage=PROJ_AGE_1\nht=PROJ_HEIGHT_1\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,600)\n\ncxlb=1.5 # axis level - fontsize\ncxaxis=1.5 # axis fontsize\nmaincx=2 # title font\n\n\nldcex=2 # size of points\nld=4\n\n# 1st  graph\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 16, col = \"black\", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)\n\n\n# change symbol on the previous graph\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 10, col = \"black\", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)\n\n# change colour on the previous graph\n\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 10, col = 84, ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)\n\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 10, col = \"beige\", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)\n\n\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 22, col='#66CDAA',  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)\n\nplot(age, ht, xlab=xlabel, ylab=ylabel,   type = \"p\", pch = 22, col=68,  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, main=\"Height trend of leading species\", cex.main=maincx)"
+  },
+  {
+    "objectID": "r_graph_2.html#plotting-a-subset-of-data-and-plotting-two-datasets-on-the-same-graph",
+    "href": "r_graph_2.html#plotting-a-subset-of-data-and-plotting-two-datasets-on-the-same-graph",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.8 Plotting a subset of data and plotting two datasets on the same graph",
+    "text": "6.1.8 Plotting a subset of data and plotting two datasets on the same graph\nTo plot a subset of data we should specify the data frame that we want to use as well as the variable from where we want to take the subset of data. To do this we should define x and y axes by using plot(name_of_dataframe[name_of_column == “name_of_subset”]), this will generate a graph with default attributes. To add specific features to our plot we can use any of the functions previously described inside of the parenthesis separated by commas plot(name_of_dataframe[name_of_column1 == “name_of_subset”], name_of_dataframe[name_of_column2 == “name_of_subset”] type = “p”, pch = 1, col = “black”, main=“Height of leading species”).\nWe can plot two datasets on the same graph by using the points() function. First, we have to plot a subset of the data such as it was described above. Then we add points() and define the x and y axes for this dataset by using plot(name_of_dataframe[name_of_column1 == “name_of_subset2”], name_of_dataframe[name_of_column2 == “name_of_subset2”]. Alternatively, you can also define each subset of data first and then use these vectors to create the plot. In both cases, make sure that you run both chunks of code at the same time to plot the graph.\n\n\nShow the code\n\n\n# plot a subset: subset the data and plot together\nplot(PROJ_AGE_1[SPECIES_CD_1 =='CW'],PROJ_HEIGHT_1[SPECIES_CD_1     =='CW'])\n\n# plot a subset and two dataset on the same graph\n\nplot(PROJ_AGE_1[SPECIES_CD_1 =='CW'],PROJ_HEIGHT_1[SPECIES_CD_1     =='CW'], type = \"p\", pch = 1, col = \"black\", main=\"Height of leading species\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, cex.main=maincx,  xlab=xlabel, ylab=ylabel)\npoints(PROJ_AGE_1[SPECIES_CD_1 =='PLC'],    PROJ_HEIGHT_1[SPECIES_CD_1=='PLC'], type = \"p\", pch = 2, col = \"green\", lwd=2)\n\n\n# plot subset: alternatevely\n\n# separating data by species\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))\n\n# define elements\n\nage=3 # age column number\nht=4 # heightt column number\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,470)\n\ncxlb=1.6 # axis level - fontsize\ncxaxis=1.5 # axis fontsize\nmaincx=2 # title font\n\nldcex=2 # size ofpoints\nld=2\n\nplot(d1[,age],d1[,ht], type = \"p\", pch = 1, col = \"black\", main=\"Height of leading species\", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, cex.main=maincx,  xlab=xlabel, ylab=ylabel, lwd=ld)\npoints(d2[,age],d2[,ht], type = \"p\", pch = 2, col = \"blue\", lwd=ld)"
+  },
+  {
+    "objectID": "r_graph_2.html#alternatively-create-the-subset-and-then-plot",
+    "href": "r_graph_2.html#alternatively-create-the-subset-and-then-plot",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.9 Alternatively: Create the subset and then plot",
+    "text": "6.1.9 Alternatively: Create the subset and then plot\n\n\nShow the code\n# plot subset: alternatevely\n\n# separating data by species\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))\n\n# define elements\nage=3 # age column number\nht=4 # heightt column number\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,470)\n\ncxlb=1.6 # axis level - fontsize\ncxaxis=1.5 # axis fontsize\nmaincx=2 # title font\n\nldcex=2 # size ofpoints\nld=2\n\nplot(d1[,3],d1[,4], type = \"p\", pch = 1, col = \"black\", main=\"Height of leading species\", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, cex.main=maincx,  xlab=xlabel, ylab=ylabel, lwd=ld)\npoints(d2[,3],d2[,4], type = \"p\", pch = 2, col = \"blue\", lwd=ld)"
+  },
+  {
+    "objectID": "r_graph_2.html#controlling-margins",
+    "href": "r_graph_2.html#controlling-margins",
+    "title": "6.1 Basic Graphs: RStudio and R Markdown",
+    "section": "6.1.10 Controlling margins",
+    "text": "6.1.10 Controlling margins\nWe can plot multiple graphs in a single plot by using the par() function. This function allows us to set multiple graphical parameters by using different arguments. We can specify, for instance, the number of subplots we need by using mfrow() where we specify first the number of rows and then the number of columns we want (mfrow (#rows, #columns)). To define the margins of our plot we use the main() function. In this function, we must give the four values that we want as margin space in the bottom, left, top, and right parts of the chart, respectively. Margin space is given in inches.\n\n\nShow the code\n\n# Defining parameters\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,470)\n\ncxlb=2.5 # axis level - fontsize\ncxaxis=2.5 # axis fontsize\nmaincx=2.5 # title font\n\nage=3 # age column number\nht=4 # heightt column number\nldcex=2 # size ofpoints\nld=2\n\n# Finding the height value at the maximum age \nmaxd1&lt;- max(d2[,age]) # maximum age\nm1&lt;-subset(d2, PROJ_AGE_1==maxd1) # height value at the maximum age\n\n\n# Setting margin\npar(mfrow=c(1,1),mai=c(0.9,1.1,0.8,0.3), cex=1.0 ) # mai is the margin\n\n# Creating a single graph\nplot(d1[,age],d1[,ht], type = \"p\", pch = 1, col = \"black\", main=\"Height of leading species\",    ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, cex.main=maincx,  xlab=xlabel, ylab=ylabel)\npoints(d2[,age],d2[,ht], type = \"p\", pch = 2, col = \"blue\", lwd=ld)\npoints(m1[,age],m1[,ht], type = \"p\", pch = 6, col = \"red\", lwd=ld)\n\n\n\n# we can show the mean value as well\nmean(d2[,age])\n# exercise: show the mean value in agraph\n\n\n\n\n\n\n\n\nData Files\n\n\n\nVRI Data csv: VRI data.csv\nVRI Data RData: VRI data.RData"
+  },
+  {
+    "objectID": "r_graph_3.html#preparing-directory-and-data-setup",
+    "href": "r_graph_3.html#preparing-directory-and-data-setup",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.1 Preparing directory and data setup",
+    "text": "6.2.1 Preparing directory and data setup\nFollow these steps:\nStep 1: Import the data “VRI_data.csv” and rename it as vri_data. Step 2: Use the attach function to mask all variable names to use these names directly.\n\n\nShow the code\n# current directory\ngetwd()\n\n# Importing VRI data\nvri_data &lt;- read.csv(\"VRI_data.csv\", header = TRUE)\n\n# Listing all files in the directory\ndir()\n\nattach(vri_data)"
+  },
+  {
+    "objectID": "r_graph_3.html#side-by-side-graphs",
+    "href": "r_graph_3.html#side-by-side-graphs",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.2 Side by side graphs",
+    "text": "6.2.2 Side by side graphs\nFrom the vri data, we want to compare the height trend of two species by looking at their graphs. For “PLC” species show the maximum height on the graph.\nStep 1: Create a separate data set for each species Step 2: Specify the margin to add space for two graphs side-by-side Step 3: Plot these two graphs Step 4: Select the maximum height from the “PLC” species and show it on the graph.\n\n\nShow the code\n\n# separating data by species\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))\n\n\n# controlling margins: specifying the margin using mai\n\npar(mfrow=c(1,2),mai=c(0.9,1.1,0.5,0.3), cex=1.0 ) # mai is the margin\n\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,70)\nxlm=c(0,470)\n\ncxlb=1.5 # axis level - fontsize\ncxaxis=1 # axis fontsize\nmaincx=2.5 # title font\n\nage=3 # age column number\nheight=4 # height column number\nldcex=1 # size of points\nld=2 # line width of points, we are making it thicker to emphasis on this maximum height value \nmaxd1&lt;- max(d2[,height])\nm1&lt;-subset(d2, PROJ_HEIGHT_1==maxd1)\n\n\n# graph 1\nplot(d1[,age],d1[,height], type = \"p\", pch = 1, col = \"black\", main=\" \", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab=ylabel)\n\n# graph 2\nplot(d2[,age],d2[,height], type = \"p\", pch = 2, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,age],m1[,height], type = \"p\", pch = 6, col = \"red\", lwd=ld, cex=ldcex)"
+  },
+  {
+    "objectID": "r_graph_3.html#save-graphics-as-a-permanent-file",
+    "href": "r_graph_3.html#save-graphics-as-a-permanent-file",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.3 Save graphics as a permanent file",
+    "text": "6.2.3 Save graphics as a permanent file\nThe side-by-side graphs you created above - we want to save it as an image in the folder where you kept this.RMD file. This is called “saving as a permanent” graph/file/image. We can save plots as permanent files in different formats in R. To save a plot as an image use the png() function and specify the name of the file in quotes (file=“name_of_new_file”), the with and height of the graph (with= and height=), units (units=), and the resolution wanted for the plot (res=). Then use the par() function to define the number of subplots and margins. Finally, write the code for each of the graphs that you want to save and run all the chunks of code together. This will automatically create a png file with your graphs in your working directory.\n\n\nShow the code\npng(\"Graph2.png\", width=15, height=10, units = 'in', res=1200)\npar(mfrow=c(1,2),mai=c(1.1,0.9,0.8,0.3), cex=1.0, xpd=NA) # mai is the margin\n# graph 1\nplot(d1[,age],d1[,height], type = \"p\", pch = 1, col = \"black\", main=\" \", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab=ylabel)\n\n# graph 2\nplot(d2[,age],d2[,height], type = \"p\", pch = 2, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,age],m1[,height], type = \"p\", pch = 6, col = \"red\", lwd=ld, cex=ldcex)\n\ngraphics.off()"
+  },
+  {
+    "objectID": "r_graph_3.html#another-example-to-save-a-graph-as-a-permanent-file",
+    "href": "r_graph_3.html#another-example-to-save-a-graph-as-a-permanent-file",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.4 Another example to save a graph as a permanent file",
+    "text": "6.2.4 Another example to save a graph as a permanent file\nYou can also save your plots as pdf files by using the pdf() function. To save multiple graphs use the par() function and define the order of your plots by using the function plot(). This will order the graphs from the top left to top right, bottom left, and bottom right in case of using four subplots. Use mtext() to add subtitles to each of your plots if desired.\n\n\nShow the code\n# Creating Data:\nx &lt;- seq(0,3, length=100)  # vector with 100 values from 0 to 3\n\n# create three functions of x\ny1 &lt;-  x^2+1\ny2 &lt;- -x^2+9\ny3 &lt;- sqrt(x)\n\n# saving as a pdf file\npdf(file=\"Example_save.pdf\")\npar(mfrow = c(2, 2),    # 2 x 2 pictures on one plot\n          mar = c(4,4,2,2),     # gives # of lines of margin on four sides of plot\n          # c(bottom, left, top, right)\n          pty = \"s\",            # square plotting region,\n          bg=\"lightyellow\") # set background color\n\n# top left:\nplot(x,y1)\nmtext(\"Function 1\", side = 3, line = 0.2) # add title for top left panel\n\n# top right:\nplot(x,y2)\nmtext(\"Function 2\", side = 3, line = 0.2)\n\n# bottom left:\nplot(x,y3)\nmtext(\"Function 3\", side = 3, line = 0.2) \n\n# bottom right:\nplot(x,y1, axes=FALSE,\n     ylim=c(0,10), xlim=c(0,3),\n     xlab = \"\", ylab = \"\", type=\"n\")\nlines(x,y1, lty=2)\nlines(x,y2, lty=1, lwd=2)\nlines(x,y3, lty=4, lwd=3, col=2)\n\naxis(1) # x-axis\naxis(2) # y-axis\n\nmtext(\"x\", side = 1, line = 3)\nmtext(\"y\", side = 2, line = 3)\n\nbox()   # add frame around graph\n\nlegend(0,6.5, c(\"function 1\",\" function 2\",\"function 3\"),\n       lty=c(2,1,4), lwd=c(1,2,3), col=c(1,1,2), cex = 0.9)\n\nmtext(\"All three functions\", side = 3, line = 0.2)\n\n\n# You can also use:\n#dev.off() \ngraphics.off()\n\n\n\n# other examples are:\n#   postscript(file=\"filename.eps\")     Adobe PostScript file\n#   jpeg(file=\"filename.jpeg\")      JPEG bitmap file"
+  },
+  {
+    "objectID": "r_graph_3.html#add-legends",
+    "href": "r_graph_3.html#add-legends",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.5 Add legends",
+    "text": "6.2.5 Add legends\nWe can add legends to our plot by using the legend() function. In this function, we must first define the coordinates where we want to place our legend in the graph. We can do this by defining the specific coordinates in the x and y axes where we want to place the legend or by writing “toprigth” or “topleft” (e.g. legend(0, 3.1) or legend(“toprigth”)). Then, we define the name of items in the legend by using c() (e. g. legend(“toprigth”, c(“item1”, “item2”))). Finally, we can add more details to the graph by changing the colour or plot symbols and size. Make sure that the number of colors and symbols matches the number of items you want to show in your legend.\n\n\nShow the code\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))\n\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,25)\nxlm=c(0,200)\n\ncxlb=1.5 # axis level - fontsize\ncxaxis=1.5 # axis fontsize\nmaincx=1.5 # title font\n\nage=3 # age column number\nheight=4 # height column number\nldcex=3 # size ofpoints\nld=2\nmaxd1&lt;- max(d2[,height])\nm1&lt;-subset(d2, PROJ_HEIGHT_1==maxd1)\npar(mfrow=c(1,1), pty=\"s\")\n# graph 1\nplot(d2[,age],d2[,height], type = \"p\", pch = 20, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,age],m1[,height], type = \"p\", pch =11, col = \"red\", lwd=ld)\n\n# Adding legend \nlegend(50, 20, c(\"Projected height: Species is 'CW'\", \"Maximum Projected Height\"), col = c(\"blue\", \"red\"), pch = c(20, 11), cex=.7, pt.cex=1.5)\n\n\n# Legend location: another procedure\n\npar(mfrow=c(1,1), pty=\"s\") # mai is the margin\n\n# graph 1\nplot(d2[,age],d2[,height], type = \"p\", pch = 20, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,age],m1[,height], type = \"p\", pch =11, col = \"red\", lwd=ld)\nlegend(\"topright\", c(\"Projected height: Species is 'CW'\", \"Maximum Projected Height\"), col = c(\"blue\", \"red\"), pch = c(20, 11), cex=1, pt.cex=ld)"
+  },
+  {
+    "objectID": "r_graph_3.html#adding-more-elements-extra-lines-and-texts-on-a-graph",
+    "href": "r_graph_3.html#adding-more-elements-extra-lines-and-texts-on-a-graph",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.6 Adding more elements: Extra lines and texts on a graph",
+    "text": "6.2.6 Adding more elements: Extra lines and texts on a graph\nTo add extra lines to our plots we can use the abline() function. In this function we must state the type of line that we want, vertical or horizontal, and the coordinates where we want the line in the plot (abline(v=coordinate_in_y_axis) or abline(h(coordinate_in_x_axis))). Line types can be specified using lty(), use 0=blank lines, 1=solid lines(default), 2=dashed lines, 3=dotted lines, 4=dotdash lines, 5=longdash lines, and 6=twodash lines. Finally, add text to the graph using text(), specify first the coordinates where you want the text, and then write what you want to show on the graph.\n\n\nShow the code\n\npar(mfrow=c(1,1), pty=\"s\") # mai is the margin\n\n# graph 1\nplot(d2[,age],d2[,height], type = \"p\", pch = 20, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,age],m1[,height], type = \"p\", pch =11, col = \"red\", lwd=ld)\nlegend(\"topright\", c(\"Projected height: Species is 'CW'\", \"Maximum Projected Height\"), col = c(\"blue\", \"red\"), pch = c(20, 11), cex=1, pt.cex=ld)\n# additional lines\n# add a vertical line at x=2\nabline(v=52, lty=2)\n\n# add a horizontal line at y=0\nabline(h=10)\n\n# abline(a,b) draws a line of slope b and intercept a\n\n\n# add text\ntext(120,15,\"Maximum Height\")"
+  },
+  {
+    "objectID": "r_graph_3.html#add-a-mathematical-expression",
+    "href": "r_graph_3.html#add-a-mathematical-expression",
+    "title": "6.2 Graphs in R Markdown: Advanced Tools",
+    "section": "6.2.7 Add a mathematical expression",
+    "text": "6.2.7 Add a mathematical expression\nTo add mathematical expressions use the expression() function. Define the mathematical expressions on label axes between quotes and tildes ( ~ ) (e.g. expression( “Total volume(”~ m^3 ~“)”)).\n\n\nShow the code\n\npar(mfrow=c(1,1),mai=c(0.9,1.1,0.8,0.3), cex=1.0 ) # mai is the margin\n\nylabel=\"Projected Volume(m3)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,500)\nxlm=c(0,470)\n\ncxlb=2 # axis level - fontsize\ncxaxis=2.5 # axis fontsize\nmaincx=2.5 # title font\n\nage=3 # age column number\nheight=4 # height column number\nldcex=2 # size ofpoints\nld=2\ncx=2\nft=4\n# graph 1\nplot(d1[,age],d1[,height], type = \"p\", pch = 1, col = \"black\", main=\" \",    ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab=\"\")\nmtext(expression(\"Total volume (\"~m^3~\")\"), side=2, line=3, las=0, cex=cx, font =ft)\n\n\n\n\n\n\n\n\nData Files:\n\n\n\nVRI data csv: VRI Data\nVRI data RData: VRI RData\n\n\nIf the character/categorical variable is not producing the summary table as shown on the video then try the following:\n\n\nShow the code\nsummary(as.factor(SPECIES_CD_1))\nplot(as.factor(SPECIES_CD_1))"
+  },
+  {
+    "objectID": "r_graph_4.html#preparing-directory-and-data-setup",
+    "href": "r_graph_4.html#preparing-directory-and-data-setup",
+    "title": "6.3 Barplot in R Markdown",
+    "section": "6.3.1 Preparing directory and data setup",
+    "text": "6.3.1 Preparing directory and data setup\nIn this lecture, we will be creating side-by-side graphs for two different species using the vri.csv file. For doing this use the subset() and par() functions such as were explained in previous lectures.\n\n\nShow the code\n# VRI data\n\nvri_data&lt;-read.csv(\"VRI_data.csv\",header = T)\n\nattach(vri_data)\n\n# separating data by species\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))"
+  },
+  {
+    "objectID": "r_graph_4.html#add-one-legend-for-multiple-graphs",
+    "href": "r_graph_4.html#add-one-legend-for-multiple-graphs",
+    "title": "6.3 Barplot in R Markdown",
+    "section": "6.3.2 Add one legend for multiple graphs",
+    "text": "6.3.2 Add one legend for multiple graphs\nWe can add a legend for multiple graphs by using the legend() function. In this case, we have to use the last graph created as a reference to add the coordinates of the legend. Make sure that you give appropriate margin space in the graph for adding the legend using the mai= option in the par() function. Use  xpd=NA to specify that we want the legend outside of the graph area.\n\n\nShow the code\n\nylabel=\"Projected Height (m)\"\nxlabel=\"Projected Age (years)\"\nylm=c(0,60)\nxlm=c(0,470)\n\ncxlb=1.1 # axis level - fontsize\ncxaxis=1.1 # axis fontsize\nmaincx=2.5 # title font\n\nrow1=3 # age column number\nrow2=4 # ht column number\nldcex=1 # size ofpoints\nld=1\nmaxd1&lt;- max(d2[,row2])\nm1&lt;-subset(d2, PROJ_HEIGHT_1==maxd1)\nmaxd2&lt;- max(d1[,row2])\nm2&lt;-subset(d1, PROJ_HEIGHT_1==maxd2)\n#names(vri_data)\n\n# creating a permanent image file\npng(\"One_legend.png\", width=5, height=5, units = 'in', res=1200)\npar(mfrow=c(1,2),mai=c(3,0.9,0.2,0.3), cex=1.0, xpd=NA) # mai is the margin\n\n# graph 1\nplot(d1[,row1],d1[,row2], type = \"p\", pch = 20, col = \"blue\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m2[,row1],m2[,row2], type = \"p\", pch =11, col = \"red\", lwd=ld)\n\n# graph 2\nplot(d2[,row1],d2[,row2], type = \"p\", pch = 20, col = \"black\",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)\npoints(m1[,row1],m1[,row2], type = \"p\", pch =11, col = \"red\", lwd=ld)\n\nlegend(-700, -35, ncol=1 ,c(\"Projected height: Species is 'CW'\", \"Projected height: Species is 'PLC'\", \"Maximum Projected Height\"), col = c(\"blue\", \"black\", \"red\"), pch = c(20, 20, 11), cex=1, pt.cex=ld)\n\ngraphics.off()"
+  },
+  {
+    "objectID": "r_graph_4.html#creating-barplots",
+    "href": "r_graph_4.html#creating-barplots",
+    "title": "6.3 Barplot in R Markdown",
+    "section": "6.3.3 Creating barplots",
+    "text": "6.3.3 Creating barplots\nFor this section we will create a bar plot using the trees.txt file. Use the  read.table() function for importing this file into R. Then:\n\nDetermine the type of variables that you have (categorical or numerical). In this case we want to know what type of variable is “CC”. Use the  class() function for checking on this.\nUse  table() to create a vector with the counts of the number of items that you have in the CC column.\nUse  barplot() function to create a bar plot. Use the vector that you create with the counts as a file and modify graph limits, colours, and labels if desired.\n\n\n\nShow the code\n# .txt data file\ntrees &lt;- read.table(\"trees.txt\", header = TRUE)\n# checking the data:\ndim(trees)\nnames(trees)\n# attached all variables\nattach(trees)\n\n# crown class variable and create a table\nclass(CC)\ncounts &lt;- table(CC)\ncounts\n\n#barplot 1\npar(mfrow=c(1,1),mai=c(1,0.9,0.2,0.3), cex=1.0, oma=c(5,2,2,0), xpd=NA) # mai is the margin\nbarplot(counts)\ngraphics.off()\n\n#barplot 2\ngraphics.off()\npar(mfrow=c(1,1),mai=c(1,0.9,0.2,0.3), cex=1.0, oma=c(5,2,2,0), xpd=NA) # mai is the margin\nbarplot(counts, ylim = c(0, 20))\n\n#barplot 3\ngraphics.off()\npar(mfrow=c(1,1),mai=c(1,0.9,0.2,0.3), cex=1.0, oma=c(5,2,2,0), xpd=NA) # mai is the margin\nbarplot(counts, ylim = c(0, 20), ylab = \"Frequency\", xlab = \"Crown Classes\")\n\ndetach(trees)"
+  },
+  {
+    "objectID": "r_graph_4.html#vri-data-bar-chart",
+    "href": "r_graph_4.html#vri-data-bar-chart",
+    "title": "6.3 Barplot in R Markdown",
+    "section": "6.3.4 VRI data bar chart",
+    "text": "6.3.4 VRI data bar chart\nWe can also create bar plots by selecting a categorical variable and using the  plot() function. In this case, R will automatically create a bar plot with the selected categorical variable (e.g. plot (SPECIES_CD_1) ). To change the direction of the numbers in the y axis use  las=1 into barplot(). To change the names in the x axis use names.arg= c(“name_variable1”, “name_variable2”). This will change the names that you have for each column in the x axis. To modify the font size use cex.names=.\n\n\nShow the code\nattach(vri_data)\nclass(SPECIES_CD_1)\n \n#barplot 1\n#coverting the character variable as a factor to plot it\n\nplot(factor(SPECIES_CD_1))\n\n#barplot 2\nleading_spec &lt;- table(SPECIES_CD_1)\npercent_spec &lt;- (table(SPECIES_CD_1)*100)/2700\nbarplot(percent_spec)\n\n#barplot 3\nbarplot(percent_spec, main=\"Leading Species of Stands\",     xlab=\"Species\", ylab=\"%\")\n\n#barplot 4: rotate y axis values:\n\nbarplot(percent_spec, main=\"Leading Species of Stands\",     xlab=\"Species\", ylab=\"%\", las=1)\n\n#barplot 5\n# set the names of categories under x axis:\nbarplot(percent_spec, main=\"Leading Species of Stands\",     xlab=\"Species\", ylab=\"%\", las=1, names.arg=c(\"non-treed stands\",  \"Western Red Cedar\",  \"Alder\", \"Western Hemlock\", \"Lodgepole pine\",  \"Sitka Spruce\", \"Yellow  Cedar\"))\n\n# barplot 6: reduce the names to adjust the space\nbarplot(percent_spec, main=\"Leading Species of Stands\",     xlab=\"Species\", ylab=\"%\", las=1, names.arg=c(\"Non-treed\",  \"Western R. Cedar\",  \"Alder\", \"Western Hemlock\", \"L. pine\",  \"Sitka Spruce\", \"Yellow     Cedar\"), ylim=c(0,60), cex.axis=1.5, cex.lab=1.5, cex.names=0.7)\n\n\n\n\n\n\n\n\nData Files:\n\n\n\nVRI Data CSV: VRI_data.csv\nVRI RData: VRI_data.RData\nTrees text file: trees.txt\nTrees RData: trees.RData"
+  },
+  {
+    "objectID": "r_graph_5.html#preparing-directory-and-data-setup",
+    "href": "r_graph_5.html#preparing-directory-and-data-setup",
+    "title": "6.4 Pie Chart, Histogram, and Boxplot in R Markdown",
+    "section": "6.4.1 Preparing directory and data setup",
+    "text": "6.4.1 Preparing directory and data setup\nIn this lab, we will be creating a pie chart, a histogram and boxplot using the VRI_data.csv file. Import this into R by using the read.csv() function.\n\n\nShow the code\n# current directory\ngetwd()\n\n# VRI data\n\nvri_data&lt;-read.csv(\"VRI_data.csv\",header = T)\n\nattach(vri_data)\n\n# separating data by species\nd1&lt;- subset(vri_data, (SPECIES_CD_1 =='CW'))\nd2&lt;- subset(vri_data, (SPECIES_CD_1 =='PLC'))"
+  },
+  {
+    "objectID": "r_graph_5.html#pie-charts",
+    "href": "r_graph_5.html#pie-charts",
+    "title": "6.4 Pie Chart, Histogram, and Boxplot in R Markdown",
+    "section": "6.4.2 Pie charts",
+    "text": "6.4.2 Pie charts\nPie charts are used to display frequencies of categorical variables. This method uses colored blocks around a circumference of a circle to represent frequency or proportions. To create a pie chart, we must first create a table with the variable that we want to plot using the table() function. Then we have to use the pie() function to make the graph; to change the size of the circumference we can use radius= into this function. If we want to add a square around the pie plot we can use box(). For this last option, make sure that you run the pie() and box() functions together.\n\n\nShow the code\nclass(SPECIES_CD_1)\n\n#Pie chart 1\n#COnvert the character variable as a factor and then plot\nplot(factor(SPECIES_CD_1))\n\n\n#Pie chart 2\nleading_spec &lt;- table(SPECIES_CD_1)\npercent_spec &lt;- (table(SPECIES_CD_1)*100)/2700\npie(leading_spec)\n\n#Pie chart 3\npie(percent_spec, main = \"Leading Species of Stands\")\n\n#Pie chart 4\npie(percent_spec, main = \"Leading Species of Stands\", radius = .8)\nbox()"
+  },
+  {
+    "objectID": "r_graph_5.html#plots-in-r-using-dataset-in-r",
+    "href": "r_graph_5.html#plots-in-r-using-dataset-in-r",
+    "title": "6.4 Pie Chart, Histogram, and Boxplot in R Markdown",
+    "section": "6.4.3 Plots in R: using dataset in R",
+    "text": "6.4.3 Plots in R: using dataset in R\nIn R there are some available datasets that we can use to create graphs. These datasets are in R by default so we don’t need to import them into the program. For this part, we will work with a dataset that is called “faithful”. We can check the name of the variables that are in this dataset by using the names() function. We can also get more information regarding the dataset by using the “?” sign followed by the name of the dataset (i.e. ?faithful); this will show us specific information about this dataset in the “Help” tab/window. Using this option we can get information about the variables, background of the study made, and even the link of the paper that was published using this dataset. Once we have identified the variables contained in the dataset we can use it to create a scatterplot, for example, and modify different parameters on the graph.\n\n\nShow the code\n# scatterplot\nnames(faithful)\nplot(faithful$waiting,faithful$eruptions)\n?faithful\n\n# add Axis labels\nplot(faithful$waiting,faithful$eruptions,\n     xlab = \"Waiting time to next eruption (in mins)\",\n     ylab = \"Eruption time (in mins)\")\n\n# change Y-axis range\nplot(faithful$waiting,faithful$eruptions,\n     xlab = \"Waiting time to next eruption (in mins)\", ylab = \"Eruption time (in mins)\",\n     ylim = c(0, 6))\n\n# include title\nplot(faithful$waiting,faithful$eruptions,\n     xlab = \"Waiting time to next eruption (in mins)\", ylab = \"Eruption time (in mins)\",\n     main = \"Old Faithful Eruptions\")"
+  },
+  {
+    "objectID": "r_graph_5.html#histogram",
+    "href": "r_graph_5.html#histogram",
+    "title": "6.4 Pie Chart, Histogram, and Boxplot in R Markdown",
+    "section": "6.4.4 Histogram",
+    "text": "6.4.4 Histogram\nWe use histograms to display a frequency distribution for a numerical variable. The data values in a histogram are split into consecutive intervals or bins, where the frequency of observation falling into each bin is displayed. To create this type of graph we use the hist() function follow by the name of the dataset that we want to use and the specific variable that we want to plot (i.e hist(name_dataset[name_of_variable= “variable”])). To specify the number of bins in the histogram use breaks=.\n\n\nShow the code\n# VRI data\nhist(PROJ_AGE_1[SPECIES_CD_1 == \"CW\"], xlab=\"Projected Age of CW species \", main=\"\")\n\n# setting freq argument to false or setting prob argument to true\nhist(PROJ_AGE_1, freq = F, xlab=\"Projected Age of CW species \", main=\"\")\nhist(PROJ_AGE_1, prob = T, xlab=\"Projected Age of CW species\", main=\"\")\n\n# specifying breaks\nhist(PROJ_AGE_1, freq = F, ylim = c(0,0.005), breaks = 4, xlab=\"Projected Age of CW species\", main=\"\")\n\n\n# histogram using R data file\nhist(faithful$eruptions)\n\n# change X-axis label\nhist(faithful$eruptions, xlab = \"Eruption time (in mins)\")\n\n# change title\nhist(faithful$eruptions, xlab = \"Eruption time (in mins)\", main = \"Old Faithful Eruptions\")\n\n# change range of axes\nhist(faithful$eruptions, xlab = \"Eruption time (in mins)\", main = \"Old Faithful Eruptions\",\n     xlim = c(1, 6))\n\nhist(faithful$eruptions, xlab = \"Eruption time (in mins)\", main = \"Old Faithful Eruptions\",\n     xlim = c(1, 6), ylim = c(0,80))"
+  },
+  {
+    "objectID": "r_graph_5.html#box-plot",
+    "href": "r_graph_5.html#box-plot",
+    "title": "6.4 Pie Chart, Histogram, and Boxplot in R Markdown",
+    "section": "6.4.5 Box Plot",
+    "text": "6.4.5 Box Plot\nWe use box plots to show associations between one numerical variable and one categorical variable. The lines and the rectangular box in this graph display the median, quartiles, range, and extreme measurements of the data. To plot this graph use the boxplot() function and specify the name of the numerical variable that you want to graph. To display multiple boxplots side-by-side we use the name of the numerical variable followed by a tilde and the name of the categorical variable (i.e. boxplot(name_numerical_variable ~ name_categorical_variable)). To plot selected categories or variables in the box plot use boxplot(name_numerical_variable[name_categorical_variable==“name_of_specfic_variable”]).\n\n\nShow the code\nboxplot(PROJ_AGE_1)\nquantile(PROJ_AGE_1, probs= c(0, 0.25, 0.5, 0.75, 1))\n\n# controlling box, min & max width\n# boxwex: increase or decrease the box width \n# staplewex: increase or decrease the width of max and min lines\n\nboxplot(PROJ_AGE_1, main=\"Leading species age dist\", ylab=\"Age\", ylim=c(0,550),\n        pars = list(boxwex = 0.5, staplewex = 0.5))\n# multiple categories side-by-side\nboxplot(PROJ_AGE_1 ~ SPECIES_CD_1)\n\n# reduced catagories\nboxplot(PROJ_AGE_1[SPECIES_CD_1==\"CW\"],PROJ_AGE_1[SPECIES_CD_1==\"SS\"], PROJ_AGE_1[SPECIES_CD_1==\"YC\"], names=c(\"CW\", \"SS\", \"YC\"))\n\n\n\n\n\n\n\n\nData Files:\n\n\n\nVRI data csv: VRI_data.csv\nVRI data RData: VRI_data.RData"
+  },
+  {
+    "objectID": "gis_1.html#learning-objectives",
+    "href": "gis_1.html#learning-objectives",
+    "title": "Chapter 7: Manage and Analyze Geodata",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nUnderstand sources of input data and GIS data types\nCreate a QGIS project and navigate through QGIS\nChange the Coordinate Reference System (CRS) in QGIS\nChanging symbology in QGIS\nUse attribute tables in QGIS\nCreate maps in QGIS"
+  },
+  {
+    "objectID": "gis_2.html#install-qgis-on-windows",
+    "href": "gis_2.html#install-qgis-on-windows",
+    "title": "7.1 Installing QGIS",
+    "section": "7.1.1 Install QGIS on Windows:",
+    "text": "7.1.1 Install QGIS on Windows:\nUse the following video to learn how to download QGIS if you are working on a Windows based system."
+  },
+  {
+    "objectID": "gis_2.html#install-qgis-on-mac-system",
+    "href": "gis_2.html#install-qgis-on-mac-system",
+    "title": "7.1 Installing QGIS",
+    "section": "7.1.2 Install QGIS on Mac System:",
+    "text": "7.1.2 Install QGIS on Mac System:\nUse the following video to learn how to download QGIS if you are working on a Mac based system.\n\n\n\n\n\n\n\nNote\n\n\n\nThe latest long term release version is version 3.16"
+  },
+  {
+    "objectID": "gis_3.html#geodata",
+    "href": "gis_3.html#geodata",
+    "title": "7.2 Basic Concepts in GIS",
+    "section": "7.2.1 Geodata",
+    "text": "7.2.1 Geodata\nGeodata is information about geographic locations that are stored in a format that can be used with a geographic information system (GIS). Geodata can be stored in a database, geodatabase, shapefile, coverage, raster image, dbf table, or even a Microsoft Excel spreadsheet.\nThis page provides links to explanations on the geodata types that can be used with GIS software."
+  },
+  {
+    "objectID": "gis_3.html#introduction-to-gis-data",
+    "href": "gis_3.html#introduction-to-gis-data",
+    "title": "7.2 Basic Concepts in GIS",
+    "section": "7.2.2 Introduction to GIS data",
+    "text": "7.2.2 Introduction to GIS data\nGeographic Information System (GIS) is a system that allows us to understand and analyze spatial data. There are 2 main aspects to GIS data: the “what” and the “where”. The “what” refers to the object of interest and the “where” refers to the location of the object. We can obtain these data from 2 sources: Global Positioning Systems (GPS) and Remote Sensing (RS).\nThere are 2 types of GIS data: raster and vector:\n\nRaster data represent objects in the form of a grid and are made up of cells containing values that represent certain information. For example, in raster data on annual precipitation, each cell will contain a value corresponding to the annual precipitation for the particular area that the cell is representing. One of the raster file formats used in GIS is .grd (grid) files.\nVector data represent objects in the form of points, lines, and polygons. Points are used to represent objects that are assumed to have no dimensions, such as individual trees or gas wells. Lines are made by connecting at least 2 points and can be used to represent objects such as roads or streams. Polygons are used to represent area objects such as provinces or countries. In GIS, vector data usually comes in the format of shapefiles (.shp).\n\n\nVideo: GIS Data Layers\nThe following video will introduce you to some of the basic concepts of QGIS, including opening different kinds of data within the software.\n\n\n\n\n\n\n\nSample data\n\n\n\nYou can find the My_new_project file in the QGS folder:\nProject Zipped folder"
+  },
+  {
+    "objectID": "gis_4.html#navigating-through-qgis",
+    "href": "gis_4.html#navigating-through-qgis",
+    "title": "7.3 Initiating a QGIS Project",
+    "section": "7.3.1 Navigating through QGIS",
+    "text": "7.3.1 Navigating through QGIS\nYou can navigate within QGIS using various pan and zoom tools. To move the map around, you can use the pan tool that is symbolized by a hand icon. There are several zoom options (magnifying glass icon) that are available, such as zoom in, zoom out, zoom full, zoom to layer, and zoom to native resolution. Zoom full allows us to see all of the layers in a project. Zoom to layer allows us to see the selected layer and can be especially useful when the layer goes missing in the display window (this usually happens when we moved the map around too much).\n\nVideo: Basic Visualization Tools in QGIS\nThe QGIS environment can be confusing at first. The following video will describe how to better navigate your data within QGIS.\n\n\n\n\n\n\n\nSample data:\n\n\n\nSample data from the video: V1 Start New Project Zip"
+  },
+  {
+    "objectID": "gis_4.html#changing-the-coordinate-reference-system-crs-in-qgis",
+    "href": "gis_4.html#changing-the-coordinate-reference-system-crs-in-qgis",
+    "title": "7.3 Initiating a QGIS Project",
+    "section": "7.3.2 Changing the Coordinate Reference System (CRS) in QGIS",
+    "text": "7.3.2 Changing the Coordinate Reference System (CRS) in QGIS\nWhen we are working with maps, we are essentially working with projections of the earth that transforms the earth’s spherical shape into a flat shape. A coordinate reference system (CRS) tells us how locations on a map projection relate to real locations on the earth’s surface and is therefore important for our spatial data analysis.\nHowever, the data that we are working on might not contain information on the coordinate reference system that was used and so we would need to set the CRS manually. To set the CRS of a layer in QGIS, we would need to enter the EPSG code for our area of study which can be found on this website.\n\nVideo: Changing Coordinate Reference System\nThe following video will help you change the coordinate reference system within QGIS. Not only is it important to know how to do this to visualize your data correctly, it can also affect the accuracy of your analyses.\n\n\n\n\n\n\n\nSample data:\n\n\n\nSample data from the video: V1 Start New Project Zip\n\n\n\n\n\n\n\n\nNote\n\n\n\nFor our dataset from Ecuador, we selected WGS 84 / UTM zone 17S (EPSG:32717)"
+  },
+  {
+    "objectID": "gis_5.html#creating-maps-in-qgis",
+    "href": "gis_5.html#creating-maps-in-qgis",
+    "title": "7.4 Visualizing Data in QGIS",
+    "section": "7.4.1 Creating Maps in QGIS",
+    "text": "7.4.1 Creating Maps in QGIS\nAfter analyzing spatial data, we would usually present them in the form of maps. There are 2 categories of maps: categorical maps (e.g. land use types, BEC zones) and quantity maps (e.g. temperature, population). We can create a map using the data from our QGIS project by going to Project &gt; New Print Layout.\nImportant elements that you will need to add to your map include a title, legend, north arrow, scale bar, data sources, your name, and date on which the map was created. You can use frames to group map elements together or set the elements apart from the map background. You can also add an inset or a smaller map that shows the broader location of your area of study. For example, if Vancouver is your study area, you might add a small map of BC with Vancouver shown in a different color.\nOnce you are done creating your map, you can export it as an image by going to Layout &gt; Export as Image or clicking on the Export as Image icon on the toolbar (next to the printer icon, looks like a paper with an image in the middle).\n\nVideo: Introduction to Map Elements\nThe following video will introduce you to how to add elements to a layout page. This includes what elements are required to build an adequate map.\n\n\n\nVideo: Adding map elements in QGIS\nThe following video further adds to the elements that you will be required to add to your maps within map layout.\n\n\n\n\n\n\n\nSample Data\n\n\n\nSample data from the video: V6 V7 Symbology Project Zip\n\n\n\n\nVideo: Save a Map on the Layout View\nSometimes the last step of creating a map within QGIS, which is saving your map, can be a confusing task. The following video outlines how to properly save and/or export your map from layout.\n\n\n\n\n\n\n\nSample Data\n\n\n\nSample data from the video: V6 V7 Symbology Project Zip"
+  },
+  {
+    "objectID": "processing_1.html#learning-objectives",
+    "href": "processing_1.html#learning-objectives",
+    "title": "Chapter 8: Geoprocessing Tools in GIS",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter studying this chapter you should be able to:\n\nUnderstand the different geoprocessing tools in GIS\nUse geoprocessing tools in QGIS:\n\nDissolve\nBuffer\nClip\nUnion\nIntersection\nDifference\nSplit"
+  },
+  {
+    "objectID": "processing_2.html#dissolve",
+    "href": "processing_2.html#dissolve",
+    "title": "8.1 Introduction to Geoprocessing Tools",
+    "section": "8.1.1 Dissolve",
+    "text": "8.1.1 Dissolve\nThe dissolve tool is used to merge adjacent features that have identical values for certain attributes. For example, we can use dissolve to merge adjacent lands with the same elevation to create a contour map. This tool is useful for simplifying objects and increasing data processing speed, and is thus commonly used together with the buffer tool.\n\nVideo: Dissolve\nThe following video provides an overview of the dissolve tool.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip"
+  },
+  {
+    "objectID": "processing_2.html#buffer",
+    "href": "processing_2.html#buffer",
+    "title": "8.1 Introduction to Geoprocessing Tools",
+    "section": "8.1.2 Buffer",
+    "text": "8.1.2 Buffer\nThe buffer tool is used to create a buffer zone around a feature within a specified distance. For example, we can use the tool to visualize a 30 m buffer zone around rivers where forest harvesting is prohibited in order to protect the river ecosystem. As have been previously mentioned, we might simplify the buffer zones that we have created and increase the processing speed by dissolving the buffer zones together.\n\nVideo: Buffer\nThe followiung video provides an overview of the buffer tool.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip\n\n\n\n\n\n\n\n\nNote\n\n\n\nTo be able to set the distance units (e.g. kilometers), you will need to make sure that the layer has a CRS. You can refer to chapter 6 to find the explanation on setting CRS."
+  },
+  {
+    "objectID": "processing_3.html#clip",
+    "href": "processing_3.html#clip",
+    "title": "8.2 More Geoprocessing Tools",
+    "section": "8.2.1 Clip",
+    "text": "8.2.1 Clip\nThe clip tool extracts a portion of the input feature that overlaps with the overlay layer. You can think of the overlay layer as the cookie cutter, the input feature as the dough, and the output feature as the cookie-shaped dough. This tool is especially useful when you want to focus on a certain study area or region. For example, you might have a layer containing all of the streets in Vancouver and a polygon layer of UBC. You can then overlay the UBC polygon layer on top of the Vancouver street layer to get only the streets at UBC.\n\nVideo: Clip\nThe following video provides an overview of how to use the clip tool.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip"
+  },
+  {
+    "objectID": "processing_3.html#difference",
+    "href": "processing_3.html#difference",
+    "title": "8.2 More Geoprocessing Tools",
+    "section": "8.2.2 Difference",
+    "text": "8.2.2 Difference\nThe difference tool is the opposite of the clip tool - it keeps only the portion of the input feature that does not overlap with the overlay feature. So, back to the cookie dough analogy, the output feature would be similar to that of the leftover dough with a cookie-shaped hole in the middle. For example, we might have a layer of forest plots and another layer of buffer zones where logging is prohibited. We can use the forest plots as the input layer and the buffer zones as the overlay layer to get an output layer containing only the areas where logging is allowed.\n\nVideo: Difference\nThe following video provides an overview of how to use the difference tool.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip"
+  },
+  {
+    "objectID": "processing_3.html#split",
+    "href": "processing_3.html#split",
+    "title": "8.2 More Geoprocessing Tools",
+    "section": "8.2.3 Split",
+    "text": "8.2.3 Split\nThe split tool in QGIS divides up the data in a vector layer based on certain attributes. For example, if you have a polygon layer of Vancouver, you can split the polygon based on Vancouver’s local areas (e.g. Kitsilano, Arbutus-Ridge, Downtown). You will then get several polygon layers corresponding to each local area in Vancouver.\n\nVideo: Split\nThe following video provides an overview of how to use the split tool.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip"
+  },
+  {
+    "objectID": "processing_4.html#union-and-intersection",
+    "href": "processing_4.html#union-and-intersection",
+    "title": "8.3 Union and Intersection Geoprocessing Tools",
+    "section": "8.3.1 Union and Intersection",
+    "text": "8.3.1 Union and Intersection\nThe union tool allows us to combine all of the information from both the input and overlay layers.\n\n\n\nFigure 16 - Visual representation of the union tool.\n\n\nOn the other hand, the intersection tool allows us to keep only the information that is present in both the input and overlay layers.\n\n\n\nFigure 17 - Visual representation of the intersection tool.\n\n\nIt is also important to note that, unlike the clip and difference tools, the output layer of the union and intersection tools will contain the attributes from both the input and overlay layers."
+  },
+  {
+    "objectID": "processing_4.html#example",
+    "href": "processing_4.html#example",
+    "title": "8.3 Union and Intersection Geoprocessing Tools",
+    "section": "8.3.2 Example",
+    "text": "8.3.2 Example\nLet’s say we have a polygon layer of Vancouver parks that contains information on the name and location of the parks. We also have another polygon layer of Vancouver community gardens that contains information on the plant species grown.\nIf we use the union tool, we will get a layer that contains all of the polygons from both Vancouver parks and Vancouver community gardens, as well as information on the park name, park location, and plant species grown.\nIf we use the intersection tool, we will get a layer that only contains polygons from areas where we can find both a park and a community garden (e.g. Riley Park Community Garden), and this layer will also contain information on the park name, park location, and plant species grown.’\n\nVideo: Union & Intersection\nThe following video will provide an overview of how to use the union and intersection tools.\n\n\n\n\n\n\n\nSample data\n\n\n\nSample data from the video: V8 Geoprocessing Inputs Zip"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Ahmed, Suborna, Valerie LeMay, Alvin Yanchuk, Andrew Robinson, Peter\nMarshall, and Gary Bull. 2020. “Meta-Modelling to Quantify Yields\nof White Spruce and Hybrid Spruce Provenances in the Canadian Boreal\nForest.” Forests 11 (6): 609.\n\n\nBeaulieu, J. 1996. “Breeding Program and Strategy for White Spruce\nin Quebec.”\n\n\nDe Montigny, Louise, Suborna Ahmed, Valerie M. LeMay, British Columbia\nGovernment EBook Collection, Lands British Columbia. Ministry of\nForests, and Natural Resource Operations. 2016. The Effects of\nPlanting Density on the Growth and Yield of Lodgepole Pine, Interior\nSpruce, Interior Douglas-Fir, and Western Larch: 16- to 26-Year Results\nfrom EP964. Vol. 98;98.; Victoria, B.C: Province of British\nColumbia.\n\n\nNewton, Peter F. 2003. “Systematic Review of Yield Responses of\nFour North American Conifers to Forest Tree Improvement\nPractices.” Forest Ecology and Management 172 (1):\n29–51. https://doi.org/https://doi.org/10.1016/S0378-1127(02)00327-4.\n\n\nPienaar, Leon V., and Barry D. Shiver. 1984. “The Effect of Planting Density on Dominant Height in\nUnthinned Slash Pine Plantations.” Forest Science\n30 (4): 1059–66. https://doi.org/10.1093/forestscience/30.4.1059.\n\n\nZobel, Bruce, and John Talbert. 1984. Applied Forest Tree\nImprovement. New York: Wiley."
+  }
+]

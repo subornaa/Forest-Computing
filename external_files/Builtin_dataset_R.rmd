@@ -1,0 +1,68 @@
+---
+title: "Builtin Data Set in R"
+author: "Suborna Ahmed"
+date: '2023-02-26'
+output: html_document
+---
+# Examples of Built-in Datasets in R
+
+R has several built-in datasets that are included in the base installation of the R software. These datasets are commonly used for testing and learning purposes. Here are some examples of built-in datasets in R:
+
+1. **iris:** This dataset contains the measurements of the length and width of the petals and sepals of three different species of iris flowers.
+
+2. **mtcars:** This dataset contains information about the fuel consumption and other characteristics of various car models.
+
+3. **ChickWeight:** This dataset contains information about the weight of chicks over time on different diets.
+
+4. **airquality:** This dataset contains information about the air quality measurements in New York from May to September 1973.
+
+5. **faithful:** This dataset contains the eruption times of the Old Faithful geyser in Yellowstone National Park.
+
+6. **trees:** This dataset contains the height and girth measurements of different trees.
+
+7. **CO2:** This dataset contains measurements of the concentration of carbon dioxide in the atmosphere over time.
+
+8. **InsectSprays:** This dataset contains information about the effectiveness of six different insect sprays.
+
+9. **PlantGrowth:** This dataset contains information about the growth of plants under different conditions.
+
+# Example of Using a Built-in Data
+In the code below, we first load the iris dataset using the data() function. We then use head() to view the first few rows of the dataset, and summary() to get a summary of the dataset, which includes the minimum, maximum, median, and quartile values for each column.
+
+We use the apply() function to calculate the mean and standard deviation of each column in the dataset. The apply() function applies a function to either the rows or columns of a matrix or data frame, and the 2 argument tells it to apply the function to the columns.
+
+```{r}
+# Load the iris dataset
+data(iris)
+
+# View the first few rows of the dataset
+head(iris)
+
+# Get a summary of the dataset
+summary(iris)
+
+# Calculate the mean of each column in the dataset
+apply(iris, 2, mean)
+
+# Calculate the standard deviation of each column in the dataset
+apply(iris, 2, sd)
+
+```
+
+
+# Visualize Air Quality R data
+You can load the airquality dataset using the data() function and then, create a scatter plot of Ozone vs. Wind using the plot() function, with "Wind Speed" and "Ozone Concentration" as the x and y labels, and "Air Quality Data" as the main title.
+
+A regression line is added to the plot using the abline() function, which takes the output of the lm() function as an argument. The lm() function fits a linear regression model to the data, which we use to create the regression line. We also specify the color of the line as "red" using the col argument.
+```{r}
+# Load the airquality dataset
+data(airquality)
+
+# Create a scatter plot of Ozone vs. Wind
+plot(airquality$Wind, airquality$Ozone, xlab = "Wind Speed", ylab = "Ozone Concentration", main = "Air Quality Data")
+
+# Add a regression line to the plot
+abline(lm(airquality$Ozone ~ airquality$Wind), col = "red")
+
+```
+
