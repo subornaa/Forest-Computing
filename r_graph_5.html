@@ -428,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">6.4 Pie Chart, Histogram, and Boxplot in R Markdown</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<h1 class="title">6.4 Pie Chart, Histogram, and Boxplot in R Markdown</h1>
 </div>
 
 
@@ -610,8 +610,6 @@ Data Files:
 </div>
 
 
-<!-- -->
-
 </section>
 
 </main> <!-- /main -->
@@ -694,57 +692,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -910,156 +857,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Chapter 7: Manage and Analyze Geodata</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6.4 Pie Chart, Histogram, and Boxplot in R Markdown {.unnumbered}</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Video: Pie Chart, Histogram, and Boxplots in R Markdown</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>The following video will demonstrate how to build a number of different figures in RStudio. This should add to your ability to display any data relatively efficiently.</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=yKiQ4UlkxJ0 &gt;}}</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Note</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Due to recent changes in the R version some lines of code that are shown in the video are not longer compatible. To see the current working code please see the .RMD and knitted files</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4.1 Preparing directory and data setup</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>In this lab, we will be creating a pie chart, a histogram and boxplot using the VRI_data.csv file. Import this into R by using the <span class="kw">&lt;code&gt;</span>read.csv()<span class="kw">&lt;/code&gt;</span> function.</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># current directory</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># VRI data</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>vri_data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>,<span class="at">header =</span> T)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># separating data by species</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>d1<span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, (SPECIES_CD_1 <span class="sc">==</span><span class="st">'CW'</span>))</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>d2<span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, (SPECIES_CD_1 <span class="sc">==</span><span class="st">'PLC'</span>))</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4.2 Pie charts</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>Pie charts are used to display frequencies of categorical variables. This method uses colored blocks around a circumference of a circle to represent frequency or proportions. To create a pie chart, we must first create a table with the variable that we want to plot using the <span class="kw">&lt;code&gt;</span>table()<span class="kw">&lt;/code&gt;</span> function. Then we have to use the <span class="kw">&lt;code&gt;</span>pie()<span class="kw">&lt;/code&gt;</span> function to make the graph; to change the size of the circumference we can use <span class="kw">&lt;code&gt;</span>radius=<span class="kw">&lt;/code&gt;</span> into this function. If we want to add a square around the pie plot we can use <span class="kw">&lt;code&gt;</span>box()<span class="kw">&lt;/code&gt;</span>. For this last option, make sure that you run the <span class="kw">&lt;code&gt;</span>pie()<span class="kw">&lt;/code&gt;</span> and <span class="kw">&lt;code&gt;</span>box()<span class="kw">&lt;/code&gt;</span> functions together.</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Pie chart 1</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">#COnvert the character variable as a factor and then plot</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">factor</span>(SPECIES_CD_1))</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Pie chart 2</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>leading_spec <span class="ot">&lt;-</span> <span class="fu">table</span>(SPECIES_CD_1)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>percent_spec <span class="ot">&lt;-</span> (<span class="fu">table</span>(SPECIES_CD_1)<span class="sc">*</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">2700</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(leading_spec)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co">#Pie chart 3</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(percent_spec, <span class="at">main =</span> <span class="st">"Leading Species of Stands"</span>)</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="co">#Pie chart 4</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(percent_spec, <span class="at">main =</span> <span class="st">"Leading Species of Stands"</span>, <span class="at">radius =</span> .<span class="dv">8</span>)</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4.3 Plots in R: using dataset in R</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>In R there are some available datasets that we can use to create graphs. These datasets are in R by default so we don't need to import them into the program. For this part, we will work with a dataset that is called "faithful". We can check the name of the variables that are in this dataset by using the <span class="kw">&lt;code&gt;</span>names()<span class="kw">&lt;/code&gt;</span> function. We can also get more information regarding the dataset by using the "?" sign followed by the name of the dataset (i.e. <span class="kw">&lt;code&gt;</span>?faithful<span class="kw">&lt;/code&gt;</span>); this will show us specific information about this dataset in the "Help" tab/window. Using this option we can get information about the variables, background of the study made, and even the link of the paper that was published using this dataset. Once we have identified the variables contained in the dataset we can use it to create a scatterplot, for example, and modify different parameters on the graph.</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="co"># scatterplot</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(faithful)</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(faithful<span class="sc">$</span>waiting,faithful<span class="sc">$</span>eruptions)</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>?faithful</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co"># add Axis labels</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(faithful<span class="sc">$</span>waiting,faithful<span class="sc">$</span>eruptions,</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Waiting time to next eruption (in mins)"</span>,</span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Eruption time (in mins)"</span>)</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># change Y-axis range</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(faithful<span class="sc">$</span>waiting,faithful<span class="sc">$</span>eruptions,</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Waiting time to next eruption (in mins)"</span>, <span class="at">ylab =</span> <span class="st">"Eruption time (in mins)"</span>,</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="co"># include title</span></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(faithful<span class="sc">$</span>waiting,faithful<span class="sc">$</span>eruptions,</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Waiting time to next eruption (in mins)"</span>, <span class="at">ylab =</span> <span class="st">"Eruption time (in mins)"</span>,</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Old Faithful Eruptions"</span>)</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4.4 Histogram</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>We use histograms to display a frequency distribution for a numerical variable. The data values in a histogram are split into consecutive intervals or bins, where the frequency of observation falling into each bin is displayed. To create this type of graph we use the <span class="kw">&lt;code&gt;</span>hist()<span class="kw">&lt;/code&gt;</span> function follow by the name of the dataset that we want to use and the specific variable that we want to plot (i.e <span class="kw">&lt;code&gt;</span>hist(name_dataset<span class="co">[</span><span class="ot">name_of_variable= "variable"</span><span class="co">]</span>)<span class="kw">&lt;/code&gt;</span>). To specify the number of bins in the histogram use <span class="kw">&lt;code&gt;</span>breaks=<span class="kw">&lt;/code&gt;</span>.</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="co"># VRI data</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(PROJ_AGE_1[SPECIES_CD_1 <span class="sc">==</span> <span class="st">"CW"</span>], <span class="at">xlab=</span><span class="st">"Projected Age of CW species "</span>, <span class="at">main=</span><span class="st">""</span>)</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="co"># setting freq argument to false or setting prob argument to true</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(PROJ_AGE_1, <span class="at">freq =</span> F, <span class="at">xlab=</span><span class="st">"Projected Age of CW species "</span>, <span class="at">main=</span><span class="st">""</span>)</span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(PROJ_AGE_1, <span class="at">prob =</span> T, <span class="at">xlab=</span><span class="st">"Projected Age of CW species"</span>, <span class="at">main=</span><span class="st">""</span>)</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="co"># specifying breaks</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(PROJ_AGE_1, <span class="at">freq =</span> F, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.005</span>), <span class="at">breaks =</span> <span class="dv">4</span>, <span class="at">xlab=</span><span class="st">"Projected Age of CW species"</span>, <span class="at">main=</span><span class="st">""</span>)</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram using R data file</span></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions)</span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="co"># change X-axis label</span></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">xlab =</span> <span class="st">"Eruption time (in mins)"</span>)</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="co"># change title</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">xlab =</span> <span class="st">"Eruption time (in mins)"</span>, <span class="at">main =</span> <span class="st">"Old Faithful Eruptions"</span>)</span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="co"># change range of axes</span></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">xlab =</span> <span class="st">"Eruption time (in mins)"</span>, <span class="at">main =</span> <span class="st">"Old Faithful Eruptions"</span>,</span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>eruptions, <span class="at">xlab =</span> <span class="st">"Eruption time (in mins)"</span>, <span class="at">main =</span> <span class="st">"Old Faithful Eruptions"</span>,</span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">80</span>))</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4.5 Box Plot</span></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>We use box plots to show associations between one numerical variable and one categorical variable. The lines and the rectangular box in this graph display the median, quartiles, range, and extreme measurements of the data. To plot this graph use the <span class="kw">&lt;code&gt;</span>boxplot()<span class="kw">&lt;/code&gt;</span> function and specify the name of the numerical variable that you want to graph. To display multiple boxplots side-by-side we use the name of the numerical variable followed by a tilde and the name of the categorical variable (i.e. <span class="kw">&lt;code&gt;</span>boxplot(name_numerical_variable \~ name_categorical_variable)<span class="kw">&lt;/code&gt;</span>). To plot selected categories or variables in the box plot use <span class="kw">&lt;code&gt;</span>boxplot(name_numerical_variable<span class="co">[</span><span class="ot">name_categorical_variable=="name_of_specfic_variable"</span><span class="co">]</span>)<span class="kw">&lt;/code&gt;</span>.</span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PROJ_AGE_1)</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(PROJ_AGE_1, <span class="at">probs=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="co"># controlling box, min &amp; max width</span></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="co"># boxwex: increase or decrease the box width </span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="co"># staplewex: increase or decrease the width of max and min lines</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PROJ_AGE_1, <span class="at">main=</span><span class="st">"Leading species age dist"</span>, <span class="at">ylab=</span><span class="st">"Age"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">550</span>),</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>        <span class="at">pars =</span> <span class="fu">list</span>(<span class="at">boxwex =</span> <span class="fl">0.5</span>, <span class="at">staplewex =</span> <span class="fl">0.5</span>))</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="co"># multiple categories side-by-side</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PROJ_AGE_1 <span class="sc">~</span> SPECIES_CD_1)</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="co"># reduced catagories</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PROJ_AGE_1[SPECIES_CD_1<span class="sc">==</span><span class="st">"CW"</span>],PROJ_AGE_1[SPECIES_CD_1<span class="sc">==</span><span class="st">"SS"</span>], PROJ_AGE_1[SPECIES_CD_1<span class="sc">==</span><span class="st">"YC"</span>], <span class="at">names=</span><span class="fu">c</span>(<span class="st">"CW"</span>, <span class="st">"SS"</span>, <span class="st">"YC"</span>))</span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Files:</span></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>VRI data csv: <span class="co">[</span><span class="ot">VRI_data.csv</span><span class="co">](/external_files/VRI_data-3.csv)</span></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>VRI data RData: <span class="co">[</span><span class="ot">VRI_data.RData</span><span class="co">](/external_files/VRI_data-4.RData)</span></span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 

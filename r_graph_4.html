@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">6.3 Barplot in R Markdown</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<h1 class="title">6.3 Barplot in R Markdown</h1>
 </div>
 
 
@@ -617,8 +617,6 @@ Data Files:
 </div>
 
 
-<!-- -->
-
 </section>
 
 </main> <!-- /main -->
@@ -701,57 +699,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -917,168 +864,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">6.4 Pie Chart, Histogram, and Boxplot in R Markdown</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6.3 Barplot in R Markdown {.unnumbered}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Video: Barplot in R Markdown</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>The following video will describe how to create barplots in RStudio. Barplots are an effective way to quickly analyse your data.</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=dE00hzvmOAI &gt;}}</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Note</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Due to recent changes in the R version some lines of code that are shown in the video are not longer compatible. To see the current working code please see the .RMD and knitted files</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3.1 Preparing directory and data setup</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>In this lecture, we will be creating side-by-side graphs for two different species using the vri.csv file. For doing this use the <span class="kw">&lt;code&gt;</span>subset()<span class="kw">&lt;/code&gt;</span> and <span class="kw">&lt;code&gt;</span>par()<span class="kw">&lt;/code&gt;</span> functions such as were explained in previous lectures.</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># VRI data</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>vri_data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"VRI_data.csv"</span>,<span class="at">header =</span> T)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># separating data by species</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>d1<span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, (SPECIES_CD_1 <span class="sc">==</span><span class="st">'CW'</span>))</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>d2<span class="ot">&lt;-</span> <span class="fu">subset</span>(vri_data, (SPECIES_CD_1 <span class="sc">==</span><span class="st">'PLC'</span>))</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3.2 Add one legend for multiple graphs</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>We can add a legend for multiple graphs by using the <span class="kw">&lt;code&gt;</span>legend()<span class="kw">&lt;/code&gt;</span> function. In this case, we have to use the last graph created as a reference to add the coordinates of the legend. Make sure that you give appropriate margin space in the graph for adding the legend using the <span class="kw">&lt;code&gt;</span>mai=<span class="kw">&lt;/code&gt;</span> option in the <span class="kw">&lt;code&gt;</span>par()<span class="kw">&lt;/code&gt;</span> function. Use <span class="kw">&lt;code&gt;</span> xpd=NA<span class="kw">&lt;/code&gt;</span> to specify that we want the legend outside of the graph area.</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>ylabel<span class="ot">=</span><span class="st">"Projected Height (m)"</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>xlabel<span class="ot">=</span><span class="st">"Projected Age (years)"</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>ylm<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>)</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>xlm<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">470</span>)</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>cxlb<span class="ot">=</span><span class="fl">1.1</span> <span class="co"># axis level - fontsize</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>cxaxis<span class="ot">=</span><span class="fl">1.1</span> <span class="co"># axis fontsize</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>maincx<span class="ot">=</span><span class="fl">2.5</span> <span class="co"># title font</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>row1<span class="ot">=</span><span class="dv">3</span> <span class="co"># age column number</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>row2<span class="ot">=</span><span class="dv">4</span> <span class="co"># ht column number</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>ldcex<span class="ot">=</span><span class="dv">1</span> <span class="co"># size ofpoints</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>ld<span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>maxd1<span class="ot">&lt;-</span> <span class="fu">max</span>(d2[,row2])</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">subset</span>(d2, PROJ_HEIGHT_1<span class="sc">==</span>maxd1)</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>maxd2<span class="ot">&lt;-</span> <span class="fu">max</span>(d1[,row2])</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">subset</span>(d1, PROJ_HEIGHT_1<span class="sc">==</span>maxd2)</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="co">#names(vri_data)</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a permanent image file</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"One_legend.png"</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">units =</span> <span class="st">'in'</span>, <span class="at">res=</span><span class="dv">1200</span>)</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">mai=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="fl">0.9</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>), <span class="at">cex=</span><span class="fl">1.0</span>, <span class="at">xpd=</span><span class="cn">NA</span>) <span class="co"># mai is the margin</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="co"># graph 1</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d1[,row1],d1[,row2], <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>,  <span class="at">ylim=</span>ylm, <span class="at">xlim=</span>xlm, <span class="at">cex=</span>ldcex, <span class="at">cex.lab=</span>cxlb, <span class="at">cex.axis=</span>cxaxis,  <span class="at">xlab=</span>xlabel, <span class="at">ylab=</span>ylabel)</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(m2[,row1],m2[,row2], <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">pch =</span><span class="dv">11</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span>ld)</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="co"># graph 2</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d2[,row1],d2[,row2], <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"black"</span>,  <span class="at">ylim=</span>ylm, <span class="at">xlim=</span>xlm, <span class="at">cex=</span>ldcex, <span class="at">cex.lab=</span>cxlb, <span class="at">cex.axis=</span>cxaxis,  <span class="at">xlab=</span>xlabel, <span class="at">ylab=</span>ylabel)</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(m1[,row1],m1[,row2], <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">pch =</span><span class="dv">11</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd=</span>ld)</span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="sc">-</span><span class="dv">700</span>, <span class="sc">-</span><span class="dv">35</span>, <span class="at">ncol=</span><span class="dv">1</span> ,<span class="fu">c</span>(<span class="st">"Projected height: Species is 'CW'"</span>, <span class="st">"Projected height: Species is 'PLC'"</span>, <span class="st">"Maximum Projected Height"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"red"</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">11</span>), <span class="at">cex=</span><span class="dv">1</span>, <span class="at">pt.cex=</span>ld)</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="fu">graphics.off</span>()</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3.3 Creating barplots</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>For this section we will create a bar plot using the trees.txt file. Use the <span class="kw">&lt;code&gt;</span> read.table()<span class="kw">&lt;/code&gt;</span> function for importing this file into R. Then:</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Determine the type of variables that you have (categorical or numerical). In this case we want to know what type of variable is "CC". Use the <span class="kw">&lt;code&gt;</span> class()<span class="kw">&lt;/code&gt;</span> function for checking on this.</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Use <span class="kw">&lt;code&gt;</span> table()<span class="kw">&lt;/code&gt;</span> to create a vector with the counts of the number of items that you have in the CC column.</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Use <span class="kw">&lt;code&gt;</span> barplot()<span class="kw">&lt;/code&gt;</span> function to create a bar plot. Use the vector that you create with the counts as a file and modify graph limits, colours, and labels if desired.</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="co"># .txt data file</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>trees <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"trees.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="co"># checking the data:</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(trees)</span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(trees)</span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="co"># attached all variables</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(trees)</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="co"># crown class variable and create a table</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(CC)</span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(CC)</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>counts</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 1</span></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),<span class="at">mai=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.9</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>), <span class="at">cex=</span><span class="fl">1.0</span>, <span class="at">oma=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">0</span>), <span class="at">xpd=</span><span class="cn">NA</span>) <span class="co"># mai is the margin</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts)</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="fu">graphics.off</span>()</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 2</span></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="fu">graphics.off</span>()</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),<span class="at">mai=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.9</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>), <span class="at">cex=</span><span class="fl">1.0</span>, <span class="at">oma=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">0</span>), <span class="at">xpd=</span><span class="cn">NA</span>) <span class="co"># mai is the margin</span></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 3</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="fu">graphics.off</span>()</span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),<span class="at">mai=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.9</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>), <span class="at">cex=</span><span class="fl">1.0</span>, <span class="at">oma=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">0</span>), <span class="at">xpd=</span><span class="cn">NA</span>) <span class="co"># mai is the margin</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>), <span class="at">ylab =</span> <span class="st">"Frequency"</span>, <span class="at">xlab =</span> <span class="st">"Crown Classes"</span>)</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(trees)</span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3.4 VRI data bar chart</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>We can also create bar plots by selecting a categorical variable and using the <span class="kw">&lt;code&gt;</span> plot()<span class="kw">&lt;/code&gt;</span> function. In this case, R will automatically create a bar plot with the selected categorical variable (e.g. <span class="kw">&lt;code&gt;</span>plot (SPECIES_CD_1) <span class="kw">&lt;/code&gt;</span>). To change the direction of the numbers in the y axis use <span class="kw">&lt;code&gt;</span> las=1<span class="kw">&lt;/code&gt;</span> into <span class="kw">&lt;code&gt;</span>barplot()<span class="kw">&lt;/code&gt;</span>. To change the names in the x axis use <span class="kw">&lt;code&gt;</span>names.arg= c("name_variable1", "name_variable2")<span class="kw">&lt;/code&gt;</span>. This will change the names that you have for each column in the x axis. To modify the font size use <span class="kw">&lt;code&gt;</span>cex.names=<span class="kw">&lt;/code&gt;</span>.</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(vri_data)</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SPECIES_CD_1)</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 1</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="co">#coverting the character variable as a factor to plot it</span></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">factor</span>(SPECIES_CD_1))</span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 2</span></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>leading_spec <span class="ot">&lt;-</span> <span class="fu">table</span>(SPECIES_CD_1)</span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>percent_spec <span class="ot">&lt;-</span> (<span class="fu">table</span>(SPECIES_CD_1)<span class="sc">*</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">2700</span></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent_spec)</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 3</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent_spec, <span class="at">main=</span><span class="st">"Leading Species of Stands"</span>,     <span class="at">xlab=</span><span class="st">"Species"</span>, <span class="at">ylab=</span><span class="st">"%"</span>)</span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 4: rotate y axis values:</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent_spec, <span class="at">main=</span><span class="st">"Leading Species of Stands"</span>,     <span class="at">xlab=</span><span class="st">"Species"</span>, <span class="at">ylab=</span><span class="st">"%"</span>, <span class="at">las=</span><span class="dv">1</span>)</span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot 5</span></span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="co"># set the names of categories under x axis:</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent_spec, <span class="at">main=</span><span class="st">"Leading Species of Stands"</span>,     <span class="at">xlab=</span><span class="st">"Species"</span>, <span class="at">ylab=</span><span class="st">"%"</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">"non-treed stands"</span>,  <span class="st">"Western Red Cedar"</span>,  <span class="st">"Alder"</span>, <span class="st">"Western Hemlock"</span>, <span class="st">"Lodgepole pine"</span>,  <span class="st">"Sitka Spruce"</span>, <span class="st">"Yellow  Cedar"</span>))</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot 6: reduce the names to adjust the space</span></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent_spec, <span class="at">main=</span><span class="st">"Leading Species of Stands"</span>,     <span class="at">xlab=</span><span class="st">"Species"</span>, <span class="at">ylab=</span><span class="st">"%"</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">"Non-treed"</span>,  <span class="st">"Western R. Cedar"</span>,  <span class="st">"Alder"</span>, <span class="st">"Western Hemlock"</span>, <span class="st">"L. pine"</span>,  <span class="st">"Sitka Spruce"</span>, <span class="st">"Yellow     Cedar"</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="at">cex.axis=</span><span class="fl">1.5</span>, <span class="at">cex.lab=</span><span class="fl">1.5</span>, <span class="at">cex.names=</span><span class="fl">0.7</span>)</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Files:</span></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>VRI Data CSV: <span class="co">[</span><span class="ot">VRI_data.csv</span><span class="co">](/external_files/VRI_data-1.csv)</span></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>VRI RData: <span class="co">[</span><span class="ot">VRI_data.RData</span><span class="co">](/external_files/VRI_data-3.RData)</span></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>Trees text file: <span class="co">[</span><span class="ot">trees.txt</span><span class="co">](/external_files/trees-1.txt)</span></span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>Trees RData: <span class="co">[</span><span class="ot">trees.RData</span><span class="co">](/external_files/trees.RData)</span></span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 

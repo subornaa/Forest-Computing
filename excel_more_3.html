@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -427,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">3.2 Excel Graphs</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">3.2 Excel Graphs</h1>
 </div>
 
 
@@ -477,8 +443,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Excel refers to bar graphs as either column (vertical bars) or bar charts (horizontal bars). They are typically used for comparing groups. Examples include frequency of trees by decay class, mean salary by gender, amount of carbon by pool (e.g., live vs.&nbsp;dead). Bar graphs can also be used to track changes over time (e.g., precipitation over a year).</p>
 <p>Example bar graph: <a href="./external_files/Bar_Graph.xlsx">Bar Graph xlsx</a></p>
 
-
-<!-- -->
 
 </section>
 
@@ -562,57 +526,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -778,47 +691,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">3.3 Excel Graphs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3.2 Excel Graphs {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Excel refers to graphs as charts. A graph is worth a million numbers! Only a few of us can look at a series of numbers and see patterns. Most of us need help in the form of graphs. Therefore, as the first step in any data analysis, we like to visualize our data to see what is really going on. The statistician Francis Anscombe used four simple data sets to demonstrate the importance of graphing data. These four data sets, known as <span class="co">[</span><span class="ot">Anscombe's Quartet</span><span class="co">](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)</span>, show that relying on simple summary statistics can be misleading if you rely on them without graphing the data. Every time, you start analyzing a new data set, you determine the data type and measurement scale of the variables first and then create graphs that suit those variables best.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Practice File: <span class="co">[</span><span class="ot">Example Data xlsx</span><span class="co">](/external_files/Example_Data_scatter_plot.xlsx)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2.1 Elements of a Chart</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Let's get to know the components or elements of an Excel chart so that we can communicate efficiently about what needs to be included in graphs. Microsoft provides a nice overview of how to create a chart from start to finish as shown below:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 9 - Elements of a chart.](/images/chart-1.png)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>1)  Chart area, which is essentially the entire chart</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>2)  Plot area is the area where data points are displayed, bounded by axes</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>3)  Data points of the data series plotted in the chart (e.g., bars, columns, lines, dots). Excel uses the term 'data markers.'</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>4)  Horizontal (X) and vertical (Y) axis along which data is plotted</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>5)  Legend, which describes the data series</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>6)  Chart and axis title</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>7)  Data label, which identifies details of a data point in a data series</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>It is EXTREMELY important that you label your graphs sufficiently. Use a legend to describe data points and label your axes! Axis labels should include the variable names and units. You may not need a title if you add a figure caption when you present the graph. Looking at the chart above from Microsoft's "Create a chart start to finish" site, do you see anything that may be missing? What about a Y-axis label? Do you know what the numbers on the Y-axis stand for? \$US, Canadian \$, Euros? I have no idea? I can only guess that it is \$US based on this coming from a US webpage. REMEMBER: always label your graphs sufficiently!</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Excel allows you to edit all the elements of a chart. A good way to start is to right-click on the chart element that you want to change and see what options you get in the window that opens up. You can also simply click anywhere in the chart to display the Chart Tools. Choose the Current Selection Group in the Format tab use the drop-down menu to select the element you want to format.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### Video: Creating Charts in Excel</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The following video will teach you how to create graphs from data stored in excel. Inserting charts automatically is a skill that you will use often, and knowing how to properly select the correct graph type will allow you to be efficient.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=vlE5coe2Elw &gt;}}</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Scatterplots are used to display the relationship between two numeric variables. Some examples are tree diameter vs. tree height, tree age vs. tree height, mammal bodyweight vs. mammal brain weight (litter size, gestation period in days), and years of work experience vs. salary. Scatterplots allow you to get the first idea of whether two variables are highly correlated or if there is no relationship at all.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Scatterplot file: <span class="co">[</span><span class="ot">Example Scatter Plot xlsx</span><span class="co">](/external_files/Example_Data_scatter_plot.xlsx)</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2.2 Bar Graphs</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Excel refers to bar graphs as either column (vertical bars) or bar charts (horizontal bars). They are typically used for comparing groups. Examples include frequency of trees by decay class, mean salary by gender, amount of carbon by pool (e.g., live vs. dead). Bar graphs can also be used to track changes over time (e.g., precipitation over a year).</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Example bar graph: <span class="co">[</span><span class="ot">Bar Graph xlsx</span><span class="co">](/external_files/Bar_Graph.xlsx)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 

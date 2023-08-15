@@ -436,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">5.3 R as a Calculating Environment</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<h1 class="title">5.3 R as a Calculating Environment</h1>
 </div>
 
 
@@ -744,8 +744,6 @@ Challenge:
 <p>R uses three different classes of variables that contain numbers (= numeric variables): ‘numeric’ for floating-point variables (those have decimal points and are often called float or double in other programming languages), ‘integer’ for integer values (as long as R knows for sure that all values are really integers), and ‘complex’ for complex numbers (e.g., a + bi, where i is the imaginary component of the complex number).</p>
 
 
-<!-- -->
-
 </section>
 
 </main> <!-- /main -->
@@ -828,57 +826,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1044,199 +991,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">5.4 Handling data in R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5.3 R as a Calculating Environment {.unnumbered}</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Video: R as a Calculating Environment</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>The following video will demonstrate how to use R as a calculator. Becoming familiar with quickly performing calculaitons within your R environment will allow you to be efficient with handling data.</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=ZdeInvd3EjI &gt;}}</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.1 Rmd and Output Files</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>The following files resemble the files in the video above, except we have elaborated on and included more information about the covered materials. These files are great resources for you when you are reviewing for your formal assessments!</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In the video, I showed the Rmd file: <span class="co">[</span><span class="ot">R as a calculating environment</span><span class="co">](/external_files/R_as_a_Calculating_Environment_2.rmd)</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the information in the file is described below</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.2 Basic Operators in R</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>We will first start by writing codes in an R code chunk (how to insert a code chunk will be covered later in the lecture). Note how the code chunk is shaded grey. Only information that you write in the code chunk is registered as codes. Anything written outside the code chunk, A.K.A the R Markdown chunk, will be registered as non-codes by RStudio.</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>Note also how the we have the <span class="in">`#`</span> before the blue text "Basic Operators in R". Having this <span class="in">`#`</span> symbol in the R Markdown chunk tells R that the text should act as a heading. If you want to create a subheading or a sub-subheading, simply add more <span class="sc">\#</span> symbols in front of the text - for example, <span class="sc">\#</span># heading 2 and <span class="sc">\#</span>## heading 3.</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>The same <span class="in">`#`</span> symbol has a very different meaning when written in an R code chunk. Anything written after <span class="in">`#`</span> in a code chunk are registered by RStudio as comments and do not run as codes - they are like extra notes that tell you, or someone you share this file to, more information about what the code does.</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>To learn more about a function, you can place a <span class="in">`?`</span> before the function name (e.g. <span class="in">`?mean`</span>) or search for it directly in the help tab in the bottom right window. This built-in function of R will give you information regarding any code function such as which package it belongs to, its arguments, and examples on how to use it. References and related functions are also provided for your own independent exploration.</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>As you may have recalled from our synchronous session, you can create vectors with the operator <span class="in">`c()`</span>. To save a vector and assign it to a variable, we use <span class="in">`&lt;-`</span> (the shortcut for this symbol is Alt+-(minus sign) for Windows or Option+-(minus sign) for Mac). R also has other <span class="co">[</span><span class="ot">data types</span><span class="co">](https://www.statmethods.net/input/datatypes.html)</span> that you can explore on your own time.</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>?mean</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">50</span>)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># getting help in R</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>?plot</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.3 Running Code</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>If you want to run a whole code chunk, simply click on the green play button on the top right corner of the R chunk. If you only want to run a single line of code, you can highlight or place your curser on only that line, then click "run" (on the top right corner of the code editor window) and then "run selected lines".</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 11 - How to Run Selected Lines](/external_files/run_code.png)</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>A shortcut for running single code lines is Ctrl+Enter for Windows and Cmd+Return/Enter for Mac. A shortcut for running a whole code chunk is Shift+Ctrl+Enter for Windows and Shift+Cmd+Return/Enter for Mac.</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>As you can see in the code chunk below, we can also store vectors in variables that are actual words instead of just a single letter. It is noteworthy that variable names need to be 1 single, connected word. For example, <span class="in">`red_apple`</span> is okay, but <span class="in">`red apple`</span> is not! Variable names also cannot start with a number, R is picky this way. For instance, <span class="in">`six_apples`</span> or <span class="in">`apples_6`</span> are okay, but <span class="in">`6_apples`</span> is not!</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`ls()`</span> is especially helpful if you want to check how many and what variables you've created. Another way to check this is to go to your Environment on the top right corner of RStudio.</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cars,eval=TRUE}</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>storks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">8</span>)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>storks</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>babies <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">9</span>) </span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>babies</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.4 Insert a new chunk</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>To insert a new code chunk, you can go to insert and then click R.</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 12 - Inserting a Code Chunk](/external_files/insert.png)</span></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>Or you can also type this (<span class="in">`{r}`</span>) manually. Note that you can only see the following blank code chunk if you're viewing this file on RStudio.</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.5 Writing and saving codes</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>Another data type in R is data frame. You can join several vectors together to create a data frame using the function <span class="in">`data.frame()`</span>. Similarly, you can also save this data frame by storing it in your environment using <span class="in">`&lt;-`</span>. Also, a data frame is similar to a table.</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>To check all of the names of a data frame's variables, you can use the function <span class="in">`names()`</span>. In this case, a variable is equivalent to a column in a data frame. Pro-tip: if you want to change the names of a data frame's variable/column, you can use the function <span class="in">`names()`</span> followed by <span class="in">`&lt;-`</span> and then a vector of the new names in quotation marks <span class="in">`""`</span>. For example <span class="in">`names(treedat2) &lt;- c("DBH", "Height")`</span> - try it! (But note that you have to turn the names back to its original form for the rest of the codes of this document to work as **R is case-sensitive**)</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>For now, you are only expected to know that <span class="in">`plot()`</span> is the function that graphs your data. <span class="in">`plot()`</span> needs you to specify the data frame followed by a <span class="in">`$`</span> and then the variable name. The only way to avoid typing the data frame name every time is to use <span class="in">`attach()`</span> - we will go over this function later. There are two ways for you to type your arguments in <span class="in">`plot()`</span>:</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>using \~ to separate the x and y variables and</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>using , to separate the x and y variables.</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>We will explore <span class="in">`plot()`</span> in MUCH more detail in the next module: R II: Graphical Presentation in R.</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pressure, eval=TRUE}</span></span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="co"># enter the dbh data</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>dbh <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.1</span>,<span class="fl">11.2</span>,<span class="fl">19.7</span>,<span class="fl">20.5</span>,<span class="fl">17.8</span>,<span class="fl">17.0</span>,<span class="fl">11.0</span>,<span class="fl">4.1</span>,<span class="fl">6.0</span>)</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="co"># enter the height data</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">14.2</span>,<span class="fl">15.1</span>,<span class="fl">25.3</span>,<span class="fl">21.2</span>,<span class="fl">21.5</span>,<span class="fl">18.0</span>,<span class="fl">12.1</span>,<span class="fl">5.2</span>,<span class="fl">6.3</span>)</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="co"># join the vectors above to create a data frame</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>treedat2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(dbh,height) </span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(treedat2) </span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>  <span class="do">## names() gives us all of the variable names of the said dataframe</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="co"># simple graph</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(treedat2<span class="sc">$</span>height<span class="sc">~</span>treedat2<span class="sc">$</span>dbh)</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="co"># or plot it as</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(treedat2<span class="sc">$</span>height, treedat2<span class="sc">$</span>dbh)</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge:</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>Can you spot any differences between the 2 graphs? How can you change the code of either one of them to make the two match?</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.6 Important Rules</span></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>In this section, we will go over some important rules in R and how to troubleshoot common mistakes.</span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Again, it is important to note that **R is case-sensitive**. In other words, Dbh is VERY different from dbh!!</span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>There will be times when you need to copy and paste a folder pathway (e.g. when importing a file into R or when setting a new working directory using <span class="in">`setwd()`</span>). If you are using a Mac, R uses / instead of , so make sure to change all of your &nbsp;to / when copying a folder pathway (we will talk more about this later).</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you are using Windows, R uses <span class="sc">\\</span> instead of , so make sure to change all of your &nbsp;to <span class="sc">\\</span> when copying a folder pathway (we will talk more about this later).</span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Everything following <span class="sc">\#</span> is a comment that does not code for anything.</span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.7 Saving and Cleaning Up</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>You can choose to save the workspace so that RStudio remembers everything that you ran in an earlier session.</span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>For the sake of organization, you can choose to clear the workspace - this is especially helpful when your environment is swarmed with unecessary/intermediary variables and dataframes that you don't need. On the top left corner of your environment, there is a broom that you can click to clear your environment.</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 13 - Clearing Your Environment](/external_files/clear.png)</span></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.8 Types of Objects</span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>As mentioned earlier, R contains many types of data or types of objects. We have previously covered what a vector is. Once you've created and stored a vector, you can also check its length using <span class="in">`length()`</span> and its class using <span class="in">`class()`</span>. A length of an object is simply how many variables/components it contains. For example <span class="in">`c(1, 2, 3)`</span>'s length is three and <span class="in">`1`</span>'s length is one. The class of an object tells us the type of information an object contains. For example, the class of <span class="in">`c(1, 2, 3)`</span> is numeric whereas the class of <span class="in">`c("male", "female", "other")`</span> is character.</span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>A factor is used to categorize data and can store both strings and integers. You can convert a vector into a factor by using <span class="in">`as.factor()`</span>.</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>A matrix is a two-dimensional collection of similar data type. You can use <span class="in">`cbind()`</span> (column bind) or <span class="in">`rbind()`</span> (row bind) to bind vectors together into a matrix. A data frame is a more complex table that can contain different types of data. It can be difficult at first to distinguish between a matrix and a dataframe. You can visit this <span class="co">[</span><span class="ot">site</span><span class="co">](https://www.geeksforgeeks.org/matrix-vs-dataframe-in-r/)</span> to learn more about their differences.</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>You don't have to know too much about modelling. The main takeaway is that the function <span class="in">`lm()`</span> is used to fit a <span class="co">[</span><span class="ot">linear model</span><span class="co">](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm)</span>. In other words, the code <span class="in">`lm(v2~v3)`</span> tells R that we want to predict the values of v2 knowing v3 values using a linear model. After creating a model, you can check its structure by using the function <span class="in">`str()`</span>. This function will lets you know all of the parameters and outputs of your model.</span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>The very last function that we will cover in this .Rmd file is <span class="in">`summary()`</span>. This is an extremely powerful function that tells you all of the basic statistics of your object. This includes mean, median, min, max, quartiles, and identify any special values such as NA values.</span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=TRUE}</span></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="co">#Examples:</span></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a> <span class="co"># Vectors:</span></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">7.5</span>,<span class="fl">2.0</span>)</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>,<span class="cn">NA</span>,<span class="dv">13</span>) <span class="co"># one value is NA (missing)</span></span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v1)</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v2)</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v3)</span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v4)</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="co">#Factors:</span></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="st">"spaghetti"</span> <span class="co"># called a string-in quotes</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>)</span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(f2)</span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="co">#Change from vector to factor:</span></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(v3) <span class="co"># changes v3 from a vector to a factor</span></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(f3)</span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="co">#Matrix:</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v2,v3,v4)</span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(m1)</span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(m1)</span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="co">#Dataframe:</span></span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m1,f3) <span class="co"># changes the info to a dataframe</span></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df1)</span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="co">#Model:</span></span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(v2<span class="sc">~</span>v3)  </span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(model1)   <span class="co"># tells you what is in model1 - lots of stuff</span></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary for basic statistics:  means, percentiles for numeric values, and counts for factors:</span></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(v4)</span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df1)</span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="co">#More information on the objects: </span></span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(v4)</span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df1)</span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.9 Knitting your .Rmd file</span></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>In this course, we will only be knitting our .rmd file to a Word or HTML document - preferably Word. Knitting your .Rmd file makes your codes and workflow shareable because not everyone have RStudio installed on their device!</span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3.10 Variable classes</span></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>All variables in R have a class, which tells you something about the type of variable you are working with and about its properties. You can use the function class() to find out what class of variable you are working with. In RStudio type ?class into the Console pane and hit Enter to navigate to the help page of the function class() and learn how to use it.</span>
-<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>R uses three different classes of variables that contain numbers (= numeric variables): 'numeric' for floating-point variables (those have decimal points and are often called float or double in other programming languages), 'integer' for integer values (as long as R knows for sure that all values are really integers), and 'complex' for complex numbers (e.g., a + bi, where i is the imaginary component of the complex number).</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 
